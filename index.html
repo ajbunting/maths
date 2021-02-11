@@ -7162,7 +7162,7 @@ function loadup() {
 	if ( mywidth > 500 ) mywidth = 500;
 	
 	currentzoom = mywidth/350;
-	document.body.style.zoom = currentzoom;
+	document.body.style.zoom = currentzoom * 0.92;
 	
 	window.scrollTo(0,0);
 	window.parent.scrollTo(0,0);
@@ -7291,7 +7291,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.110";
+var versionstr = "V.111";
 
 /* HTMLSTART */
 

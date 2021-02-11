@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+
+@media print {
+  .printPageButton {
+    display: none;
+  }
+}
+</style>
+</head>
+<body style="5px;overflow-x:none;background-color:transparent;width:350px;" onload="loadup()">
+<script>
+
+var quizlength = 30;
+
+var qarray = [
+];
+
+var DigitalArray = [
+	"(2a) Which of these industries belongs to the digital multimedia industry?,Video Games, Farming, Steel, Building",
+	"(2a) Which of these industries DOES NOT belong to the digital multimedia industry?, Coal Mining, Video Games, Web Development, Film and TV, Publishing",
+	"(1a) Which of these is a digital multimedia product?,YouTube,A Newspaper,A Static Text Website,A Radio",
+	"(1a) Which of these is NOT a digital multimedia product?,An alarm clock,Netflix,BBC Website,A Smartwatch",
+	"(1a) Instagram is a digital multimedia product?,TRUE,FALSE,TRUE,FALSE",
+	"(1a) The standard BBC1 TV channel is a digital multimedia product?,FALSE,TRUE,TRUE,FALSE",
+	"(2a) Any electronic device can be described as multimedia technology, FALSE, TRUE, FALSE, TRUE",
+	"(1a) The Amazon Prime streaming service is a digital multimedia product?,TRUE,FALSE,TRUE,FALSE",
+	"(1a) A paperback book is a digital multimedia product?,FALSE,TRUE,TRUE,FALSE",
+	"(1b; 2a) Which of these is the best description of a digital multimedia product?,A product containing an interactive mix of text; images; sound and video,A product containing only text, Any website, Any electronic device",
+	"(1a; 1b; 2a) What key media technology does YouTube use to make it a digital multimedia product?, Web based Video, Web Audio, Static Text, Web pages with images",
+	"(1a; 1b; 2a) What key media technologies does the BBC website use to make it a digital multimedia product?, Web based Video; audio and interactive content, Lots of different text fonts, A large number of web pages, Audio clips",
+	"(1a; 1b; 2a) Netflix is a digital multimedia product because:, It uses an interactive mix of text; images and video, It is on the TV, It costs money to use it, It needs an internet connection",
+	"(1a; 1b; 2a) Minecraft is a digital multimedia product because:, It is an interactive online game that contains graphics; text and audio, It is a game, It runs on a computer, It is networked",
+	"(2a) Which of these is NOT a digital multimedia technology?, Printed Text, MP3 files, MP4 files, Animated GIFs",
+	"(2a) Which of these IS a digital multimedia technology?, MP3 Audio Files, Any non-electronic device, Kitchen Scales, Books",
+	"(2a) Any electronic device can be described as multimedia technology, FALSE, TRUE, FALSE, TRUE",
+	"(2b) A digital multimedia product improves the viewer experience because:, It uses a combination of text; audio and video creatively, It is exciting, It is electronic, It uses the internet",
+	"(2b) A digital multimedia product improves the viewer experience because:, It uses a combination of text; audio and video creatively, It is exciting, It is electronic, It uses the internet",
+	"(2b) Which of these is most appropriate:, Digital multimedia products bring things to life by using different media technologies creatively, Digital multimedia products are less flexible than a good book, Digital multimedia products are products that must use the internet, Digital multimedia products do not need a micro-processor",
+	"(2b) An e-book [such as a Kindle or online magazine] can improve the user experience in which way?, By embedding multimedia such as audio and video within the text to bring a story to life, By using different text sizes, It doesn't need paper, By not taking up space on a book shelf",
+	"(2b) Streaming services give a better viewing experience than traditional channels because:, They enable the viewer to choose from a wide variety of content whenever they want, They make lots of money, You can watch films on them, They only run on smart TVs",
+];
+
+var DataArray = [
+		"(1b) Which task is Microsoft Access best used for?,Storing names and addresses,Adding up your money,Writing a letter,Displaying charts and graphs",
+		"(1b) Which of these is a database?,Microsoft Access,Google Records,Microsoft Edge,Apple Pay",
+		"(1b) What helps with complex data calculations in Excel?,Formulae,CalcAid,AutoCalc,MathRobot",
+		"(1b) What is a field in a database?,A single value,A large area of data,A very large image,A big number",
+		"(1f) A USB pen drive is a type of SSD. What is SSD?,Solid State Drive,Super Solid Disk,Standard State Device,Serial State Disk",
+		"(1a) Which of these is the most secure password?,Walloon1465!,Hello123,Password,Liverpool",
+		"(1b) You decide to analyse and organise your finances. What software is best?,Excel,Word,PowerPoint,TikTok",
+		"(1b) What is a transcription error?,Typing the wrong characters during data entry,Losing data when carrying it to the office,Using a pie chart when a bar chart would be better,Usign the wrong text font and size",
+		"(1b) What is a transposition error?,Accidentally reversing digits when typing data,Saving data with the wrong filename, Asking questions in the wrong order, Forgetting where you saved your data",
+		"(1a) Which of these is the least secure password?,sunday,Sunday!23,Sund4y,Sunday",
+		"(1b) Which of the following phrases most correctly defines what a DATABASE is?,An APP that stores data in an organised way so you can retrieve it easily,The bottom row in a large table of information,A room where a company would store all their paper files,A large spreadsheet with lots of information in it",
+		"(1a) What should you do before you remove a memory stick?,Close open files and use the Eject option,Just yank it out the computer will be just fine,Make sure you don't close open files,Close your browser to cover your tracks",
+		"(1f) What is a ZIP file used for?,Adding multiple files into one compressed file to send all at once,It's something to do with fastening a file to the disk,A good way of hiding dodgy files from my teacher,Joining two files together into one larger file",
+		"(1a) What should you be aware of when opening an email or file sent to you from a stranger?,Possible virus or scam,They may say something horrible about you,It's OK my computer is protected,I might not have an APP to read it",
+		"(1a) What should you always do when leaving your computer unnattended?,Lock it, Logout as it's really quick logging in,Leave it as I can trust everyone,Switch it off",
+		"(1a) What should you do to protect against unauthorised data access?,Password Protection,Hide data in odd named folders,Do not give other people computers, disable the internet",
+		"(1b) What is the most important part of any data management project?,Data Security,Getting enough data,Not working too hard,Getting the right answers",
+		"(1b; 2a) What term correctly describes the research phase of data management?, Data Collection, Planning, Security, Reporting",
+		"(1b; 2b) What term correctly describes the phase of data management where you are examining your data looking for trends?, Analysis, Planning, Organisation, Reporting",
+		"(1b; 2c) What term correctly describes the phase of data management where you are telling people what you have found?, Reporting, Planning, Organisation, Analysis",
+		"(1c) What is a database record?,A single row in a table, When you collect the largest amount of data ever found, A single cell in a table row, A database table",
+		"(1c; 2a) What would you use in a database to get a part of a database table that answers a given question?, A query, Cut and paste, Select rows with the mouse, Table Edit",
+		"(1c) What data type would you use for a person's name?,Short Text, Long Text, Autonumber, Yes/No",
+		"(1c) What data type would you use for a person's age in years?,Number, Long Text, Short Text, Yes/No",
+		"(1c) What data type would you use for the price of an item?,Currency, Number, Short Text, Long Text",
+		"(1c) What data type would you use for the email of a person?,Short Text, Number, Yes/No, Long Text",
+		"(1b) What is a CSV file?,Comma Seperated File, Changed Selected Values, Copy Save Values, Created Storage Values",
+		"(1d; 1e) What view do you use in Microsoft Access to add and check your data?,Datasheet View, Design View, Entry Wizard, Table Creation View",
+		"(1b; 1d; 1e) What view do you use in Microsoft Access to plan and create your database tables?,Design View, Table Generator, Datasheet View, Data Importer",
+		"(1a) What could you do to help protect the identity of people you get data from?,Anonymous question sheets, Blindfold your responders, Ask random questions, throw away all the printouts",
+		"(2c) What would be best for to report the different sizes of groups of people's preferred choices?, Use the right types of charts and graphs, Get your reader to count the data, Use numbers and text, Ask the reader to look at the raw data",
+		"(1b) What could help to improve data entry accuracy?, Automated data entry tools, Only employ people who never make mistakes, Avoid long sentences, Make sure everyone has enough sleep",
+		"(1b) What could help to improve data entry accuracy?, Design data collection with accuracy in mind, Avoid using people at all, Use a pencil so you can rub out mistakes, Drink plenty of coffee",
+		"(1b) What could help to improve data entry accuracy?, Standardize all data entry processes, Only use really powerful computers, Ignore acccuracy as any data is better than no data, Refuse to pay people who make mistakes",
+		"(1b) What could help to improve data entry accuracy?, Check data for errors as much as you can, Collect less data to minimise the risk of errors, Use as many processes as possible becuase at least one of themk will be right, Do not use computers as they always make mistakes",
+		];
+
+var WebArray = [
+		"(Digital Layout: 1a; 1b) How does the F-Layout help digital product design?,You can design more effective interfaces,You can hide information from the users,It makes the colours more vibrant,You can use more fonts",
+		"(Digital Layout: 1a; 1b) What design concept is used to help layout a user interface?, Grid Layout, Bright colours, Arial Font, Wide Screen Size",
+		"(Digital Layout: 1a; 1b) What is meant by an interactive digital product?, The user has different ways to control and use the product, The user can only use it one way, Uses only text, Contains video links",
+		"(Digital Layout: 1a; 1b) What helps the user to use a digital product?, Clear and consistent navigation, Adding as much on to one screen as possible, Using only images, Not using text",
+		"(Digital Layout: 1a; 1b) What helps the user to use a digital product?, Effective use of colour, Only using red, green and blue, Using as many colours as possible, Making small items using bright oolours",
+		"(Digital Layout: 1a; 1b) What digital design concept does the Rule of Seven remind us to do?, Keep the number of active areas to a minimum and try to avoid more than approximately seven different focus areas, Always strive to have exactly seven of everything on all screens, You must use seven colours at all times, Never have more than seven web pages",
+		"(Digital Layout: 1a; 1b) Animated sequences help digital products to do which of the following?, Give the user useful visual feedback, Remove the need for consistent design, Make the text less boring, Help the user if your interface is too complicated",
+		"(Digital Layout: 1a; 1b) Which design concept can you use to draw attention to important information first?, Visual Hierarchy, Make everything else really tiny, Use coloured arrows, Use really bright colours",
+		"(Digital Layout: 1a; 1b) Which design concept should be used to make sure a digital product is easy to view?, Consistent size and proportion, Use only pastel colour shades, Avoid using lots of big words, Never use italic text",
+		"(Digital Layout: 1a; 1b) What should you do first before creating a digital product?, Research your target audience, Buy a development tool, Create something and see if it is popular, Decide on your colour scheme",
+		"(Digital Layout: 2a; 2b) What process helps you to design the look of a digital product?, Wireframe design drawings, Coding a prototype, HTML, Choosing the text fonts you are going to use",
+		"(Digital Layout: 2a; 2b) What can Google Sites be used for?, Quickly creating professional looking web sites, Experimenting with colour schemes, Storing site data, It is a useful Wireframing tool",
+		"(Digital Layout: 1a; 1b) Why are colours important in a digital product?, Can be used to show similar types of options, Make it colourful to look at, Detract from boring content, Cuts down on the need for lots of text",
+		
+		"(Web Design: 1a; 1b) Which of these best describes the internet?, A huge network of computers all connected together, Somewhere to buy things without going in shops, Google, A lot of useful websites",
+		"(Web Design: 1a; 1b) What is the WWW?, All of the websites that can be accessed using the internet, Social Media websites, Sites found by Google, Networking hardware",
+		"(Web Design: 1a; 1b) Select the search engine,Google,Chrome,Firefox,Safari",
+		"(Web Design: 1a; 1b) Select the internet browser,Chrome,Google,Bing,EBay",
+		"(Web Design: 1a; 1b) Which of these is an E-Commerce website?,Amazon,Google,Twitter,Tiktok",
+		"(Web Design: 1a; 1b) Which of these is an internet browser?,Microsoft Edge,Google Slides,Apple iCloud,Microsoft Onedrive",
+		"(Web Design: 1a; 1b) What does HTML stand for?, Hyper-Text Markup Language,High-Text Marking Lines,Hidden-Transcript Marked Limits,High-Time Mobile Language",
+		"(Web Design: 1a; 1b) What is a URL?,The address of a website,A computer processor,Hardware in your monitor,A graphics word",
+		"(Web Design: 1a; 1b) What is a web page created with?,HTML,Web Format File,Cloud Language,Cyber Talk",
+		"(Web Design: 1a; 1b) A VLOG is:,An internet site where someone regularly posts short videos,A list of all the YouTube videos you watch,A large piece of a tree,A selection of Tweets on a subject",
+		"(Web Design: 1a; 1b) Which of the following is a valid internet URL?,www.lmc.ac.uk,google.co,tony@hotmail.com,santa.jpeg",
+		"(Web Design: 1a; 1b) What does WWW stand for in www.google.co.uk?,World Wide Web,Web Wide Working,World Wide Wiki,Wow wow wow!",
+		"(Web Design: 1a; 1b) The world wide web and the internet are the same thing,FALSE,FALSE,TRUE,TRUE",
+		"(Web Design: 1a; 1b) The world wide web is the web sites and the internet is:,The hardware that makes it all work,The same thing,Social Media sites,Netflix",
+		"(Web Design: 1a; 1b) Which of these is a client-side programming language used to make web pages interactive?,JavaScript,C#,HTML Script,CSS",
+		"(Web Design: 1a; 1b) Which of these is used to style web pages?,CSS,HTML,HTTP,DNS",
+		"(Web Design: 1a; 1b) Which of these is used to control the layout of web pages?,HTML,CSS,HTTP,DNS",
+		"(Web Design: 1a; 1b) A web page is an example of a client,TRUE,FALSE,TRUE,FALSE",
+		"(Web Design: 1a; 1b) What does HTTP stand for?,Hyper-Text Transfer Protocol,High Transfer Text Passing,Hyper-Transfer Text Processing, Highly Transmitted Text Pages",
+		"(Web Design: 1a; 1b) What does the server side of a website do?,Store resources that a site needs such as pages; images and data, Display the page content, Handles user inputs, Modifies the layout to adjust for different devices",
+		"(Web Design: 1a; 1b) What is an IP Address?,A unique code that points to an entity on the internet, The name of a web page, The address of the author of a web site, The title of a website",
+		"(Web Design: 1a; 1b) What is a LAN?,A local area network [usually in one building or site], The name of a collection of websites, The names of all users on a computer network, A piece of networking hardware",
+		"(Web Design: 1a; 1b) What is a WAN?,A wide area network [usually across multiple locations], An alternative name for the Wi-Fi, A broadband connection, All the websites on the internet",
+		"(Web Design: 1a; 1b) Which of these is NOT client/server application?, A calculator APP on your phone, YouTube, Netflix, eBay",
+		"(Web Design: 1a; 1b) What is DNS used for?, Converting web site URLs to an IP Address, Getting the names in your local email address book, Transferring data over the internet, Hosting a website",
+		"(Web Design: 1a; 1b) What name is given to the parts of data request that are transferred over the internet?, Packets, Snippets, Segments, Parcels",
+		"(Web Design: 1a; 1b) What hardware component transfers data over the internet?, A Router, A Transmitter, A Data Sender, A Broadcaster",
+		"(Web Design: 1a; 1b) What is a HTTP Request?, A request sent to a web server for data, A prompt to type something on a web site, Data sent to a client from a server, A request for a user to fill in a contact form",
+		"(Web Design: 1a; 1b) What is a HTTP Response?, A response sent from a web server to a client, The text that a user types on a website, A search engine displaying a list of web site links, A user email address",
+		"(Web Design: 1a; 1b) What is the key difference between HTTP and HTTPS?, HTTPS is more secure, HTTP is faster, HTTP is used for social media only, HTTPS will display any site",
+		"(Web Design: 2a) Which of the following is a good reason for a BUSINESS having a website, A website gives a business another way of selling its products and/or services, Helps to make sure the business does not have to talk to its customers, To give the developers something to do, To avoid looking less cool than its competitors.",
+		"(Web Design: 2a) Which of the following is a good reason for a SCHOOL or COLLEGE having a website, Helps to achieve better communication with learners and parents/guardians, To make sure the learners never have to attend physically, To give the teachers something else to do, Because it's cool to have one.",
+		"(Web Design: 2a) Organisations that make good use of a website have an advantage over similar organisations that do not use the web, TRUE, FALSE, TRUE, FALSE",
+		"(Web Design: 2a) Which of the following is a good reason for a SCHOOL or COLLEGE having a website, Good way to share educational resources, To make sure the learners never have to attend physically, To give the teachers something else to do, Because it's cool to have one.",
+		"(Web Design: 2a) Which of the following is a good reason for a BUSINESS having a website, Good way to communicate news about products and services, Helps to make sure the business does not have to talk to its customers, To give the developers something to do, To avoid looking less cool than its competitors.",
+		"(Web Design: 2a) Which of the following is a good reason for a BUSINESS having a website, Business can make itself known to more potential customers, Helps to make sure the business does not have to talk to its customers, To give the developers something to do, To avoid looking less cool than its competitors.",
+		"(Web Design: 2a) Which of the following is a good reason for a BUSINESS having a website, Offers even the smallest business the opportunity to sell globally, Helps to make sure the business does not have to talk to its customers, To give the developers something to do, To avoid looking less cool than its competitors.",
+		];
+
+var GameArray = [
+		"(3a; 3b) Which of these words is a proper gaming term?,Sprite,Splinter,Pixelite,Grite",
+		"(3a; 3b) Which of these words describes a method of focussing the view on the main player object?,Camera ,Player Focus Area,Auto Player Following, Viewport Locking",
+		"(3a; 3b) Which property controls the speed that player object would fall to the ground?,Gravity, Friction, Size, Collision Polygon",
+		"(3a; 3b) Which group of property controls would gravity normally be part of?,Physics, Sprites, Variables, Graphics",
+		"(3a; 3b) Which of these best describes a variable?,Something that you can use to store data, The movement of a sprite, A line of code, A menu item on the screen",
+		"(3a; 3b) What would you use to refine how collisions can be detected with a sprite?,Collision Polygon, Sprite Area, Collision Pixels, Sprite Solidity",
+		"(3a; 3b) Which of these is the name of a platform you have created a prototype game in?,Flowlab, GameFlow, FlowWeb, WebFlow",
+		"(3d) In Flowlab how is your game prototype played?,My game runs in the web browser, I downloaded a windows EXE, On a mobile phone, None of these options",
+		"(3a) In Flowlab what functionality do you use to add interactivity to your game?, Behaviours, Features, Options, Functions",
+		"(3b) In Flowlab what functionality do you use to add 2D assets to your game?, Sprite Editor, Asset Creator, 2D Editor, Object Adder",
+		"(3c) In Flowlab what feature do you use to add audio to your game?, Behavours - Sound Component, Audio Play Sprite, Physic Sound Option, Background Audio Layer",
+		"(1a) What is a GDD?, Game Design Document, Great Description Definition, Game Drawing Document, Good Design Decision",
+		"(2b) Where would you reflect on the quality of your game's overall playability and suggest how you would improve it?, GDD, Pitch, Storyboard, Game Prototype",
+		"(2b) Where would you reflect on the quality of your game's interactivity and suggest how you would improve it?, GDD, Pitch, Storyboard, Game Prototype",
+		"(2b) Where would you reflect on the quality of your game's rules or instructions and suggest how you would improve them?, GDD, Pitch, Storyboard, Game Prototype",
+		"(2b) Where would you reflect on the originality of your game's concept and describe where your game is different, Game Design Document and/or Game Pitch, No Need - my game is the best, Storyboard, Game Prototype",
+		"(2a) What is an Elevator Pitch?, A very short presentation of my game's concepts, A moving object in my game, The angle of a rotating platform, A ladder a game object can climb",
+		"(1b) In what document did you write in detail about the target platforms?, Game Design Document, Storyboard, Game Drawing Document, Good Design Decisions",
+		"(1c) In what document did you write in about your target market?, Game Design Document, Storyboard, Game Drawing Document, Good Design Decisions",
+		"(1c) What is meant by a game's target market?, The type of people who will buy and play it, People who will review and write about a game, Game levels where you have to hit items to score, Money you raise by advertising",
+		"(2a) As part of game development you were asked to create a very short presentation of your game concept. What is this presentation called?, Elevator Pitch, Game Brief, GDD, Storyboard",
+		"(1a) As part of game development you were asked to create a very detailed description of your game design and the objects used in your game. What is this document called?, Game Design Document, Game Pitch, Description Listing, Storyboard",
+		"(2b) In which document did you discuss details of the weaknesses in your game and how you could improve it?, Game Design Document, Storyboard, Elevator Pitch, Game Weaknesses Document",
+		"(2c) What is the best response to constructive feedback on your game idea and prototype?, Reflect on the feedback and make improvements to my game, Ignore it - I know best!, Leave it for now - The game is fine, Promise to use the ideas and then carry on regardless",
+		"(1b) What is meant by the term Target Platform?, The devices on which the game will be played, Something a character jumps on in a platformer game, The age groups the game is intended for, Objects in a shooting game",
+		"(3a) Which of these is a good example of game interactivity?, Keyboard movement keys that the user can press, A sprite's colour, Sprite size, A background image",
+		"(3b) In your game prototype - which of these is a 2D asset?, A sprite, Game soundtrack, Physics properties, Keeping a player score",
+		"(1a; 1b; 1c; 2b) What document contains a detailed description of your game's audience; target platform; game objects; playability and your reflections of the game's weaknesses and how it can be improved?, Game Design Document [GDD], Game soundtrack, Physics properties, Keeping a player score",
+		"(3c) Which of these is the best way to indicate game events such as increasing the player score?, Play a short sound, It should be obvious to the player, Add a text message for the player to read, Flash colours rapidly",
+		"(2a; 2c) What document is intended to be a very short presentation of your game's key concepts to get people excited about your idea?, Game Pitch or Elevator Pitch, GDD, Storyboard, Game Prototype",
+		"(2c) What is the best response to constructive feedback from your game pitch?, Reflect on the feedback and make improvements to my game concept, Ignore it - I know best!, Leave it for now - my ideas are fine, Promise to use the ideas and then carry with the original idea regardless",
+		"(3a; 3b; 3c; 3d) What is a Storyboard?,An interchangeable set of cards to help plan a game prototype., Something you use to create a sprite animation., Something you use to assess your target audience., A cheatsheet to help people play your game.",
+		];
+		
+var ICTarray = [
+			
+	"Which of these words is a proper DT word?,Socket,Sprocket,Rocket,Pocket",
+	"What software is best for analysing your finances?,Spreadsheet,Wordprocessor,PowerPoint,Access",
+	"Which of these words is a proper DT word?,Mega,Begga,Legga,Gega",
+	"Which of these words is a proper DT word?,Database,Biscuitbase,Homebase,Starbase",
+	"Which of these is best for writing a formal letter?,Wordprocessor,Database,Spreadsheet,Facebook",
+	"Select the search engine,Google,Chrome,Firefox,Safari",
+	"Select the internet browser,Chrome,Google,Bing,EBay",
+	"Which of these is an E-Commerce website?,Amazon,Google,Twitter,Tiktok",
+	"What is a Megabyte?,About one million bytes, 1024 bytes,1000 characters,Million words",
+	"What is a Gigabyte?,About one million Megabytes,Billion bytes,1000000000 characters,Billion words",
+	"Which of these best describes a Spreadsheet?,Software for presenting and analysing numbers,A maths tool,Somewhere to store all kinds of data, An APP for drawing graphs",
+	"Which of these is a spreadsheet?,Microsoft Excel,Google Chrome,Microsoft Edge,Microsoft Onedrive",
+	"Which of these is an internet browser?,Microsoft Edge,Google Slides,Apple iCloud,Microsoft Onedrive",
+	"Which of these is NOT a binary number?,12,10,11,101",
+	"Which of these is the smallest?,Bit,Byte,Megabyte,Gigabyte",
+	"Which of these words is a proper DT word?,Software,Endware,Softwear,Anywhere",
+	"Which of these words is NOT proper DT word?,Plumbline,Pipeline,Middleware,Bootstrap",
+	"What does HTML stand for?, Hyper-Text Markup Language,High-Text Marking Lines,Hidden-Transcript Marked Limits,High-Time Mobile Language",
+	"Who invented the internet?, Tim Berners-Lee,Bill Gates,Steve Jobs,Elon Musk",
+	"Which of these NOT digital technology ?, Measuring tape,Apple Watch,Sat Nav,Pocket Calculator",
+	"Which of these is a slide presentation APP?,PowerPoint,SlidePoint,SoftPoint,Microsoft Publisher",
+	"Which of these would be best to make a poster?,Word,Excel,PowerPoint,Access",
+	"Which of these words is NOT a proper DT word?,Tabletop,Laptop,Desktop,Palmtop",
+	"Which of these words is the odd one out?,Keyboard,Folder,Directory,File",
+	"Which of these words is the odd one out?,Processor,Browser,Spreadsheet,Google Chrome",
+	"Which of these words is the odd one out?,Excel,CPU,Motherboard,Monitor",
+	"Which of these words is a proper DT word?,Cloud,Sky,Horizon,Haze",
+	"Which of these is a binary number?,1100,121,400,102",
+	"What does a CPU do?,Runs computer instructions,Stores APPS,Saves Data,Cools your computer",
+	"Which is the fastest?,4 GHz,3 MHz,5 Hz,6 MHz",
+	"What is a URL?,The address of a website,A computer processor,Hardware in your monitor,A graphics word",
+	"What might you use Microsoft Access for?,Storing names and addresses,Adding up your money,Writing a letter,Showing your holiday snaps",
+	"Which of these is NOT a valid graphics file format?, PIFF,PNG,BMP,JPEG",
+	"Which of these is a valid digital sound format?,MP3,M6,DAV,MP4",
+	"Which of these is a valid digital video format?,MP4,MP3,VHS,BMAX",
+	"What are bitmap image files made up of?,Pixels,Viggles,Spots,Vixels",
+	"What does URL stand for?,Universal Resource Locator,Uniform Raster Line,Un-Regulated List,Unpicked Register Link",
+	"What piece of hardware delivers the internet to your computer?,Router,Cloud Distributor,Cyber Wave Linkage,Web Envelope",
+	"What is a web page created with?,HTML,Web Format File,Cloud Language,Cyber Talk",
+	
+	"Which of these is a database?,Microsoft Access,Google Records,Microsoft Edge,Apple Pay",
+	"Which of these is an E-Commerce website?,EBay,Google Chrome,Hotmail,Wikipaedia",
+	"What does ICT stand for?,Information Communications Technology,International Computer Transport,Information Computer Technology,Informing Computer Tasks",
+	"Which of these is NOT a E-Commerce website?,YouTube,Amazon,EBay,Next",
+	"Which of these Word layouts is the tallest from top to bottom?,Portrait,Landscape,Tall,Wide",
+	"Which of these Word layouts is the widest from side to side?,Landscape,Portrait,Tall,Wide",
+	
+	"What helps with complex data calculations in Excel?,Formulae,CalcAid,AutoCalc,MathRobot",
+	"What do you use in Word to colour a table cell?,Fill,Shade,Background,Paint",
+	"What can you do in a browser to redraw the web page?,Refresh,Open new tab,close and re-visit the site,Switch your monitor off and on",
+	"What does RGB stand for?,Red Green Blue,Random Graphics Bits,Raster Game Board,Random Game Blocks",
+	"What does FPS stand for in the gaming world?,First Person Shooter,Frame Pause System,Fast Player Scoring,Frame Playing Speed",
+	"Call of Duty is a,3D online FPS game,2D Adventure game,2D Strategy game,3D Top down arcade game",
+	"Which is the odd one out?,BIFF,TIFF,PNG,JPEG",
+	"Which is the odd one out?,Gobble,Byte,Word,Bit",
+	"Which is the odd one out?,Zap,Event,Action,Condition",
+	"Which of these is NOT a valid gaming genre?,Free for All,Adventure,MMO,RPG",
+	"What does the gaming genre RPG mean?,Role-playing Game,Rocket Propelled Grenade,Real Player Gaming,Random Player Generation",
+	"What is the odd one out?,Piece,Field,Record,Table",
+	
+	"What is a field in a database?,A single value,A large area of data,A very large image,A big number",
+	"What extension does NOT belong to a graphics file?,.doc,.jpg,.png,.bmp",
+	"What extension belongs to a PowerPoint file?,.pptx,.docx,.txt,.xlsx",
+	"What extension belongs to a Notepad file?,.txt,.pptx,.docx,.xlsx",
+	"What extension belongs to an Excel file?,.xlsx,.pptx,.docx,.txt",
+	"What extension belongs to an Word file?,.docx,.pptx,.xlsx,.txt",
+	"What would a GPU do in a computer?,Process Graphics,It is a Game Playing Unit,Process arithmetic,Keep my processor cool",
+	"What does the USB in USB charger stand for?,Universal Serial Bus,Unlimited State Binding,Unloaded Scanner Box,Universal Storage Box",
+	"What does the RTS game genre mean?,Real Time Strategy,Rich Time Slicing,Random Target Simulation,Real Time Simulation",
+	
+	"A USB pen drive is a type of SSD. What is SSD?,Solid State Drive,Super Solid Disk,Standard State Device,Serial State Disk",
+	"Which of these is definitely a digital device?,MP3 player,Toaster,Watch,Musical Instrument",
+	"What does Wi-fi mean?,Wireless Fidelity,Wired Fixing,Wireless Internal Free Internet,Web Internet Finding Initiator",
+	"What is the latest fastest mobile telephone technology?,5G,4G,Super Mobile,GG",
+	"What PC key strokes would you use to copy the currently focused window?,Alt-Prt Scr,Control P,F12,Shift Prt Scr",
+	"What control sequence would you use to paste text?,Ctrl-V,Ctrl-X,Ctrl-P,Ctrl-C",
+	"What control sequence would you use to cut text?,Ctrl-X,Ctrl-V,Ctrl-P,Ctrl-D",
+	
+	"Which of these is a good password?,Walloon1465!,Hello123,Password,Liverpool",
+	"A search engine is:,An APP used to find websites,Something to view Youtube with,An automatic website viewer,A website used by the police to track my web usage",
+	"A VLOG is:,An internet site where someone regularly posts short videos,A list of all the YouTube videos you watch,A large piece of a tree,A selection of Tweets on a subject",
+	"You want to create a CV. What software would be best for this?,Word,Excel,PowerPoint,Facebook",
+	
+	"You decide to analyse and organise your finances. What software is best?,Excel,Word,PowerPoint,TikTok",
+	"Which of these is the worst password?,sunday,Sunday!23,Sund4y,Sunday",
+	
+	"What does it mean to crop an image when adding it to a document?,Resize a free to use image so it fits the space,Save the image so the document does not lose it,Make sure the image is suitable for the type of document,Remove copyright messages so they don't show up in your document",
+	
+	"Which of the following phrases most correctly defines what a DATABASE is?,An APP that stores data in an organised way so you can retrieve it easily,The bottom row in a large table of information,A room where a company would store all their paper files,A large spreadsheet with lots of information in it",
+	"What is a DROP DOWN menu?,A list of options that expands when you click on it,A list of items that falls to the bottom of your screen,A list down the side of your screen,Menu items that are drop down funny",
+	"When Word or PowerPoint underlines a word for me. I need to:,Use the built-in spell checker to correct the spelling,Delete the word from the sentence,Add an underline because that is what it wants me to do,Ignore it as the software is too fussy",
+	"What APP would you use to edit a file with a .png extension?,Graphics Editor,Word Processor,Database Software,Presentation Software",
+	"What is a user interface?,The menus you use to interact with the software,Something the user wears,A message sent to you from another user of the same APP,A link you use to download files",
+	"What is your computer desktop?,The main screen of icons you see when you first log in,The table your computer sits on,The programs on your hard drive,An easy place to save all your work!",
+	"What would you use the Windows Control Panel for?,Changing computer hardware and software settings,Saving shortcuts to your favourite videos,Looking at the contents of your folders,Hiding your YouTube videos from your teacher",
+	
+	"What should you do before you remove a memory stick?,Close open files and use the Eject option,Just yank it out the computer will be just fine,Make sure you don't close open files,Close your browser to cover your tracks",
+	"Which of these best describes a ZIP file?,Adding multiple files into one compressed file to send all at once,It's something to do woith fastening a file to the disk,A good way of hiding dodgy files from my teacher,Joining two files together into one larger file",
+	
+	"Which of the following is a valid internet URL?,www.lmc.ac.uk,google.co,tony@hotmail.com,santa.jpeg",
+	"What does WWW stand for in www.google.co.uk?,World Wide Web,Web Wide Working,World Wide Wiki,Wow wow wow!",
+	"What would you use a universal resource locator for?,Locating a file or website on the WWW,Something I type into a seach box in Word,Something to search for files on my computer,A tool to find out what my printer name is",
+	"Which of these is an output device?,Monitor,Keyboard,Mouse,Scanner",
+	"Which of these is an input device?,Keyboard,Printer,Speaker,Projector",
+	"What kind of device is a touch screen?,Input and Output,Input only,Output only,Neither input or output",
+	"What should you be aware of when opening an email or file sent to you from a stranger?,Possible virus or scam,They may say something horrible about you,It's OK my computer is protected,I might not have an APP to read it",
+	"What should you always do when leaving your computer un-attended?,Lock it, Logout as it's really quick logging in,Leave it as I can trust everyone,Switch it off",
+	"In PowerPoint: what feature can you use to check you work looks good?,Slide Show,Print Preview,Show Layout,View Design",
+	"What is the best way to design slides in PowerPoint?,Short easily viewable bullet points no more than 7 or 8 per slide,Put loads of interesting text on the slide,As much info as I can fit,Just images, I can wing it when talking",
+	"In PowerPoint: what do you use to control how slides appear?,Transitions,Animations,Slide Movement,Content Appearance",
+	"In PowerPoint: what do you use to control how slide contents can appear?,Animations,Transitions,Text Movement,Content Tracking",
+	"A mouse is an input device,TRUE,FALSE,TRUE,FALSE",
+	"A monitor or screen is an output device,TRUE,FALSE,TRUE,FALSE",
+	"The world wide web and the internet are the same thing,FALSE,FALSE,TRUE,TRUE",
+	"The world wide web is the web sites and the internet is:,The hardware that makes it all work,The same thing,Social Media sites,Netflix",
+	"What does the G stand for in 4G and 5G?,Generation,Graphics,Gaming,Giga",
+			 ];
+
+var answer = "";
+var question = "";
+
+var highscore = 0;
+var icthigh = 0;
+var webhigh = 0;
+var gamehigh = 0;
+var datahigh = 0;
+
+var answerstring = "";
+
+var myGamePiece;
+var myObstacles = [];
+var myScore = 0;
+var gamestopped = false;
+
+
+var startinterval = 20;
+
+var qtimeout, btimeout;
+
+var checkingquestion = false;
+
+var initqtimeout = 2000;
+var inittimerbarwidth = 803;
+var timerbarwidth = inittimerbarwidth;
+
+function printDiv() {
+	//if ( gamestopped == false ) {
+		//return;
+	//} 
+	var divContents = document.getElementById("answers").innerHTML;
+        var a = window.open('', '', 'height=2000, width=1000'); 
+        a.document.write('<html>'); 
+        a.document.write('<body>'); 
+        a.document.write(divContents); 
+        a.document.write('</body></html>'); 
+    	a.document.close(); 
+        a.print(); 
+} 
+
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+
+  switch (event.keyCode) {
+    case 40:
+      movedown();
+      break;
+    case 38:
+      moveup();
+      break;
+    case 37:
+      moveleft();
+      break;
+    case 39:
+      moveright();
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+
+window.addEventListener("keyup", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+
+  switch (event.key) {
+    
+    default:
+      clearmove(); // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+
+function qtimedout() {
+	/*if ( !gamestopped ) {
+		if ( !checkingquestion) {
+			clearInterval(this.interval);
+			myGameArea.stop();
+			gamestopped = true;
+			document.getElementById("timerbar").style.width = 0 + "px";
+		}
+	}*/
+	
+	document.getElementById("score").innerHTML = myScore + " out of " + numquestions;
+			
+		if (myScore > highscore) {
+			highscore = myScore;
+			//localStorage.setItem("flappyhigh", highscore);
+				
+		}
+		
+		
+		if ( numquestions == quizlength ) {
+			document.getElementById("printanswers").disabled = false;
+			document.getElementById("answers").innerHTML += "<p style='font-size:36px;'><b>Test Score: " + Number((myScore/numquestions)*100).toFixed(0) + "%</b></p>";
+			document.getElementById("answerscontainer").style.display = "block";
+			document.getElementById("answerbuttons").style.display = "none";
+		}
+		else {
+			
+			timerbarwidth = inittimerbarwidth;
+			clearTimeout(qtimeout);
+			clearTimeout(btimeout);
+			setQuestion();
+		}
+}
+
+function getHigh() {
+	
+}
+
+function showHigh() {
+	if (gametype == "ICT") {
+		document.getElementById("high").innerHTML = "<b>ICT Score: " + highscore + "</b>";
+		//localStorage.setItem("flappyict", highscore);
+	}
+	if (gametype == "WEB") {
+		document.getElementById("high").innerHTML = "<b>WEB Score: " + highscore + "</b>";
+		//localStorage.setItem("flappyweb", highscore);
+	}
+	if (gametype == "DATA") {
+		document.getElementById("high").innerHTML = "<b>DATA Score: " + highscore + "</b>";
+		//localStorage.setItem("flappydata", highscore);
+	}
+	if (gametype == "GAME") {
+		document.getElementById("high").innerHTML = "<b>GAME Score: " + highscore + "</b>";
+		//localStorage.setItem("flappygame", highscore);
+	}
+	
+}
+
+function addtoscore() {
+    if (gamestopped == false)
+	{
+		myScore++;
+		if (myScore > highscore) {
+				highscore = myScore;
+				//localStorage.setItem("flappyhigh", highscore);
+				
+		}
+		document.getElementById("score").innerHTML = "<b>" + myScore + "</b>";
+		showHigh();
+		setTimeout(addtoscore, 250);
+	}
+}
+
+/*
+function selectQuestion() {
+	for (i = 0; i < 50; i++) {
+		var idx = getRndInteger(0, qarray.length-1);
+		var parts = qarray[idx].split(",");
+		if ( !answerstring.contains(parts[0]) ) {
+			answerstring = answerstring += parts[0];
+			break;
+		}
+	}
+	
+	parts;
+}*/
+
+var trainingused = false;
+function setQuestion() {
+	
+	while (feedbackActive ) {
+		// wait for feedback to stop
+	}
+	
+	numquestions = numquestions + 1;
+	
+	//document.getElementById("btn1").style.backgroundColor = "white";
+	//document.getElementById("btn2").style.backgroundColor = "white";
+	//document.getElementById("btn3").style.backgroundColor = "white";
+	//document.getElementById("btn4").style.backgroundColor = "white";
+	var idx = getRndInteger(0, qarray.length-1);
+	var parts = qarray[idx].split(",");
+	var limit = 0;
+	for (i = 0; i < 250000; i++) {
+		limit = i;
+		if ( !answerstring.includes(parts[0]) ) {
+			answerstring = answerstring += parts[0];
+			break;
+		}
+		var idx = getRndInteger(0, qarray.length-1);
+		var parts = qarray[idx].split(",");
+	}
+	if ( limit > 225000 ) {
+			answerstring = parts[0];
+	}
+	if ( parts[0].includes(")") ){
+		document.getElementById("question").innerHTML = "<b>" + parts[0].split(")")[1] + "</b>";
+	}
+	else {
+		document.getElementById("question").innerHTML = "<b>" + parts[0] + "</b>";
+	}
+	
+	var posn = getRndInteger(1,4);
+	
+	parts[0] = parts[0].trim();
+	parts[1] = parts[1].trim();
+	parts[2] = parts[2].trim();
+	parts[3] = parts[3].trim();
+	parts[4] = parts[4].trim();
+	
+	answer = parts[1];
+	
+	document.getElementById("btn1").style.color = "black";
+	document.getElementById("btn2").style.color = "black";
+	document.getElementById("btn3").style.color = "black";
+	document.getElementById("btn4").style.color = "black";
+	
+	document.getElementById("btn1").style.display = "block";
+	document.getElementById("btn2").style.display = "block";
+	document.getElementById("btn3").style.display = "block";
+	document.getElementById("btn4").style.display = "block";
+	
+	if ( answer == "TRUE" || answer == "FALSE") {
+		document.getElementById("btn3").style.display = "none";
+		document.getElementById("btn4").style.display = "none";
+		
+		var posn = getRndInteger(1,2);
+		
+		switch (posn) {
+		case 1:
+			document.getElementById("btn1").innerHTML = "TRUE";
+			if ( document.getElementById("training").checked == true && parts[1] == "TRUE" ) {
+				document.getElementById("btn1").style.color = "green";
+				trainingused = true;
+			}
+			if ( document.getElementById("training").checked == true && parts[1] == "FALSE" ) {
+				document.getElementById("btn2").style.color = "green";
+				trainingused = true;
+			}
+			document.getElementById("btn2").innerHTML = "FALSE";
+			break;
+		case 2:
+			document.getElementById("btn1").innerHTML = "FALSE";
+			if ( document.getElementById("training").checked == true && parts[1] == "FALSE" ) {
+				document.getElementById("btn1").style.color = "green";
+				trainingused = true;
+			}
+			if ( document.getElementById("training").checked == true && parts[1] == "TRUE" ) {
+				document.getElementById("btn2").style.color = "green";
+				trainingused = true;
+			}
+			document.getElementById("btn2").innerHTML = "TRUE";
+			break;
+		}
+	}
+	else {
+	
+	switch (posn) {
+	case 1:
+		document.getElementById("btn1").innerHTML = parts[1];
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("btn1").style.color = "green";
+			trainingused = true;
+		}
+		document.getElementById("btn2").innerHTML = parts[2];
+		document.getElementById("btn3").innerHTML = parts[3];
+		document.getElementById("btn4").innerHTML = parts[4];
+		break;
+	case 2:
+		document.getElementById("btn4").innerHTML = parts[1];
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("btn4").style.color = "green";
+			trainingused = true;
+		}
+		document.getElementById("btn1").innerHTML = parts[2];
+		document.getElementById("btn2").innerHTML = parts[3];
+		document.getElementById("btn3").innerHTML = parts[4];
+		break;
+	case 3:
+		document.getElementById("btn3").innerHTML = parts[1];
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("btn3").style.color = "green";
+			trainingused = true;
+		}
+		document.getElementById("btn4").innerHTML = parts[2];
+		document.getElementById("btn1").innerHTML = parts[3];
+		document.getElementById("btn2").innerHTML = parts[4];
+		break;
+	case 4:
+		document.getElementById("btn2").innerHTML = parts[1];
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("btn2").style.color = "green";
+			trainingused = true;
+		}
+		document.getElementById("btn3").innerHTML = parts[2];
+		document.getElementById("btn4").innerHTML = parts[3];
+		document.getElementById("btn1").innerHTML = parts[4];
+		break;
+	}
+	}
+	
+	question = parts[0];
+	checkingquestion = false;
+	resetQuestionTiming();
+	
+	document.getElementById("score").innerHTML = "Question: " + Number(numquestions) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score : " + myScore + " out of " + quizlength;
+}
+
+function resetQuestionTiming() {
+	//qtimeout = setTimeout(qtimedout, initqtimeout);
+	//timerbarwidth = inittimerbarwidth;
+	//document.getElementById("timerbar").style.width = timerbarwidth + "px";
+	//btimeout = setTimeout(updatebar, 1000);
+}
+
+var numquestions;
+function startGame() {
+    //myGamePiece = new component(12, 12, "red", 10, 60);
+    //myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+	numquestions = 0;
+	myScore = 0;
+	document.getElementById("score").innerHTML = myScore + " out of " + numquestions;
+    myObstacles = [];
+    this.interval = 20;
+	myGameArea.stop();
+	gamestopped = true;
+    //myGameArea.start();
+	//setTimeout(addtoscore, 250);
+	gamestopped = false;
+	myScore = 0;
+	timerbarwidth = inittimerbarwidth;
+	numquestions = 0;
+	document.getElementById("printanswers").disabled = true;
+	document.getElementById("answerscontainer").style.display = "none";
+	document.getElementById("answerbuttons").style.display = "block";
+	setQuestion();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 800;
+        this.canvas.height = 290;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[5]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, startinterval);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+		gamestopped = true;
+        
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY; 
+		
+		if (myGamePiece.y > 245) {
+			myGamePiece.y = 245;
+			myGamePiece.speedY = 0;
+		}
+		if (myGamePiece.y < 5) {
+			myGamePiece.y = 5;
+			myGamePiece.speedY = 0;
+		}
+		if (myGamePiece.x < 5) {
+			myGamePiece.x = 5;
+			myGamePiece.speedX = 0;
+		}
+		if (myGamePiece.x > 435) {
+			myGamePiece.x = 435;
+			myGamePiece.speedX = 0;
+		}
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            myGameArea.stop();
+	    gamestopped = true;
+	    document.getElementById("printanswers").disabled = false;
+            return;
+        } 
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(240)) {
+        x = myGameArea.canvas.width;
+        minHeight = 30;
+        maxHeight = 140;
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+        minGap = 50;
+        maxGap = 70;
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+        myObstacles.push(new component(30, height, "green", x, 0));
+        myObstacles.push(new component(30, x - height - gap, "green", x, height + gap));
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].speedX = -1;
+        myObstacles[i].newPos();
+        myObstacles[i].update();
+    }
+    //myScore.text="SCORE: " + myGameArea.frameNo;
+    //myScore.update();
+    myGamePiece.newPos();    
+    myGamePiece.update();
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function moveup() {
+    myGamePiece.speedY = -2; 
+}
+
+function movedown() {
+    myGamePiece.speedY = 2; 
+}
+
+function moveleft() {
+    myGamePiece.speedX = -2; 
+}
+
+function moveright() {
+    myGamePiece.speedX = 2; 
+}
+
+function clearmove() {
+    //myGamePiece.speedX = 0; 
+    //myGamePiece.speedY = 0; 
+}
+
+var thisResult = 0;
+var thisComment = "Keep trying";
+function checkanswer(elem) {
+	checkingquestion = true;
+	
+	if ( !gamestopped ) {
+	
+		if ( elem.innerHTML == answer) {
+			myScore = myScore + 1;
+			document.getElementById("answers").innerHTML += "<p style='font-size:14px;'>" + numquestions + ". " + question + "</p><p><b>&nbsp;&nbsp&nbsp&nbsp;&nbsp;&nbsp&nbsp&nbsp;<u>" + elem.innerHTML + "</u>&nbsp;&nbsp;&#10004;</b></p><br>";
+			feedbackCorrect(elem);
+		}
+		else {
+			document.getElementById("answers").innerHTML += "<p style='font-size:14px;'>" + numquestions + ". " + question + "</p><p><b>&nbsp;&nbsp&nbsp&nbsp;&nbsp;&nbsp&nbsp&nbsp;<u>" + elem.innerHTML + "</u>&nbsp;&nbsp;X</b></p><br>";
+			feedbackInCorrect(elem);
+		}
+		document.getElementById("score").innerHTML = "Question: " + Number(numquestions) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score : " + myScore + " out of " + quizlength;
+			
+		if (myScore > highscore) {
+			highscore = myScore;
+			//localStorage.setItem("flappyhigh", highscore);
+				
+		}
+		
+		
+		if ( numquestions == quizlength ) {
+			if ( !trainingused ) {
+				document.getElementById("printanswers").disabled = false;
+				document.getElementById("training").disabled = false;
+				thisResult = Number((myScore/numquestions)*100).toFixed(0);
+				thisComment = "Keep trying";
+				//thisResult = 90;
+				if ( thisResult >= 90 ) {
+					thisComment = "Pass +++";
+				}
+				else if ( thisResult >= 80 ) {
+					thisComment = "Pass ++";
+				}
+				else if ( thisResult >= 75 ) {
+					thisComment = "Pass +";
+				}
+				else if ( thisResult >= 65 ) {
+					thisComment = "Pass";
+				}
+				//document.getElementById("answers").innerHTML += "<p style='font-size:36px;'><b>Test Score: " + Number((myScore/numquestions)*100).toFixed(0) + "%</b></p>";
+				document.getElementById("answers").innerHTML = document.getElementById("answers").innerHTML.replace("%SCORE%", thisResult + "% (" + thisComment + ")");
+				document.getElementById("answers").innerHTML += "<p style='text-align:center;font-size:28px;'><b>END OF ASSESSMENT</b></p>";
+				document.getElementById("answerscontainer").style.display = "block";
+				document.getElementById("answerbuttons").style.display = "none";
+				
+				download(thisquizname+thisResult + "percent.html", document.getElementById("answers").innerHTML);
+				
+	
+			}
+			else {
+				document.getElementById("score").innerHTML = "Disable study mode to get a results listing";
+			}
+		}
+		else {
+			timerbarwidth = inittimerbarwidth;
+			clearTimeout(qtimeout);
+			clearTimeout(btimeout);
+			setQuestion();
+		}
+		
+		//else {
+			//document.getElementById("score").innerHTML = myScore + " out of " + numquestions;
+			//elem.style.backgroundColor = "red";
+			//clearInterval(this.interval);
+			//myGameArea.stop();
+			//gamestopped = true;
+			//document.getElementById("printanswers").disabled = false;
+			//window.alert("You scored " + myScore + "click RE-START to play again.");
+		//}
+	}
+}
+
+function updatebar() {
+	if (!checkingquestion) {
+		if ( !gamestopped ) {
+			timerbarwidth = timerbarwidth - (inittimerbarwidth/(initqtimeout/1000));
+			document.getElementById("timerbar").style.width = timerbarwidth + "px";
+			btimeout = setTimeout(updatebar, 1000);
+		}
+	}
+}
+
+var thisquizname = "";
+var gametype = "ICT";
+function restartGame(typ) {
+	
+	trainingused = false;
+	document.getElementById("btn1").innerHTML = "";
+	document.getElementById("btn2").innerHTML = "";
+	document.getElementById("btn3").innerHTML = "";
+	document.getElementById("btn4").innerHTML = "";
+	
+	if ( document.getElementById("name").value == "" ) {
+		document.getElementById("question").innerHTML = "Enter your name in the box above before starting a quiz.";
+		return;
+	}
+	
+	quizlength = 40;
+	
+	thisquizname = "ICT_";
+	
+	document.getElementById("buttondiv").style.marginTop = "5px";
+	qarray = ICTarray;
+	gametype = typ;
+	
+	//document.getElementById("answers").innerHTML = "<img width=\"75\" style=\"margin-left:20px;\" src=\"data:image/png;base64,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\" ></img>"
+	//document.getElementById("answers").innerHTML += "<p style=\"font-size:22px;font-weight:bold;margin-left:105px;margin-top:-50px;\">Lancaster and Morecambe College</p>";
+	document.getElementById("answers").innerHTML = "<br><p>Learner Name: " + document.getElementById("name").value + "</p><p style=\"font-size:18px;\">Result: %SCORE%</p><p><u>Pathway to Digital Technology - Initial/Ongoing Assessment</u></p>";
+	
+	if (gametype == "DIGITAL") {
+		thisquizname = "DT_";
+		quizlength = 20;
+		qarray = DigitalArray;
+		//document.getElementById("answers").innerHTML = "<img width=\"75\" style=\"margin-left:20px;\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAABIFBMVEX///+gz2cAV5dxzfb///3//v////wCVZegz2b7/v7///pxzff8//yhz2moxdMFV5YATIrN3uRzzvPi9PeZzWDd7sjM7PQAU5FoyfalzmgASY7p9N4ATpP///ZuyPEAS42izW2c0GClymrF2aCp0XWw4vDH6/Py+/mT0+8ASIsAUJiiwdQASpQEVJAAVJoeY5jz+evj7tKz1IG62ZTN5bfh9N2x0IGlzHqeyVjc6b2d0FmUzl3L3qi014+nym++15nA1Za73Zi91Iuu3vOi3uyBze3a8PSF0+nx+eeQ0fG15fG+4/Sb2e9xzeue1PJtyPqOscRunLhWi685dqHY5Oh+pME4b6pFe6EWYJYxbZy/0+GAoMBUjK7H29srbpqnwtJdWeiiAAARMUlEQVR4nO1dC1fiSBNNsPMkEYGgvCGChlGCIKzifCq7izDMjK74WoF1Z///v/iqOuCTV0JQPIe7Z2fHlcS+XVVdt6o7kWGWWGKJJZZYYoklllhiiSWWWGKJJZZYwk0QwhME/OWjhzIDiKww3OALXpblT0mGEOSQKLZKpVCoFCsqlNKno4ID5ouh2n42rbKiKEY2D8uV33j4hvKZuPBgjUSonGU1DUiwLFIRdY3drxTJk7MtPiC4i5UDGL0uquwAqqqymriZaTHcp7EJx8UOVE1U09QaA+AXqigeVhKMQj6DWXgmUatqdOjsG6js12o59imMQpjWgagO4fBIRcsefQImEhM70Fh1JA+IFVZUK2Txmfx2WlWHOdVTrLCsvlmRFjqlEJlpnX4dZ49B3EcqC01EZooH4kQalMpmaYGZEE4pa9PxUL+ethZXenHMUWQaGhRaObGoNoGF93A6x6JQjxZXQ2b+Z4OHmC0u5hpMuFh6eh7ARIOVaxGlCmEymg0erKjvtz56zMNAmET2qx0iqqiGFjFICFMal8+H2qS2iMUJ4Wq6nRDBIEkvYLgTRjq0SYQVqwuZ3mMv66hpTCIeLx4RwoR0ezRAp4gni8eDMMfamHJqhEUOFk6mEMwitonoh8UFIiJJ2BZlmLJtIqx+WoQ54BV+IdgoPP4pK/u28joC6qsSSeDVi9EZ5lqhSu3PctquPSDa9cOD/VolJjMfLIQlyMxy6CStipqu2eaB0a7pusamDyrgYsrH8SCEk0MHIm1iqTaT4YAKNiBFvXp6XCQy91GCBSqpE/GrlrYd5G/YiGr1MCRzHxMq8ENLh5qosnYT+luIeJf0sfwx7iWTo01a2TpzqtdQxWrmI9Ij4ZlQhFXTrpCgEFWtrNBtunflITOlzelaPzaoaMeM/O7JsXWou0sDJYsYemcehGP+sK9IJjPRTt9ZfEFdu6m7TYNl06yYed/ql5NPqtM3FaeGqurp2HuahOdiad19HiwuXe9aNELxEXE/Qiwm+/I78uCMfdHFDPIMqii+Y0MCNFZ6XkQiIuSS9yMSGrpl6wq0GsO/H5GKNj8iJ+9yyIMqIYj16pxoQJDsJ5h5H4sij7sAtbkRYcVskf4IqLLmRIZavFgKHdfKv2dtNxqmJ6Lu//778VGpCCHPEffDBa2RKGX2oQLSqtXqvCIEmcD9oVbLnlRi7nsY3i92nNV1HYo5PLrgsoB/CajjRVHU9M1aSQI15CIXuFUxk2bn50/DIeqRcgmYuJZXCCNVDjV9ju40HHhOKp0punYCh+MSGZCltncNZgc98nUS4zhXYp5nWgcRUX1/GpQKFFuiOxvyhPktK0bmUHxMC1XEfeyZmXBM6VSb7yI1iYgqqhVm1lpeZoqH1Y+kwdJetxaazSaQBZWT6ofagyKtbcZm0sREZiofE+SvoLInxVmaEoQppdkPjPNn0Gap5Qknn3xsoD9C1E9naq+E3luVjIKa1suy03gnXGJ/EQKEQtRZx10Jnikthl+x9Dy65rgJyfM1/aMJPIN42nJqkmL6/RXvGHw9ckaEMKFFogHqsezMHhxTW5Q1CyGmxazsKEqItG/3ANZcoYqsoyAhTOJ0kSwCUGPOtn1jpwsVI06JoM7SR+4dWAlGZV3YZH8HIuowIsgAH2LTKICHOPi/84bolEiIff2IEZ5Q0GHwavrw5OTkD8DJQRaP1Gg6MJo3GedEtMjLTRA8rRHJ/pk5KrWKSr9nrhRbsVCldrApzrlrxzp3rddEYOKz5aMWbZcRQuQEot88S8SOylnNyVGn6eGKRcQ0BMzJEW2US3jQQiISBVFkmViJqnVUPoxUNacnniYhEtl0VJI8EaHTrKczJfCmUSeRCH6LJ8VQ+VDU9bmEiypGYk4y+xMR7Chnj2Mvu2T0kBhY5sVhMZkwMtglrWG8uGoYuKFW/dPRsYhHIrB0pY9b9DzQCyIASZFeECF0K0guHR+wupp2c7tUBM86dnaaq08EW6WZIky8NRccMrC+TSA4Bo72jA3lUgzV0ppGjekKC1gv/4wRZ4/NWERUUT2JPVoDYxyGLxnB9R8/6/X61taPn9tNQ6Kj5wbGIXRHo1jZxweP1cj4xyunASSq7JHM8M62F5AIBMdhKME/tvXBAFJw++y8kUSEw8nkykoy2cidb60HYSWWHmeMWipRqmVZLRKZMVZUXc8eF51v91AiaqbY71XSMSrNrW8XQMDrXQkEVlbgj0AA/o5sArmtpjG40uIClyRC5dOIOJuI1tK12MjVcjoi/zsNMRwP0aBAvpBJ8GcuEA4jBTr4Prxe/Mob9oYDjXoTvUzpByVcA1xalZOsWBXVzYh9FxNFvZqulWAGFayPnDUfgMghzATeAeYjITfrjZVn4x+GcDjwbaupMPyTi2F0KZD10yBubD7vQ899ZjOlwYFzSeYlZ0SKRUwMEMRwo+ZfScubxgJsFbjI/Qzi9HHWjhlMAUdPnZezIlUw0xyvxU+IoE73K8XBZqhEGGU76LQhRKcCNEjzPJD0eifYw/IzsEvy4mzbQA9TrAnpR00rVNvfrIJOVielSvp6CDZbDsm4XuIgOBxELhkkTlMJ2kMOnuPqNDVgAQgnG2dN+mKHwQyihMGN+ko5Gxm8mmM4AypO1dNaqMg/hThHjB+By4BTImhQ3qgHkoFJ0fGSCHw6GQ7kwBNQwkh9z+aokxCqk9MqFmUqHblKgRtTOp75F9n0/nEJH8bojxqUKU/Wc3DXC8dEODmxnkvaIPECYJZ1g5cTTz+8P8GJRKsEJczpZiQifq3qWGniQwsghrL7teNQC1k8BYPCc8GzQBjv6JQIGLQeWJkY4qMtkww0YBV7udWE6sBKSkAnVDnOZGq1WiaTOa7QF/P0PzPIGvBJHmgkL+GGXodEiEKaufDkpWoUMGt6Ifl/3wrSLPCU9zm6FzZ0ASKE58lA1oEi5flgvRHw0tl0SkTh1hvewDRr1Viz4ChyP4KKDBLmZR6wXlfF9A1Az2g9T9/AnFea9WR4MASHRDimeTGdOcZyDVDfDAS+g4Kh0nOKY1gE9Sd8SNrOJZ/d3TGR7fDQ1crrDSDBwTRdemkiHMcFrwE11qhvB+lrwxR8qGkMDxkyEGc0txqYvJ7m0jGR9TdE6Fcgei+TgYtGDvC90UAlDP9vktkCVuznttYN7L/0A+T1w0icRTCBLN54g4tEVqhqP9/abgYNSVKw/2AEm+s/z741qCYOjPNFK/jDoGHAMoalX7CRQUlhvWm9440xmj/OG9Qd50nkG8yo9NbHjeB2/TsukuOCyhI5wDZJTbO93jQMRSYDJGSYlO36OZ2Tode7RAR0ByykvCy/KtSxP4Q9IXCH3MUUEiBA6wCsygKN77mzM1pp1uvn57lGADiEcZ0bgZmJeFE+fVs3UHJIb+MUhRSoAB7Kx61vK+GVwPiFzPIyBMZb+BEDlqMuCiSbxIGQf0Xkr3XjeU4bfglKM6hbksNd4+Ww7H8jnDOcEwnTOyTPm7I8zBavLuEgh/GysQ5+TiNitmT6DGjj5JnhqNx9tIgXaExfMkNRDCk6uA21vXdCfpkeXu9l8tu2w83pPhEvxAZaw9alUK0rzbNvF0jEBSoQ/o26QUtNp0TC3sCWARrJpmuCj0FpZ2z/lYTIn6q0HMMC18vzIMcpEyJ0DJFLbzLXnOW8l4yNl6RzAb2CXgUl2royw2EtjqxfJn8YsuyodUEhYS3QrH+fZhUbxgH/TSIN3qFX9UexfbHOzDIV9C4gYw3kgunFJh0wZBKWfRCQdl37FZpNV162BCKKk1AEJi/thQvIunpTmf1oPIFKd+hMcLReeBKwE4IQ0igIKlkCLYg62duXg6MzOOZ9CPCV3M+gTFx5WH/Ioss99tzB/ZWnJ4THG7+/H0SC6ygtqdYaXXp6acsyhy1LQrj5vHWAMuMN/2r76vr+BnF/fXW327sFnUXX3PFXcwSWDtDJqA6Tl0NXAFBcFxeNv34GJX4+LxHDDQVUnry/fd31paLRVNxCFP660fn1sHuL67T0Whg/52HVsCifjWafjSUZYYmFiAjjVkUDihWoiQnP205eUxKRJJlh/Hd/F9ZSgsfj8Xl8AOsPj0eI5/PmzZ0/YTV9x6O/46Vg9fFjC9Q7xfl5HSqUoGEMSM8H6DXG7v1GVDALAg79JQRAYSe68fedH31sihTMcQlcAbBzIlPw+DXhZX50VLjADn5gsN1NxX0wYN9bHn02Hp8Q3bhp+2XcUJloFwwZCRuqT94IenOUQ9HOqzSkNrUDuDx41/kCAx1B4RmXQj66cf+fMWkZsz8GmJnbe//Y7sukW3CMcbeXGm2Jly5m+sz4Wudh1aD+6NZDa3Arpd1J+Z0/xot32AVrCJNZPMFXSK1178DFGMUdu3CE+fcmVfA5twh4b+8mL3jsEUHLbHwxqYtZPcNZgO84Dv4T3/EIG86IENyCNK42djodjz0eaBTTI0TX9q56Cq2znLsYLoFSu5MXTOdEpATT25smxkeR8RS+rP3d9tOtBKc8eMZod/MFGqEOicA1bVNwYI0nCL7CTt68b/utTTybXkYzCiz78Y2CNQZnRED7Pqz5plmrxhHB5BL/YkJ2USAbTS87iEJPv9zCsl/wwVI4CxFmNeqbxRwDwGQI8ajQ/adH5cc0eR8+BLFlrD50os+FhDMiErO6ZrpBBCCYgi8eze9d795a50GoUH67AvS/iUwl/1U3n/d0fM9G4Ngiaz53eGDce8A9hHhK6F7t+mmjTZEsdTKoz5CAZBW1vNG7+rUWLXheTaRzIi4ZZMAGfKwQj66Z3Yd279Z4TNLPZSIxbnt39521aHyIlDA/3iIDUM0pFFKpNfPX/VX7P/+tYYAUhH8M49bf27267gKJ/A58bMiPXgDXegmcawEWgHw+bnb2ut3ur5vuXsc0zbVoNF7w0KVyWK2wtmhEntOBOmZnB0vNQkEwTawTRn1+TkQEWk3Bj52Jq2n2V3jfCDO8gPuuhY7+CMsVbMpKR3Az2K1Bx1OpL6m4sJHCv0TjcfiY7x2YuGURAXKBT0hFzS4sOLurvd6/vd4qdoZ+wUoT3RCGFPOLSQTXzbXuAyS0/kcG7yJUjF77ei8OGcwz0c8/mgisKIV4qntF9VL/fD8mZto9oE9gQDbuCqkNvGROTibMHiMQ0jsp837VUn1v+zX9RipygbgpjFlDZ0HBBYsIUd/Dv+Mb1vA9nnLpRPOFORDx+XZmySMCXetT5tWt1ZIZWxlZ29fG6nUHljS4zlXDFKLmrqPXiliiEZEyr2/Hn+d5fhlHZHLbvjFTULe7w4QOIp7CQThB3yJ4Bz9vp69Dg18GF/sSFzyzVZiPPArR7qrMOzzQiIWViXdg7PUqCT22CNX27r2Zj6N2n80uBU8hb94FGaebmdS1Nsw7SXa0j9gvubupaNx5H8aqYfLo2rLjdxojkfwvP/4qJGdNKbrBIPWu9rDWc9jFQKcywbUJJzl+xR7U7F8ejBl7+egNxurDXioqWM5ugwKKBCG/cd2bcUMBLHLFOHs+4AUVOQHhsnq9h9WrLVv4PPFo58rPzLTJbo1h5g1uxjrgi+GC/QSTVuJTOZnPF89v3LSD7uxPuLcBRhWM4m+jYWj008VM8Hie1zUDf4L/wBLx6472jRfud99IVpcx2Lu73jNTkPkFayvyRYGGTKCWj/pu7lCdksRC/MqFNyCMpdQMf/vqHtQllGUgMAsASmRnJ5rPR4XO/dXurUR3gBfjV0cMx+ApDBL0/9d+uP/V7UCpljIRnb2bhzsodsCh5DmdE3AbWMlYky0Zt7d+f6/X82OHiwy+uyC/kGRKvJ11rBI+hynegus/9csxczwlsMQSSyyxxBJLLLHEEkssscQSnw3/B4Mq8jzXZckAAAAAAElFTkSuQmCC\" ></img>"
+	//document.getElementById("answers").innerHTML += "<p style=\"font-size:22px;font-weight:bold;margin-left:105px;margin-top:-50px;\">Lancaster and Morecambe College</p>";
+		document.getElementById("answers").innerHTML = "<p>Learner Name: " + document.getElementById("name").value + "</p><p style=\"font-size:18px;\">Result: %SCORE%</p><p>Online Assessment for unit:<br><br>Digital Multimedia Products K/617/3816</p>";
+		document.getElementById("answers").innerHTML += "<p>Learner Results (cross referenced to unit and standards)</p>";
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("studylink").innerHTML = "";
+		}
+	}
+	
+	if (gametype == "DATA") {
+		thisquizname = "DATA_";
+		quizlength = 30;
+		qarray = DataArray;
+		//document.getElementById("answers").innerHTML = "<img width=\"75\" style=\"margin-left:20px;\" src=\"data:image/png;base64,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\" ></img>"
+	//document.getElementById("answers").innerHTML += "<p style=\"font-size:22px;font-weight:bold;margin-left:105px;margin-top:-50px;\">Lancaster and Morecambe College</p>";
+		document.getElementById("answers").innerHTML = "<p>Learner Name: " + document.getElementById("name").value + "<p><p style=\"font-size:18px;\">Result: %SCORE%</p><p>Online Assessment for unit:<br><br>Data Management Software Skills F/617/0081</p>";
+		document.getElementById("answers").innerHTML += "<p>Learner Results (cross referenced to unit and standards)</p>";
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("studylink").innerHTML = "<span style=\"font-size:10px;color:black;\">Study Links:&nbsp;&nbsp;</span>\
+						<a target=\"_blank\" style=\"font-size:10px;\" href=\"https://docs.google.com/presentation/d/1ZTSWATB1ZAOw090CUibAsBpOw0HtAHhHgVK40mvRRsw/present?slide=id.p1\">Intro to Data </a>\
+						&nbsp;&nbsp;&nbsp;<a target=\"_blank\" style=\"font-size:10px;\" href=\"https://docs.google.com/presentation/d/1wLzRVdAhpzWVgYicu1oc7BI5w-meiB7ZBw2ATlA7d0o/present?slide=id.p1\">What is a database</a>\
+						&nbsp;&nbsp;&nbsp;<a target=\"_blank\" style=\"font-size:10px;\" href=\"https://docs.google.com/presentation/d/1_KYttBS3YmpE2Xd1ylfjVKTLTz1O3htUP5FBMGcBNpM/present?slide=id.p1\">Microsoft Access</a>\
+						";
+		}
+	}
+	if (gametype == "WEB") {
+		thisquizname = "WEBDES_";
+		quizlength = 40;
+		qarray = WebArray;
+		//document.getElementById("answers").innerHTML = "<img width=\"75\" style=\"margin-left:20px;\" src=\"data:image/png;base64,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\" ></img>"
+	//document.getElementById("answers").innerHTML += "<p style=\"font-size:22px;font-weight:bold;margin-left:105px;margin-top:-50px;\">Lancaster and Morecambe College</p>";
+		document.getElementById("answers").innerHTML = "<p>Learner Name: " + document.getElementById("name").value + "</p><p style=\"font-size:18px;\">Result: %SCORE%</span></p><p>Online Assessment for unit:<br><br>Layout of a Digital Product (DIGITAL LAYOUT) F/617/3904<br>Website Design (WEB DESIGN) H/617/4057</p>";
+		document.getElementById("answers").innerHTML += "<p>Learner Results (cross referenced to unit and standards)</p>";
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("studylink").innerHTML = "<span style=\"color:black;font-size:10px;\" style=\"color:black;\">Study Links:&nbsp;&nbsp;</span>\
+				<a target=\"_blank\" style=\"font-size:10px;\" href=\"https://docs.google.com/presentation/d/1K1efWVYsF5vzVS1nMWs8Ad4XIdLd3avn0TMh6fWAP1k/present?slide=id.p1\">Digital Design</a>\
+				&nbsp;&nbsp;&nbsp;<a target=\"_blank\" style=\"font-size:10px;\" href=\"https://docs.google.com/presentation/d/19UpcjCe_ArnoGqx5IdfHwOnlraaR22EpjaK9LPvt82g/present?slide=id.p1\">Web Technology</a>\
+				";
+		}
+	}
+	if (gametype == "GAME") {
+		thisquizname = "GAMEDEV_";
+		quizlength = 30;
+		//document.getElementById("answers").innerHTML = "<img width=\"75\" style=\"margin-left:20px;\" src=\"data:image/png;base64,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\" ></img>"
+	//document.getElementById("answers").innerHTML += "<p style=\"font-size:22px;font-weight:bold;margin-left:105px;margin-top:-50px;\">Lancaster and Morecambe College</p>";
+		document.getElementById("answers").innerHTML = "<p>Learner Name: " + document.getElementById("name").value + "<p style=\"font-size:18px;\">Result: %SCORE%</p><p>Online Assessment for unit:<br><br>Game Development T/617/3916</p>";
+		document.getElementById("answers").innerHTML += "<p>Learner Results (cross referenced to unit and standards)</p>";
+		qarray = GameArray;
+		if ( document.getElementById("training").checked == true ) {
+			document.getElementById("studylink").innerHTML = "<span style=\"color:black;font-size:10px;\">Study Links:&nbsp;&nbsp;</span>\
+				<a target=\"_blank\" style=\"font-size:10px;\" href=\"https://docs.google.com/presentation/d/1rNWOtdvdBpizgh0kTgwXiSjxTq5r1P23_KlVLaTvxFw/present?slide=id.p1\">Story Boarding</a>\
+				";
+		}
+	}
+	
+	document.getElementById("answers").innerHTML += "<hr>";
+	
+	clearTimeout(qtimeout);
+	clearTimeout(btimeout);
+	timerbarwidth = inittimerbarwidth;
+	document.getElementById("printanswers").disabled = true;
+	document.getElementById("training").disabled = true;
+	
+	//if ( document.getElementById("training").checked ) {
+		//quizlength = 999;
+	//}
+	//getHigh();
+	startGame();
+}
+
+var greenOffTimeout;
+function feedbackCorrect(elem) {
+	feedbackActive = false;
+	elem.style.backgroundColor = "#00ff00";
+	greenOffTimeout = setTimeout(feedbackOff, 300);
+}
+
+var feedbackActive = false;
+
+var redOffTimeout;
+function feedbackInCorrect(elem) {
+	feedbackActive = false;
+	elem.style.backgroundColor = "#ff0000";
+	greenOffTimeout = setTimeout(feedbackOff, 300);
+}
+
+function feedbackOff(elem) {
+	clearTimeout(greenOffTimeout);
+	clearTimeout(redOffTimeout);
+	feedbackActive = false;
+	document.getElementById("btn1").style.backgroundColor = "white";
+	document.getElementById("btn2").style.backgroundColor = "white";
+	document.getElementById("btn3").style.backgroundColor = "white";
+	document.getElementById("btn4").style.backgroundColor = "white";
+}
+
+function loadup() {
+	//getHigh();
+	//startGame();
+	document.getElementById("printanswers").disabled = true;
+	clearInterval(this.interval);
+	myGameArea.stop();
+	gamestopped = true;
+}
+
+function hOn(elem) {
+	elem.style.backgroundColor = "#bbbbbb";
+}
+
+function hOff(elem) {
+	elem.style.backgroundColor = "white";
+}
+
+function pOn(elem) {
+	elem.style.backgroundColor = "#aaaaaa";
+}
+
+function pOff(elem) {
+	elem.style.backgroundColor = "#dddddd";
+}
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function digtech(e) {
+	window.open("https://sites.google.com/view/mobilelmcquiz/home");
+}
+
+function maths(e) {
+	window.open("https://goquiz.netlify.app/");
+}
+
+</script>
+<div style="margin-top:10px;border-radius:30px;border-radius:30px;padding-top:15px;color:white;background-color:#cccccc;font-family:Arial;position:relative;float:left;height:auto;width:350px;text-align:center;">
+<span style="margin-left:10px;font-weight:bold;font-size:18px;color:black;">Quizzle V2.1<br><br>Mobile Quizzes<br><br><br>Select Subject<br></span>
+	
+	<input style="display:none;padding:5px;margin-left:10px;float:left;font-size:14px;border-radius:10px;background-color:white;border-style:black;width:150px;height:25px;margin-top:-5px;margin-right:30px;"id="name" type="text"></input>
+	<!--<button id="printanswers" style="float:right;font-size:18px;border-radius:10px;background-color:white;border-style:none;width:150px;height:50px;margin-bottom:15px;margin-top:5px;margin-right:30px;" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="printDiv()"><b>Print Answers</b>
+	</button>-->
+	<br>
+
+
+<div id="buttondiv" style="display:none;padding-left:4px;background-color:#dddddd;margin-top:5px;height:150px;width:346px;position:relative;float:left;">
+	<!--<div style="width:5px;margin-top:5px;height:145px;float:left;position:relative;text-align:left;text-size:12px;">
+	</div>-->
+	<div style="width:330px;margin-top:5px;height:150px;float:left;position:relative;text-size:12px;">
+		<span style="margin-left:15px;font-weight:bold;color:black;font-size:14px;">Study mode:</span><input id="training" type="checkbox"></input><span style="margin-left:10px;color:black;font-size:18px;"></span>
+		<button style="margin-left:10px;background-color:white;margin-top:0px;margin-bottom:5px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('ICT')"><b>INITIAL ASSESSMENT</b>
+		</button>
+		</button>
+		<button style="clear:both;margin-left:10px;background-color:white;margin-top:5px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('DIGITAL')"><b>DIG TECH</b>
+		</button>
+		<button style="margin-left:10px;background-color:white;margin-top:5px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('DATA')"><b>DATA MANAGE</b>
+		</button>
+		<button style="margin-left:10px;background-color:white;margin-top:5px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('WEB')"><b>WEB DES</b>
+		</button>
+		<!--<button style="margin-left:10px;background-color:white;margin-top:5px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('GAME')"><b>GAME DEV</b>
+		</button>-->
+		
+		<p id="studylink"></p>
+		
+		<p id="score" style="float:left;margin-left:40px;color:black;font-family:arial;font-size:16px;"></p>
+		<p id="high" style="display:none;margin-left:90px;color:white;font-family:arial;font-size:20px;">High Score: 0</p>
+	</div>
+</div>
+
+
+<div id="answerbuttons" style="margin-left:5px;margin-bottom:10px;display:block;margin-top:0px;height:auto;min-height:330px;background-color:#cccccc;float:left;position:relative;text-align:center;font-family:Arial;width:340px;">
+		<div id="timerbar" style="width: 100%; height: 5px; background-color: #cccccc;"></div>
+		<div id="question" style="display:none;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;font-size:12px;position:relative;float:left;width:200px;height:0px;margin-top:0px;"><b></b></div>
+    	
+		<div id="btn1" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="maths(this)" style="font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:35px;padding:10px;position:relative;float:left;background-color:white;border-style:none;border-radius:20px;max-height:90px;height:20px;font-size:14px;width:250px;">Maths</div>
+ 
+		<div id="btn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="digtech(this)" style="margin-top:10px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:35px;padding:10px;position:relative;float:left;background-color:white;border-style:none;border-radius:20px;max-height:90px;height:20px;font-size:14px;width:250px;">ICT/Digital Technology</div>
+		<div id="btn3" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="" style="margin-top:10px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:35px;padding:10px;position:relative;float:left;background-color:white;border-style:none;border-radius:20px;max-height:90px;height:20px;font-size:14px;width:250px;">Principles of Coding</div>
+
+
+<div id="answerscontainer" style="background-color:#dddddd;border-bottom-left-radius:30px;border-bottom-right-radius:30px;color:black;text-align:left;display:none;position:relative;float:left;width:340px;height:auto;font-size:12px;">
+	<div class="printPageButton" style="padding:15px;background-color:#cccccc;">
+		<!--<p style="width:100%;color:black;font-size:18px;">If working remotely, select <u>Save to PDF</u> as the printer type from the printer destination drop down menu in the print dialogue that you see after clicking the print button and send your file to your tutor via Teams or email.</p>
+		<p style="width:100%;color:black;font-size:18px;">If your result is not a pass grade, try the quiz with <u>Study Mode</u> turned on. You will be able to do the quiz with the correct answers highlighted. you will also get links to the relevant study page if one exists.</p>
+		<p style="width:100%;color:black;font-size:18px;">Practice with the study mode and the resource links - <b>what is the highest grade you can get?</b></p>
+		--><button id="printanswers" style="display:none;padding-top:10px;float:right;font-size:18px;border-radius:10px;background-color:white;border-style:none;width:250px;height:50px;margin-bottom:15px;margin-top:-310px;margin-right:10px;" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="printDiv()"><b>Click to Print Results</b></button>
+	</div>
+	<div id="answers" style="background-color:#dddddd;border-bottom-left-radius:30px;border-bottom-right-radius:30px;color:black;padding-left:10px;text-align:left;position:relative;float:left;width:340px;height:400px;overflow:auto;font-size:12px;">
+	</div>
+</div>
+
+
+</div></div></body>
+</html>
+
+

@@ -6251,14 +6251,14 @@ function checkanswer(elem) {
 			updateCorrectCount(question);
 			
 			if ( quizcodenum == 8 ) {
-				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L1 QF R", thisQuizID)
+				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L1 QF R " + myScore + "/" + numquestions, thisQuizID)
 			}
 			
 			if ( quizcodenum == 9 ) {
-				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L2 QF R", thisQuizID)
+				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L2 QF R " + myScore + "/" + numquestions, thisQuizID)
 			}
 			if ( quizcodenum == 10 ) {
-				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "GCSE QF R", thisQuizID)
+				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "GCSE QF R " + myScore + "/" + numquestions, thisQuizID)
 			}
 		}
 		else {
@@ -6269,14 +6269,14 @@ function checkanswer(elem) {
 			feedbackInCorrect(elem);
 			
 			if ( quizcodenum == 8 ) {
-				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L1 QF W", thisQuizID)
+				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L1 QF W " + myScore + "/" + numquestions, thisQuizID)
 			}
 			
 			if ( quizcodenum == 9 ) {
-				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L2 QF W", thisQuizID)
+				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "L2 QF W " + myScore + "/" + numquestions, thisQuizID)
 			}
 			if ( quizcodenum == 10 ) {
-				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "GCSE QF W", thisQuizID)
+				saveResults(myName, mytutor, thisquizname, rr, Date(), qq, "GCSE QF W " + myScore + "/" + numquestions, thisQuizID)
 			}
 		}
 		document.getElementById("score").innerHTML = "Question: " + Number(numquestions) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Score : " + myScore + " out of " + quizlength;
@@ -7291,7 +7291,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.113";
+var versionstr = "V.114";
 
 /* HTMLSTART */
 

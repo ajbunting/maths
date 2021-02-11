@@ -336,6 +336,7 @@ var timerbarwidth = inittimerbarwidth;
 
 // saveResults(myName, mytutor, thisquizname, thisresult, Date(), document.getElementById("answers").innerText, " - ")
 
+/*
 function saveResults(nm, tt, qz, pc, dt, rs, nt, id) {
 	var d = new Date();
 	var nstr = d.toString();
@@ -352,6 +353,35 @@ function saveResults(nm, tt, qz, pc, dt, rs, nt, id) {
 		// ERROR
 	}
 })
+}
+*/
+
+if (!String.prototype.includes) {
+    String.prototype.includes = function() {
+        'use strict';
+        return String.prototype.indexOf.apply(this, arguments) !== -1;
+    };
+}
+
+function myFunction(dat) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "https://api.apispreadsheets.com/data/7546/",true);
+    xhttp.setRequestHeader("Content-type","application/json");
+    xhttp.send(dat);
+}
+
+function saveResults(nm, tt, qz, pc, dt, rs, nt, id) {
+
+	if (nm == "2761" ) return;
+	
+	//alert("In save results");
+	
+	var d = new Date();
+	var nstr = d.toString();
+
+	var thisdate = nstr.split(" ")[0] + " " + nstr.split(" ")[1] +  " " + nstr.split(" ")[2]+ " " + nstr.split(" ")[3]+  " " + nstr.split(" ")[4];
+	myFunction(JSON.stringify({"data": {"ID":d.getTime(),"Name":nm,"Tutor":tt,"Quiz":qz,"Perc":pc,"Date":thisdate,"Results":rs,"Notes":nt, "QuizID":id}}));
+
 }
 
 function printDiv() {

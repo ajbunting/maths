@@ -1590,7 +1590,7 @@ function printDiv() {
 
 /* E3START */
 
-var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
 
 function getAddMoneyE3Style() {
 	
@@ -1603,7 +1603,7 @@ function getAddMoneyE3Style() {
 	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
 													
 	var sw = examsNewE3[examsNewE3Count];
-	//sw = 21;
+	sw = 24;
     switch (sw) {
     	case 1:
         	return getAddMoneyE3100();
@@ -1668,9 +1668,58 @@ function getAddMoneyE3Style() {
 		case 21:
         	return getAddMoneyE102();
             break;
+		case 22:
+        	return getAddMoneyE103();
+            break;
+		case 23:
+        	return checkworkingout();
+            break;
+		case 24:
+        	return getAddMoneyE104();
+            break;
     }
     
 }
+
+function getAddMoneyE104() {
+	
+	var retstr = "Use the barchart to answer the question below.<br><img style=\"margin-left:20px;\" width=\"170\" src=" + cleanURL(img_barchartVehicles) + "\">";
+	
+	var ww = getRndInteger(1,4);
+	//ww = 1;
+	switch (ww) {
+		case 1:
+			retstr += "<br>How many people travel by either CAR or BUS?,9,5,4,8";
+			break;
+		case 2:
+			retstr += "<br>What is the combined total of all travel methods?,16,15,14,17";
+			break;
+		case 3:
+			retstr += "<br>How many more people does the most popular travel method have over the second most popular?,1, 2, 3, 0";
+			break;
+		case 4:
+			retstr += "<br>How many people use two wheeled transport?,5,9,4,8";
+			break;
+	}
+	return retstr;
+}
+
+
+function getAddMoneyE103() {
+
+	var retstr = "When a ball is dropped it bounces back to a height that is one half of the height it dropped from previously.<br><img style=\"margin-left:15px;margin-top:0px;margin-bottom:5px;\" width=\"100\" src=" + cleanURL(img_bouncing) + "\">";
+	
+	var drophgt = getRndInteger(12,30)*8;
+	var ans = drophgt*0.5*0.5*0.5;
+	
+	retstr += "<br><br>A ball is dropped from " + Number(drophgt).toFixed(0) + " cm";
+
+	retstr += "<br><br>How far will the ball rise to after its <u>third</u> bounce?," + Number(ans).toFixed(0) + " cm," + Number(ans*1.1).toFixed(0) + " cm," + Number(ans*0.9).toFixed(0) + " cm," + Number(ans*1.14).toFixed(0) + " cm";
+	
+	return retstr;
+	
+}
+
 
 function getAddMoneyE102() {
 	var thisname = personnames[getRndInteger(0, personnames.length-1)];
@@ -7141,11 +7190,11 @@ function restartGame(typ) {
 			<option value="Tom Nicholson">Tom Nicholson</option>\
 			<option value="Tony Bunting">Tony Bunting</option>\
 		</select></p>\
-		<p style="color:red;font-size:14px;">If you are using an Andoid device or MAC this APP should be run in Chrome - it will not work otherwise<p>\
+		<p style="text-align:center;color:black;font-size:14px;">If you have problems with this APP try it using Chrome<p>\
 		<p style="width:100%;text-align:center;clear:both;float:left;color:black;margin-left:5px;"><button onclick="hideInputs()">CONTINUE</button></p>\
 		';
 		
-		showHelp(230);
+		showHelp(240);
 		return;
 	}
 	
@@ -8004,7 +8053,7 @@ var versionstr = "V.116";
 </script>
 <div id="mainapp" style="border-radius:20px;margin-top:0px;padding-top:15px;color:white;background-color:#cccccc;font-family:Arial;position:relative;float:left;height:auto;width:360px;text-align:left;">
 	<span id="versionstr" style="margin-left:15px;float:left;font-size:14px;color:black;"></span>
-	<span style="margin-left:20px;float:left;font-size:12px;color:black;"><b>Practice Quizzes - MATHS</b></span>
+	<span style="margin-left:20px;float:left;font-size:12px;color:black;"><b>Maths Practice APP</b></span>
 	<button style="float:right;margin-right:20px;background-color:white;margin-top:0px;margin-bottom:10px;border-style:none;border-radius:10px;font-size:14px;height:20px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="window.open('https://goquiz.netlify.app', '_self')"><b>HOME</b>
 	</button>
@@ -8014,45 +8063,48 @@ var versionstr = "V.116";
 <div id="buttondiv" style="padding-left:4px;background-color:#dddddd;margin-top:0px;height:200px;width:356px;position:relative;float:left;">
 	
 	<div style="width:350px;margin-top:5px;height:200px;float:left;position:relative;text-size:12px;">
-		<input id="training" style="margin-left:20px;" disabled type="checkbox"></input>
+		<input id="training" style="margin-left:40px;" disabled type="checkbox"></input>
 		<!--<button style="margin-left:10px;background-color:white;margin-top:0px;margin-bottom:5px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('ICT')"><b>INITIAL ASSESSMENT</b>
 		</button>-->
 		<p  id="catchmsg" style="font-size:12px;color:red;margin-top:-18px;margin-left:40px;"><b><u>Use pen, paper and the calculator when visible</u></b></p>
-		<button style="margin-left:1px;background-color:#FF99FF;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ff9980;margin-top:4px;border-style:none;font-size:10px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('NUMERACY')"><b>Mixed</b>
-		</button>
-		<button style="margin-left:1px;background-color:#99CCFF;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffcc80;margin-top:4px;border-style:none;font-size:10px;height:15px;width:29px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('ARITH')"><b>+ - x &#247;</b>
-		</button>
-		<button style="margin-left:1px;background-color:#FFFF33;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:10px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('FDP')"><b>&nbsp;FDP&nbsp;&nbsp;</b>
-		</button>
-		<button style="margin-left:1px;background-color:#99CC66;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#d9b3ff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('UNITS')"><b>Units</b>
-		</button>
-		<button style="margin-left:1px;background-color:#FF6633;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3e0ff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:33px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('TIME')"><b>Time/£</b>
-		</button>
-		<button style="margin-left:1px;background-color:#9999FF;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffb3b3;margin-top:4px;border-style:none;font-size:10px;height:15px;width:29px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('SHAPE')"><b>Shape</b>
-		</button>
-		<button style="margin-left:1px;background-color:#ff8080;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3e6ff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:30px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('PROB')"><b>Prob&nbsp;</b>
-		</button>
+		</div>
+		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
 		<br><br>
-		<button style="margin-left:5px;background-color:#b3ffb3;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		<div style="clear:both;border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:66px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('E3')"><b>E3 Style&nbsp;</b>
-		</button>
-		<button style="margin-left:5px;background-color:#80ff80;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:66px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('EXAML1')"><b>L1 Style</b>
-		</button>
-		<button style="margin-left:5px;background-color:#4dff4d;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:66px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('EXAM')"><b>L2 Style</b>
-		</button>
-		<button style="margin-left:5px;background-color:#1aff1a;margin-top:4px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:66px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('GCSE')"><b>GCSE Style</b>
-		</button>
+		</div>
+		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
 		
 		<p style="display:none" id="studylink"></p>
 		
@@ -8080,7 +8132,7 @@ var versionstr = "V.116";
 
 <div id="answerbuttons" style="color:black;margin-left:5px;margin-bottom:10px;display:block;margin-top:0px;height:auto;min-height:325px;background-color:#cccccc;float:left;position:relative;text-align:center;font-family:Arial;width:350px;">
 		<div id="timerbar" style="width: 100%; height: 5px; background-color: #cccccc;"></div>
-		<div id="helpbtn" onclick="showHelp(570)" style="display:none;text-align:center;overflow:hidden;clear:both;margin-bottom:15px;font-weight:bold;color:black;padding:5px;position:relative;float:left;background-color:#88dd88;border-style:none;max-height:90px;height:auto;font-size:10px;width:10%;border-radius:15px;margin-left:5px;margin-top:10px;">VIEW HELP FOR TOPIC</div>
+		<div id="helpbtn" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="showHelp(570)" style="display:none;text-align:center;overflow:hidden;clear:both;margin-bottom:15px;font-weight:bold;color:black;padding:5px;position:relative;float:left;background-color:#88dd88;border-style:none;max-height:90px;height:auto;font-size:10px;width:10%;border-radius:15px;margin-left:5px;margin-top:10px;">VIEW HELP FOR TOPIC</div>
 		<div id="question" style="margin-left:5px;color:black;font-weight:bold;color:black;font-size:12px;position:relative;float:left;width:83%;height:70px;margin-top:0px;text-align:center;"></div>
     	<div id="btn1" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;text-align:center;"></div>
   		<div id="btn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;clear:both;margin-top:5px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;"></div>

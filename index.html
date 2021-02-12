@@ -184,6 +184,13 @@ var newworking = false;
          { 
              document.getElementById("result").value = "" 
          } 
+		 
+		 function doExt(elem) {
+			if ( document.getElementById("calculatorExtholder").style.display == "block")
+				document.getElementById("calculatorExtholder").style.display = "none";
+			else
+				document.getElementById("calculatorExtholder").style.display = "block";
+		 }
 var quizlength = 30;
 
 var qarray = [
@@ -1583,7 +1590,7 @@ function printDiv() {
 
 /* E3START */
 
-var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
 
 function getAddMoneyE3Style() {
 	
@@ -1596,7 +1603,7 @@ function getAddMoneyE3Style() {
 	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
 													
 	var sw = examsNewE3[examsNewE3Count];
-	//sw = 15;
+	//sw = 21;
     switch (sw) {
     	case 1:
         	return getAddMoneyE3100();
@@ -1649,8 +1656,145 @@ function getAddMoneyE3Style() {
 		case 17:
         	return getAddMoney6E();
             break;
+		case 18:
+        	return getAddMoney223E();
+            break;
+		case 19:
+        	return getAddMoneyE100();
+            break;
+		case 20:
+        	return getAddMoneyE101();
+            break;
+		case 21:
+        	return getAddMoneyE102();
+            break;
     }
     
+}
+
+function getAddMoneyE102() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " is putting orange juice into glasses for a party.";
+	
+	var jugamount = 0.5 + getRndInteger(8,15)*0.125;
+	
+	retstr += "<br><br>" + thisname + " has a jug containing " + jugamount + " litres of orange to share into glasses";
+	
+	retstr += "<br><br>glasses can each hold 125ml of orange.";
+	
+	var ans = ((jugamount/0.125)-0.5);
+	
+	retstr += "<br><br>How many full glasses of orange can " + thisname + " make?," + ans.toFixed(0) + "," + Number(ans+1).toFixed(0) + "," + Number(ans-1).toFixed(0) + "," + Number(ans+2).toFixed(0);
+	
+	return retstr;
+}
+
+function getAddMoneyE101() {
+
+	var people = 2 + (getRndInteger(1,3) * 2);
+	
+	var retstr = "The recipe below shows how to make " + people + " scones:";
+	
+	var flouramount = Number(5 * people);
+	retstr += "<br><br>" + flouramount + "g of self raising flour";
+	
+	retstr += "<br>1 tea spoon of baking powder";
+	
+	var butteramount = Number(5 * people);
+	retstr += "<br>" + butteramount + "g of butter";
+	
+	var milkamount = Number(5 * people);
+	retstr += "<br>" + milkamount + "ml of milk";
+	
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var make = people * (getRndInteger(3,5));
+	
+	retstr += "<br><br>" + thisname + " wants to make " + make + " scones";
+	
+	var cookarr = ["grams of flour", "grams of butter", "ml of milk"];
+	var valarr = [flouramount,butteramount,milkamount];
+	var unitarrx = ["g", "g", "ml"];
+	
+	var cookidx = getRndInteger(0,cookarr.length-1);
+	
+	var ans = valarr[cookidx]/people * make;
+	
+	retstr += "<br><br>How many " + cookarr[cookidx] + " will " + thisname + " need?," + ans + unitarrx[cookidx] + "," + (ans*1.1).toFixed(0) +  unitarrx[cookidx] + "," + (ans*0.9).toFixed(0) + unitarrx[cookidx] + "," + (ans*1.2).toFixed(0) + unitarrx[cookidx];
+	
+	document.getElementById("helptext").innerHTML = 'Stage 1: Divide the item the question asks about down by the number of scones the recipe is for - this will get you how much you need for 1 scone.\
+											<br><br>EG. If 120g of flour is for 4 scones then 120 div by 4 is the amount for 1 scone.\
+											<br><br>EG. 30g of flour is needed for 1 scone in the above example.\
+											<br><br>Stage 2: Now multiply the amount for 1 scone by the number of people the question asks for.\
+											<br><br>Remember to make sure you do the calculation on the item the question is asking for - the item might be milk or butter.\
+											<br><br><br>Check if your answer matches one of the answer buttons.\
+													<br><br>If not, check your calculations again\
+													<br><br>Always use paper to jot your working out down as you go.';	
+	return retstr;
+}	
+
+function getAddMoneyE100() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " is going to cook the Christmas turkey.";
+	
+	retstr += "<br><br>" + thisname + " finds these instructions on the internet:";
+	
+	var initmins = 35 + (getRndInteger(1,3)*5);
+	
+	var aftermins = 35 + (getRndInteger(1,5)*5);
+	
+	var turkeywgt = getRndInteger(9,19)*0.5;
+	
+	retstr += "<br><br>Cook at 180 C for " + initmins + " minutes for the first kilogram and then for " + aftermins + " minutes for each kilogram after that";
+	
+	retstr += "<br><br>" +thisname + "'s turkey weighs " + turkeywgt + "kg.";
+	
+	var ans = initmins + aftermins*(turkeywgt-1);
+	
+	retstr += "<br><br>How long will the turkey take to cook?," + Number(ans).toFixed(0) + " mins," + Number(ans+10).toFixed(0) + " mins," + Number(ans-10).toFixed(0) + " mins," + Number(ans+15).toFixed(0) + " mins";
+	
+	return retstr;
+}
+
+function getAddMoney223E() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = "Two families travel together for a day out at a local theme park.";
+	
+	var adultPrice = 24 + getRndInteger(1,5) * 2;
+	var childPrice = (adultPrice/2) + getRndInteger(1,5);
+	
+	retstr += "<br><br>Adult tickets cost £" + adultPrice;
+	retstr += "<br>Child tickets cost £" + childPrice; 
+	
+	var numAdults1 = getRndInteger(1,4);
+	var numChildren1 = getRndInteger(2,4);
+	
+	var numAdults2 = getRndInteger(1,4);
+	var numChildren2 = getRndInteger(2,5);
+	
+	var ans = 0;
+	
+	retstr += "<br><br>The first family need tickets for " + numAdults1 + " adults and " + numChildren1 + " children";
+	retstr += "<br><br>The second family need tickets for " + numAdults2 + " adults and " + numChildren2 + " children";
+	
+	ans = (adultPrice*(numAdults1+numAdults2)) + (childPrice*(numChildren1+numChildren2));
+	
+	
+	retstr += "<br><br>How much will the total cost of the tickets be ?,£" + Number(ans).toFixed(2) + ",£" + Number((ans*1.05)).toFixed(2) + ",£" + Number((ans*0.95)).toFixed(2) + ",£" + Number((ans*1.10)).toFixed(2);
+	
+	document.getElementById("helptext").innerHTML = 'Stage 1: How many adults and children in total?\
+														<br><br>Stage 2: Work out the cost for the adults in the group using the ticket price list\
+														<br><br>Stage 3: Work out the cost for the children in the group using the ticket price list\
+														<br><br>Stage 4: Add the total adult cost to the total children cost\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+	
+	return retstr;
 }
 
 function getAddMoney6E() {
@@ -7853,7 +7997,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.115";
+var versionstr = "V.116";
 
 /* HTMLSTART */
 
@@ -7978,7 +8122,8 @@ var versionstr = "V.115";
             <td style="border:none;" colspan="4"><input style="font-size:24px;height:30px;text-align:right;" type="text" readonly id="result"/></td> 
          </tr>
 	  <tr> 
-			<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td> 
+			<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
+			<!--<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="^" onclick="doExt()"/> </td>-->
 			<td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value="(" onclick="disn('(')"/> </td> 
             <td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value=")" onclick="disn(')')"/> </td> 
 			<td style="border:none;" ><input style="font-size:24px;height:30px;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td> 
@@ -8010,6 +8155,37 @@ var versionstr = "V.115";
             <!-- solve function call function solve to evaluate value -->
             <td style="border:none;"><input style="font-size:24px;height:33px;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td> 
 			  <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="+" onclick="disop('+')"/> </td> 
+         </tr> 
+      </table>
+</div>
+
+<div id="calculatorExtholder" style="overflow:hidden;z-index:99999;height:147px;;width:95%;position:absolute;float:left;display:none;left:7px;top:81px;background-color:#dddddd;">
+	  <!--<div style="position:relative;float:left;padding-top:5px;width:100%;height:auto;font-size:14px;background-color:#77ff77" class ="title">Use a calculator for this question</div> -->
+      <table style="width:100%;height:auto;background-color:white;" border="1"> 
+	  
+	  <tr> 
+			<!--<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td> -->
+			<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
+			<td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value="x&sup2;" onclick="disop('sq2')"/> </td> 
+            <td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value="x&sup3;" onclick="disop('sq3')"/> </td> 
+			<td style="border:none;" ><input style="font-size:24px;height:30px;" type="button" value="1/x" onclick="disop('inv')"/> </td> 
+         </tr>
+        
+         <tr> 
+            <!-- create button and assign value to each button -->
+            <!-- dis("1") will call function dis to display value -->
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="Sin" onclick="doExt(0)"/> </td> 
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="Cos" onclick="disn('2')"/> </td> 
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="Tan" onclick="disn('3')"/> </td> 
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="+/-" onclick="disop('(')"/> </td> 
+         </tr>
+		 <tr> 
+            <!-- create button and assign value to each button -->
+            <!-- dis("1") will call function dis to display value -->
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="iSin" onclick="doExt(0)"/> </td> 
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="iCos" onclick="disn('2')"/> </td> 
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="iTan" onclick="disn('3')"/> </td> 
+            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="n!" onclick="disop(')')"/> </td> 
          </tr> 
       </table>
 </div>

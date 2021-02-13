@@ -6196,7 +6196,9 @@ window.addEventListener("keydown", function (event) {
   event.preventDefault();
 }, true);
 
+/*
 window.addEventListener("keyup", function (event) {
+
   if (event.defaultPrevented) {
     return; // Do nothing if the event was already processed
   }
@@ -6209,7 +6211,7 @@ window.addEventListener("keyup", function (event) {
 
   // Cancel the default action to avoid it being handled twice
   event.preventDefault();
-}, true);
+}, true);*/
 
 //aas
 function getRndInteger(min, max) {
@@ -6218,14 +6220,15 @@ function getRndInteger(min, max) {
 
 
 function qtimedout() {
-	/*if ( !gamestopped ) {
+/*
+	if ( !gamestopped ) {
 		if ( !checkingquestion) {
 			clearInterval(this.interval);
 			myGameArea.stop();
 			gamestopped = true;
 			document.getElementById("timerbar").style.width = 0 + "px";
 		}
-	}*/
+	}
 	
 	document.getElementById("score").innerHTML = myScore + " out of " + numquestions;
 			
@@ -6245,10 +6248,11 @@ function qtimedout() {
 		else {
 			
 			timerbarwidth = inittimerbarwidth;
-			clearTimeout(qtimeout);
-			clearTimeout(btimeout);
+			//clearTimeout(qtimeout);
+			//clearTimeout(btimeout);
 			setQuestion();
 		}
+*/
 }
 
 function getHigh() {
@@ -6664,7 +6668,7 @@ function startGame() {
 	gamestopped = true;
     //myGameArea.start();
 	//setTimeout(addtoscore, 250);
-	gamestopped = false;
+	//gamestopped = false;
 	myScore = 0;
 	timerbarwidth = inittimerbarwidth;
 	numquestions = 0;
@@ -6954,7 +6958,7 @@ function checkanswer(elem) {
 	//hideDiv(document.getElementById("calculatorholder"),0);
 	//document.getElementById("calculatorholder").style.display = "none";
 	
-	if ( !gamestopped ) {
+	if ( true ) {
 	
 		var qq = "";
 		var rr = 0;
@@ -7111,8 +7115,8 @@ function checkanswer(elem) {
 		}
 		else {
 			timerbarwidth = inittimerbarwidth;
-			clearTimeout(qtimeout);
-			clearTimeout(btimeout);
+			//clearTimeout(qtimeout);
+			//clearTimeout(btimeout);
 			setQuestion();
 		}
 		
@@ -7136,13 +7140,13 @@ function doDownload() {
 }
 
 function updatebar() {
-	if (!checkingquestion) {
-		if ( !gamestopped ) {
-			timerbarwidth = timerbarwidth - (inittimerbarwidth/(initqtimeout/1000));
-			document.getElementById("timerbar").style.width = timerbarwidth + "px";
-			btimeout = setTimeout(updatebar, 1000);
-		}
-	}
+	//if (!checkingquestion) {
+		//if ( !gamestopped ) {
+			//timerbarwidth = timerbarwidth - (inittimerbarwidth/(initqtimeout/1000));
+			//document.getElementById("timerbar").style.width = timerbarwidth + "px";
+		//	btimeout = setTimeout(updatebar, 1000);
+		//}
+	//}
 }
 
 function viewShape() {
@@ -7874,8 +7878,8 @@ function restartGame(typ) {
 	
 	document.getElementById("answers").innerHTML += "<hr>";
 	
-	clearTimeout(qtimeout);
-	clearTimeout(btimeout);
+	//clearTimeout(qtimeout);
+	//clearTimeout(btimeout);
 	timerbarwidth = inittimerbarwidth;
 	document.getElementById("printanswers").disabled = true;
 	document.getElementById("training").disabled = true;
@@ -7966,7 +7970,7 @@ function loadup() {
 	clearInterval(this.interval);
 	myGameArea.stop();
 	gamestopped = true;
-	var mywidth = window.innerWidth - 25;
+	var mywidth = window.innerWidth - 50;
 	
 	if ( mywidth > 500 ) mywidth = 500;
 	
@@ -8129,7 +8133,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.120";
+var versionstr = "V.121";
 
 /* HTMLSTART */
 

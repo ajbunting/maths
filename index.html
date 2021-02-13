@@ -3443,7 +3443,7 @@ function getAddMoneyGCSE() {
 	var sw = examsGCSE[examsGCSECount];
 	canvasID = 0;
 	
-	//sw = 86;
+	//sw = 41;
 	
     switch (sw) {
     	case 1:
@@ -4103,25 +4103,25 @@ function getAddMoney252() {
 
 function getAddMoney251() {
 	
-	var retstr = "The tree below shows the possible outcomes of flipping a fair coin three times in a row.<br><br><img style=\"margin-left:50px;\" width=\"190\" src=" + cleanURL(img_headstails3coins) + "\">";
+	var retstr = "The tree below shows the possible outcomes of flipping a fair coin three times in a row.<br><br><img style=\"margin-left:30px;\" width=\"210\" src=" + cleanURL(img_headstails3coins) + "\">";
 	
 	var ww = getRndInteger(1,5);
-	
+	//ww = 1;
 	switch (ww) {
 		case 1:
-			retstr += "<br><br>What is the probability of getting at least two heads?,&frac12;, &frac13;, &frac14;, &frac23;";
+			retstr += "<br><br>What is the probability of getting at least two heads?,<span style=\"font-size:26px;\">&frac12;</span>, <span style=\"font-size:26px;\">&frac13;</span>, <span style=\"font-size:26px;\">&frac14;</span>, <span style=\"font-size:26px;\">&frac23;</span>";
 			break;
 		case 2:
-			retstr += "<br><br>What is the probability of getting at least two tails?,&frac12;, &frac13;, &frac14;, &frac23;";
+			retstr += "<br><br>What is the probability of getting at least two tails?,<span style=\"font-size:26px;\">&frac12;</span>, <span style=\"font-size:26px;\">&frac13;</span>, <span style=\"font-size:26px;\">&frac14;</span>, <span style=\"font-size:26px;\">&frac23;</span>";
 			break;
 		case 3:
-			retstr += "<br><br>What is the probability of getting at heads only once?,&frac38;, &frac13;, &frac12;, &frac18;";
+			retstr += "<br><br>What is the probability of getting at heads only once?,<span style=\"font-size:26px;\">&frac38;</span>, <span style=\"font-size:26px;\">&frac13;</span>, <span style=\"font-size:26px;\">&frac12;</span>, <span style=\"font-size:26px;\">&frac18;</span>";
 			break;
 		case 4:
-			retstr += "<br><br>What is the probability of getting at at least one tail?,&frac78;, &frac23;, &frac34;, 1";
+			retstr += "<br><br>What is the probability of getting at at least one tail?,<span style=\"font-size:26px;\">&frac78;</span>, <span style=\"font-size:26px;\">&frac23;</span>, <span style=\"font-size:26px;\">&frac34;</span>, <span style=\"font-size:26px;\">1</span>";
 			break;
 		case 5:
-			retstr += "<br><br>What is the probability of getting either three heads or three tails?,&frac14;, &frac13;, &frac18;,&frac12;";
+			retstr += "<br><br>What is the probability of getting either three heads or three tails?,<span style=\"font-size:26px;\">&frac14;</span>, <span style=\"font-size:26px;\">&frac13;</span>, <span style=\"font-size:26px;\">&frac18;</span>,<span style=\"font-size:26px;\">&frac12;</span>";
 			break;
 		
 	}
@@ -4380,9 +4380,9 @@ function getAddMoney241() {
 	var thisname = personnames[getRndInteger(0, personnames.length-1)];
 	var qs = [
 		thisname + " puts three songs A&#44 B and C on shuffle play (without repeat).<br><br>How many different play orders are possible?,6, 8, 3, 4",
-		thisname + " puts three songs A&#44 B and C on shuffle play (without repeat).<br><br>What is the probabilty of song A being either first or second in the playlist?,&frac23;, &frac13;, &frac12;, &frac34;",
-		thisname + " puts three songs A&#44 B and C on shuffle play (without repeat).<br><br>What is the probabilty of song A being second in the playlist?,&frac13;, &frac23;, &frac12;, &frac34;",
-		thisname + " puts three songs A&#44 B and C on shuffle play (without repeat).<br><br>What is the probabilty of song A being last in the playlist?,&frac13;, &frac23;, &frac12;, &frac34;",
+		thisname + " puts three songs A&#44 B and C on shuffle play (without repeat).<br><br>What is the probabilty of song A being either first or second in the playlist?,<span style=\"font-size:26px;\">&frac23;</span>, <span style=\"font-size:26px;\">&frac13;</span>,<span style=\"font-size:26px;\"> &frac12;</span>,<span style=\"font-size:26px;\">&frac34;</span>",
+		thisname + " puts three songs A&#44 B and C on shuffle play (without repeat).<br><br>What is the probabilty of song A being second in the playlist?,<span style=\"font-size:26px;\">&frac13;</span>, <span style=\"font-size:26px;\">&frac23;</span>, <span style=\"font-size:26px;\">&frac12;</span>, <span style=\"font-size:26px;\">&frac34;</span>",
+		thisname + " puts three songs A&#44 B and C on shuffle play (without repeat).<br><br>What is the probabilty of song A being last in the playlist?,<span style=\"font-size:26px;\">&frac13;</span>,<span style=\"font-size:26px;\">&frac23;</span>, <span style=\"font-size:26px;\">&frac12;</span>, <span style=\"font-size:26px;\">&frac34;</span>",
 	];
 	
 	return qs[getRndInteger(0,qs.length-1)];
@@ -8080,7 +8080,7 @@ function showExam() {
 document.getElementById("examquestionfoot").style.display = "block";
 	document.getElementById("examquestiontext").style.display = "block";
 	document.getElementById("examquestionholder").style.display = "block";
-	document.getElementById("examquestionholder").style.height = "290px";
+	document.getElementById("examquestionholder").style.height = "323px";
 }
 
 function hideExam() {
@@ -8133,7 +8133,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.121";
+var versionstr = "V.122";
 
 /* HTMLSTART */
 
@@ -8156,43 +8156,43 @@ var versionstr = "V.121";
 		</button>-->
 		<p  id="catchmsg" style="font-size:12px;color:red;margin-top:-18px;margin-left:40px;"><b><u>Use pen, paper and the calculator when visible</u></b></p>
 		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ff9980;margin-top:4px;border-style:none;font-size:10px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('NUMERACY')"><b>Mixed</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ff9980;margin-top:4px;border-style:none;font-size:14px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('NUMERACY')"><b>MIX</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffcc80;margin-top:4px;border-style:none;font-size:10px;height:15px;width:29px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('ARITH')"><b>+ - x &#247;</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffcc80;margin-top:4px;border-style:none;font-size:14px;height:15px;width:29px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('ARITH')"><b>+/-</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:10px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('FDP')"><b>&nbsp;FDP&nbsp;&nbsp;</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:14px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('FDP')"><b>FDP</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#d9b3ff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('UNITS')"><b>Units</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#d9b3ff;margin-top:4px;border-style:none;font-size:14px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('UNITS')"><b>CM</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3e0ff;margin-top:4px;border-style:none;font-size:10px;height:15px;width:33px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('TIME')"><b>Time/£</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3e0ff;margin-top:4px;border-style:none;font-size:14px;height:15px;width:33px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('TIME')"><b>HR/£</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffb3b3;margin-top:4px;border-style:none;font-size:10px;height:15px;width:29px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('SHAPE')"><b>Shape</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffb3b3;margin-top:4px;border-style:none;font-size:14px;height:15px;width:30px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('SHAPE')"><b>2D</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffff80;margin-top:4px;border-style:none;font-size:10px;height:15px;width:30px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('PROB')"><b>Prob&nbsp;</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding-top:9px;color:black;margin-left:1px;background-color:#ffff80;margin-top:4px;border-style:none;font-size:14px;height:25px;width:47px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('PROB')"><b>PROB</b>
 		</div>
 		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
 		<br><br>
-		<div style="clear:both;border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('E3')"><b>E3 FS&nbsp;</b>
+		<div style="clear:both;border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:14px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('E3')"><b>E3 FS</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:14px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('EXAML1')"><b>L1 FS</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:14px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('EXAM')"><b>L2 FS</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:10px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:14px;height:20px;width:40px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
 					onclick="restartGame('GCSE')"><b>GCSE</b>
 		</div>
-		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:10px;height:20px;width:82px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
-					onclick="restartGame('HELP')"><b>Exam Skills</b>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:14px;height:20px;width:82px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('HELP')"><b>SKILLS</b>
 		</div>
 		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
 		
@@ -8257,51 +8257,51 @@ var versionstr = "V.121";
 
 <p id="encoder" style="display:none"></p>
 
-<div id="calculatorholder" style="overflow:hidden;z-index:90;height:220px;width:95%;position:absolute;float:left;display:none;left:7px;top:10px;background-color:#dddddd;">
+<div id="calculatorholder" style="overflow:hidden;z-index:90;height:220px;width:95%;position:absolute;float:left;display:none;left:7px;top:3px;background-color:#dddddd;">
 	  <!--<div style="position:relative;float:left;padding-top:5px;width:100%;height:auto;font-size:14px;background-color:#77ff77" class ="title">Use a calculator for this question</div> -->
-      <table style="width:100%;height:160px;background-color:white;" border="1"> 
+      <table style="width:100%;height:140px;background-color:white;" border="1"> 
 	  <tr> 
-            <td style="border:none;" colspan="4"><input style="font-size:24px;height:30px;text-align:right;" type="text" readonly id="result"/></td> 
+            <td style="border:none;" colspan="4"><input style="font-size:24px;height:28px;text-align:right;" type="text" readonly id="result"/></td> 
          </tr>
 	  <tr> 
-			<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
+			<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:22px;height:28px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
 			<!--<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="^" onclick="doExt()"/> </td>-->
-			<td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value="(" onclick="disn('(')"/> </td> 
-            <td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value=")" onclick="disn(')')"/> </td> 
-			<td style="border:none;" ><input style="font-size:24px;height:30px;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td> 
+			<td style="border:none;" ><input style="font-size:18px;height:28px;" type="button" value="(" onclick="disn('(')"/> </td> 
+            <td style="border:none;" ><input style="font-size:18px;height:28px;" type="button" value=")" onclick="disn(')')"/> </td> 
+			<td style="border:none;" ><input style="font-size:22px;height:28px;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td> 
          </tr>
         
          <tr> 
             <!-- create button and assign value to each button -->
             <!-- dis("1") will call function dis to display value -->
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="1" onclick="disn('1')"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="2" onclick="disn('2')"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="3" onclick="disn('3')"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="&#247" onclick="disop('/')"/> </td> 
+            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="1" onclick="disn('1')"/> </td> 
+            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="2" onclick="disn('2')"/> </td> 
+            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="3" onclick="disn('3')"/> </td> 
+            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="&#247" onclick="disop('/')"/> </td> 
          </tr> 
          <tr> 
-            <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="4" onclick="disn('4')"/> </td> 
-            <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="5" onclick="disn('5')"/> </td> 
-            <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="6" onclick="disn('6')"/> </td> 
-			<td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="x" onclick="disop('*')"/> </td> 			
+            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="4" onclick="disn('4')"/> </td> 
+            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="5" onclick="disn('5')"/> </td> 
+            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="6" onclick="disn('6')"/> </td> 
+			<td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="x" onclick="disop('*')"/> </td> 			
          </tr> 
          <tr> 
-            <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="7" onclick="disn('7')"/> </td> 
-            <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="8" onclick="disn('8')"/> </td> 
-            <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="9" onclick="disn('9')"/> </td> 
-			 <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="-" onclick="disop('-')"/> </td>
+            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="7" onclick="disn('7')"/> </td> 
+            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="8" onclick="disn('8')"/> </td> 
+            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="9" onclick="disn('9')"/> </td> 
+			 <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="-" onclick="disop('-')"/> </td>
          </tr> 
          <tr> 
-            <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="0" onclick="disn('0')"/> </td> 
-			 <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="&#8729;" onclick="disn('.')"/> </td> 
+            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="0" onclick="disn('0')"/> </td> 
+			 <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="&#8729;" onclick="disn('.')"/> </td> 
             <!-- solve function call function solve to evaluate value -->
-            <td style="border:none;"><input style="font-size:24px;height:33px;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td> 
-			  <td style="border:none;"><input style="font-size:24px;height:33px;" type="button" value="+" onclick="disop('+')"/> </td> 
+            <td style="border:none;"><input style="font-size:22px;height:28px;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td> 
+			  <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="+" onclick="disop('+')"/> </td> 
          </tr> 
       </table>
 </div>
 
-<div id="calculatorExtholder" style="overflow:hidden;z-index:99999;height:147px;;width:95%;position:absolute;float:left;display:none;left:7px;top:81px;background-color:#dddddd;">
+<div id="calculatorExtholder" style="overflow:hidden;z-index:99999;height:147px;;width:95%;position:absolute;float:left;display:none;left:7px;top:71px;background-color:#dddddd;">
 	  <!--<div style="position:relative;float:left;padding-top:5px;width:100%;height:auto;font-size:14px;background-color:#77ff77" class ="title">Use a calculator for this question</div> -->
       <table style="width:100%;height:auto;background-color:white;" border="1"> 
 	  
@@ -8344,11 +8344,11 @@ var versionstr = "V.121";
 	 </div>
 </div>
 
-<div id="examquestionholder" style="z-index:99;overflow:hidden;height:0px;width:97%;position:absolute;left:5px;top:230px;background-color:white;">
-	 <div id="examquestiontext" style="overflow:auto;padding:10px;height:76%;width:95%;position:relative;background-color:white;color:black;font-size:12px;">
+<div id="examquestionholder" style="z-index:99;overflow:hidden;height:0px;width:97%;position:absolute;left:5px;top:203px;background-color:white;">
+	 <div id="examquestiontext" style="overflow:auto;padding:10px;height:80%;width:95%;position:relative;background-color:white;color:black;font-size:14px;">
 		<span style="color:red;font-size:26px;">On some devices this APP will not work correctly - If you see this text then this is the case on your device.<br><br>Please use Chrome if this is the case.</span>
 	 </div>
-	 <div id="examquestionfoot" style="color:black;padding-top:10px;border-top-color: black;border-top-width: 1px;border-top-style: solid;;text-align:center;height:24%;width:100%;position:relative;background-color:white;margin-top:10px;">
+	 <div id="examquestionfoot" style="color:black;padding-top:10px;border-top-color: black;border-top-width: 1px;border-top-style: solid;;text-align:center;height:20%;width:100%;position:relative;background-color:white;margin-top:10px;">
 		<button onclick="showHelp(570)">Help! I'm Stuck!</button><button style="margin-left:10px;background-color:#ddaaaa;margin-top:0px;margin-bottom:1px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colExam('#ddaaaa')"><b>&nbsp;</b></button>
 		<button style="background-color:#aaddaa;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colExam('#aaddaa')"><b>&nbsp;</b></button>
 		<button style="background-color:#aaccff;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colExam('#aaccff')"><b>&nbsp;</b></button>

@@ -7434,6 +7434,16 @@ function hideInputs() {
 		return;
 	}
 	hideHelp();
+	
+	var mywidth = window.innerWidth - 50;
+	
+	if ( mywidth > 500 ) mywidth = 500;
+	
+	currentzoom = mywidth/350;
+	document.body.style.zoom = currentzoom * 0.96;
+	
+	window.scrollTo(0,0);
+	window.parent.scrollTo(0,0);
 }
 
 function restartGame(typ) {
@@ -8213,7 +8223,7 @@ function loadup() {
 	if ( mywidth > 500 ) mywidth = 500;
 	
 	currentzoom = mywidth/350;
-	document.body.style.zoom = currentzoom * 0.94;
+	document.body.style.zoom = currentzoom * 0.96;
 	
 	window.scrollTo(0,0);
 	window.parent.scrollTo(0,0);
@@ -8371,7 +8381,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.125";
+var versionstr = "V.127";
 
 /* HTMLSTART */
 
@@ -8441,23 +8451,6 @@ var versionstr = "V.125";
 		</div>
 </div>
 
-
-<!--<div id="answerbuttons" style="color:black;margin-left:5px;margin-bottom:10px;display:block;margin-top:0px;height:auto;min-height:325px;background-color:#cccccc;float:left;position:relative;text-align:center;font-family:Arial;width:340px;">
-		<div id="timerbar" style="width: 100%; height: 5px; background-color: #cccccc;"></div>
-		<div id="question" style="color:black;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;font-size:12px;position:relative;float:left;width:350px;height:70px;margin-top:0px;"></div>
-    	<div id="btn1" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;display:flex;"></div>
-  		<div id="btn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;clear:both;margin-top:5px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;display:flex;"></div>
-  		<div id="btn3" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;clear:both;margin-top:5px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;display:flex;"></div>
-  		<div id="btn4" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;clear:both;margin-bottom:2px;margin-top:5px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;display:flex;"></div>
-		<div style="overflow:hidden;display:none;">
-		<div id="ebtn1" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:10px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;display:flex;"></div>
-  		<div id="ebtn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;margin-top:0px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;display:flex;"></div>
-  		<div id="ebtn3" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;margin-top:0px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;display:flex;"></div>
-  		<div id="ebtn4" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;overflow:hidden;margin-bottom:2px;margin-top:0px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;display:flex;"></div>
-		</div>
-		
-</div>-->
-
 <div id="answerbuttons" style="color:black;margin-left:5px;margin-bottom:10px;display:block;margin-top:0px;height:auto;min-height:325px;background-color:#cccccc;float:left;position:relative;text-align:center;font-family:Arial;width:350px;">
 		<div id="timerbar" style="width: 100%; height: 5px; background-color: #cccccc;"></div>
 		<div id="helpbtn" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="showHelp(570)" style="display:none;text-align:center;overflow:hidden;clear:both;margin-bottom:15px;font-weight:bold;color:black;padding:5px;position:relative;float:left;background-color:#88dd88;border-style:none;max-height:90px;height:auto;font-size:10px;width:10%;border-radius:15px;margin-left:5px;margin-top:10px;">VIEW HELP FOR TOPIC</div>
@@ -8466,10 +8459,7 @@ var versionstr = "V.125";
   		<div id="btn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;clear:both;margin-top:5px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;"></div>
   		<div id="btn3" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;clear:both;margin-top:5px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;"></div>
   		<div id="btn4" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;clear:both;margin-bottom:2px;margin-top:5px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;"></div>
-		<!--<div style="overflow:hidden;display:none;">-->
 		
-		<!--</div>-->
-		<!--<div id="helpbtn" onclick="showHelp()" style="overflow:hidden;clear:both;margin-bottom:0px;margin-top:2px;font-weight:bold;display:flex;justify-content:center;align-items:center;color:black;margin-left:118px;padding:5px;position:relative;float:left;background-color:#88dd88;border-style:none;max-height:90px;height:10px;font-size:10px;width:100px;display:flex;border-radius:15px;display:none;">VIEW HELP</div>-->
 		<div id="ebtn1" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="display:none;color:black;font-weight:bold;color:black;margin-left:10px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;"></div>
   		<div id="ebtn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="display:none;color:black;margin-top:0px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;"></div>
   		<div id="ebtn3" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="display:none;color:black;margin-top:0px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;"></div>
@@ -8481,10 +8471,7 @@ var versionstr = "V.125";
 <div id="answerscontainer" style="background-color:#dddddd;border-bottom-left-radius:30px;border-bottom-right-radius:30px;color:black;text-align:left;display:none;position:relative;float:left;width:340px;height:auto;font-size:12px;">
 	
 	<div class="printPageButton" style="padding:15px;background-color:#cccccc;">
-		<!--<p style="width:100%;color:black;font-size:18px;">If working remotely, select <u>Save to PDF</u> as the printer type from the printer destination drop down menu in the print dialogue that you see after clicking the print button and send your file to your tutor via Teams or email.</p>
-		<p style="width:100%;color:black;font-size:18px;">If your result is not a pass grade, try the quiz with <u>Study Mode</u> turned on. You will be able to do the quiz with the correct answers highlighted. you will also get links to the relevant study page if one exists.</p>
-		<p style="width:100%;color:black;font-size:18px;">Practice with the study mode and the resource links - <b>what is the highest grade you can get?</b></p>
-		--><button id="printanswers" style="display:none;padding-top:10px;float:right;font-size:18px;border-radius:10px;background-color:white;border-style:none;width:250px;height:50px;margin-bottom:15px;margin-top:-310px;margin-right:10px;" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="printDiv()"><b>Click to Print Results</b></button>
+		<button id="printanswers" style="display:none;padding-top:10px;float:right;font-size:18px;border-radius:10px;background-color:white;border-style:none;width:250px;height:50px;margin-bottom:15px;margin-top:-310px;margin-right:10px;" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="printDiv()"><b>Click to Print Results</b></button>
 	</div>
 	
 	<div id="answers" style="background-color:#dddddd;border-bottom-left-radius:30px;border-bottom-right-radius:30px;color:black;padding-left:10px;text-align:left;position:relative;float:left;width:340px;height:280px;overflow:auto;font-size:12px;">
@@ -8495,7 +8482,7 @@ var versionstr = "V.125";
 
 <p id="encoder" style="display:none"></p>
 
-<div id="calculatorholder" style="overflow:hidden;z-index:9999;height:195px;width:352px;position:absolute;float:left;display:none;left:3px;top:3px;background-color:#dddddd;">
+<div id="calculatorholder" style="border-radius: 20px 20px 0px 0px;overflow:hidden;z-index:9999;height:195px;width:100%;position:absolute;float:left;display:none;left:0px;top:3px;background-color:#dddddd;">
 	  <table id="calctable" style="font-size:22px;table-layout:fixed;width:100%;height:76%;background-color:white;" border="1">
 			 <tr style="height:14%">
             <td style="border:none;height:15%;font-size:95%;" colspan="4"><input style="height:90%;font-size:100%;text-align:right;" type="text" readonly id="result"/></td>
@@ -8529,7 +8516,7 @@ var versionstr = "V.125";
             <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn19" style="font-size:95%;height:100%;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td>
 			  <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn20"  style="font-size:95%;height:100%;" type="button" value="+" onclick="disop('+')"/> </td> 
          </tr>
-		<tr style="height:15px;"> 
+		<tr style="height:8px;"> 
 			<td style="border:none;;background-color:#dddddd;" colspan="4"></td>
 		</tr>
 		</table>

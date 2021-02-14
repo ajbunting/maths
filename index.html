@@ -458,7 +458,7 @@ var helpArray = [
 	"Before doing a divide what should you check?, Make sure you are dividing the numbers the right way round - if you get a weird answer that is <u>way too small</u> you should try reversing the division, It won't matter either way the answer will be the same, There is not enough time to think about everything, The examiner will see what I meant so don't worry",
 	"If you are asked to work out how many small things (like tiles) fit inside a large thing (like a wall) and you get a small decimal answer what should you do?, Check and reverse your division - you probably made a common mistake and had it the wrong way round, Panic and leave the rest of the question, Plough on - people quite often buy 0.00023 tiles, Put a line through the working out and start the whole question again", 
 	"When asked to draw up a timing plan for some activities what do they mean?, I create a table with a row for each activity and columns for start time, end time and what the activity is, It's some kind so written description that summarises the question, Write down one line for each stage, Move on I hate timings",
-	"When drawing up tables and charts what should I do?, sketh it out on rough paper and then use a ruler and a pencil to do it properly, Use my pen and drawe lines as straight as I can, Sketch it out as long as it looks close I'll get the marks, Leave this question I hate the table ones",
+	"When drawing up tables and charts what should I do?, sketh it out on rough paper and then use a ruler and a pencil to do it properly, Use my pen and draw lines as straight as I can, Sketch it out as long as it looks close I'll get the marks, Leave this question I hate the table ones",
 	"When drawing graphs or bar charts what should you always do?,Rough Sketch first then - Numbner axes carefully (starting from zero) - Use Pencil - Use Ruler - Title - Label Axes, Draw it roughly as they are only looking for a rough idea, Not enouh time to do everything as long as its close it will be OK, I can draw lines rather than bars as bars take too long",
 ];
 
@@ -8331,7 +8331,7 @@ function showExam() {
 document.getElementById("examquestionfoot").style.display = "block";
 	document.getElementById("examquestiontext").style.display = "block";
 	document.getElementById("examquestionholder").style.display = "block";
-	document.getElementById("examquestionholder").style.height = "320px";
+	document.getElementById("examquestionholder").style.height = "310px";
 }
 
 function hideExam() {
@@ -8384,7 +8384,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.139";
+var versionstr = "V.140";
 
 /* HTMLSTART */
 
@@ -8557,8 +8557,8 @@ var versionstr = "V.139";
 	 </div>
 </div>
 
-<div id="examquestionholder" style="z-index:999;overflow:hidden;height:0px;width:97%;position:absolute;left:5px;top:205px;background-color:white;">
-	 <div id="examquestiontext" style="overflow:auto;padding:10px;height:80%;width:95%;position:relative;background-color:white;color:black;font-size:14px;">
+<div id="examquestionholder" style="border-top:solid;border-top-color:black;border-top-width:1px;z-index:999;overflow:hidden;height:0px;width:97%;position:absolute;left:5px;top:215px;background-color:white;">
+	 <div id="examquestiontext" style="border-top:black;overflow:auto;padding:10px;height:80%;width:95%;position:relative;background-color:white;color:black;font-size:14px;">
 		<span style="color:red;font-size:26px;">On some devices this APP will not work correctly - If you see this text then this is the case on your device.<br><br>Please use Chrome if this is the case.</span>
 	 </div>
 	 <div id="examquestionfoot" style="color:black;padding-top:10px;border-top-color: black;border-top-width: 1px;border-top-style: solid;;text-align:center;height:20%;width:100%;position:relative;background-color:white;margin-top:10px;">

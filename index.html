@@ -12,6 +12,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <style>
+
+input {
+	-webkit-appearance: none;
+-webkit-border-radius: none;
+border-radius: 0px;
+}
  .title{ 
          margin-bottom: 10px; 
          text-align:center; 
@@ -165,7 +171,7 @@ var newworking = false;
          //function that evaluates the digit and return result 
          function solve() 
          { 
-             var x = document.getElementById("result").value 
+             var x = document.getElementById("result").value ;
              var y = eval(x) 
 			 
 			 if ( newworking ) {
@@ -173,6 +179,16 @@ var newworking = false;
 				working = working.replace("/","&#247;"); 
 				newworking = false;
 			 }
+			 
+			 document.getElementById("result").value = parseFloat(y.toFixed(5));
+			 
+			 clearcalc = true;
+         } 
+		 
+		 function fsolve() 
+         { 
+             var x = document.getElementById("result").value 
+             var y = eval(x) 
 			 
              document.getElementById("result").value = parseFloat(y.toFixed(5));
 			 
@@ -185,11 +201,233 @@ var newworking = false;
              document.getElementById("result").value = "" 
          } 
 		 
-		 function doExt(elem) {
-			if ( document.getElementById("calculatorExtholder").style.display == "block")
-				document.getElementById("calculatorExtholder").style.display = "none";
-			else
-				document.getElementById("calculatorExtholder").style.display = "block";
+		 var calcextended = false;
+		 function doExt() {
+			if ( calcextended ) {
+				document.getElementById("calculatorholder").style.height = "190px";
+				
+				calcextended = false;
+			}
+			else {
+				document.getElementById("calculatorholder").style.height = "470px";
+				
+				calcextended = true;
+			}
+		 }
+		 
+		 function xsqr() {
+			
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					document.getElementById("result").value = parseFloat(Math.pow(x,2).toFixed(5));
+					
+					if ( newworking ) {
+						working = working + document.getElementById("result").value + " = SQUARE(" + x + ")<br>";
+						working = working.replace("/","&#247;"); 
+						newworking = false;
+					}
+				}
+			
+		 }
+		 
+		 function sqrt() {
+			
+				newworking = true;
+				
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					if ( Number(x) > 0 ) {
+						document.getElementById("result").value = parseFloat(Math.sqrt(x).toFixed(5));
+						
+						if ( newworking ) {
+							working = working + document.getElementById("result").value + " = SQROOT(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = false;
+						}
+					}
+				}
+			
+		 }
+		 
+		 function xcube() {
+				
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					document.getElementById("result").value = parseFloat(Math.pow(x,3).toFixed(5));
+					
+					if ( newworking ) {
+							working = working + document.getElementById("result").value + " = CUBE(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = false;
+					}
+				}
+		 }
+		 
+		 function xinv() {
+			
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					
+						document.getElementById("result").value = parseFloat((1/x).toFixed(5));
+						
+						if ( newworking ) {
+							working = working + document.getElementById("result").value + " = INV(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = false;
+						}
+					
+				}
+			
+		 }
+		 
+		 function Sinx() {
+			
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					
+						document.getElementById("result").value = parseFloat(Math.sin(x * Math.PI / 180).toFixed(8));
+						
+						//if ( newworking ) {
+							working = working + document.getElementById("result").value + " = Sin(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = true;
+						//}
+					
+				}
+			
+		 }
+		 
+		 function iSinx() {
+			
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					
+						document.getElementById("result").value = parseFloat(Math.asin(x)*180/Math.PI).toFixed(2);
+						
+						//if ( newworking ) {
+							working = working + document.getElementById("result").value + " = INVSin(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = true;
+						//}
+					
+				}
+			
+		 }
+		 
+		 
+		 function Cosx() {
+			
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					
+						document.getElementById("result").value = parseFloat(Math.cos(x * Math.PI / 180).toFixed(8));
+						
+						//if ( newworking ) {
+							working = working + document.getElementById("result").value + " = Sin(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = true;
+						//}
+					
+				}
+			
+		 }
+		 
+		  function iCosx() {
+			
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					
+						document.getElementById("result").value = parseFloat(Math.acos(x)*180/Math.PI).toFixed(2);
+						
+						//if ( newworking ) {
+							working = working + document.getElementById("result").value + " = INVSin(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = true;
+						//}
+					
+				}
+			
+		 }
+		 
+		 function Tanx() {
+			
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					
+						document.getElementById("result").value = parseFloat(Math.tan(x * Math.PI / 180).toFixed(8));
+						
+						//if ( newworking ) {
+							working = working + document.getElementById("result").value + " = Sin(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = true;
+						//}
+					
+				}
+			
+		 }
+		 
+		 function iTanx() {
+			
+				newworking = true;
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					
+						document.getElementById("result").value = parseFloat(Math.atan(x)*180/Math.PI).toFixed(2);
+						
+						//if ( newworking ) {
+							working = working + document.getElementById("result").value + " = INVSin(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = true;
+						//}
+					
+				}
+			
+		 }
+		 
+		 function xcubert() {
+			newworking = true;
+				
+				fsolve();
+				var x = document.getElementById("result").value;
+				
+				if ( ! isNaN(x) ) {
+					if ( Number(x) > 0 ) {
+						document.getElementById("result").value = parseFloat(Math.cbrt(x).toFixed(5));
+						
+						if ( newworking ) {
+							working = working + document.getElementById("result").value + " = SQROOT(" + x + ")<br>";
+							working = working.replace("/","&#247;"); 
+							newworking = false;
+						}
+					}
+				}
 		 }
 var quizlength = 30;
 
@@ -8133,7 +8371,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.122";
+var versionstr = "V.123";
 
 /* HTMLSTART */
 
@@ -8257,79 +8495,64 @@ var versionstr = "V.122";
 
 <p id="encoder" style="display:none"></p>
 
-<div id="calculatorholder" style="overflow:hidden;z-index:90;height:220px;width:95%;position:absolute;float:left;display:none;left:7px;top:3px;background-color:#dddddd;">
-	  <!--<div style="position:relative;float:left;padding-top:5px;width:100%;height:auto;font-size:14px;background-color:#77ff77" class ="title">Use a calculator for this question</div> -->
-      <table style="width:100%;height:140px;background-color:white;" border="1"> 
-	  <tr> 
-            <td style="border:none;" colspan="4"><input style="font-size:24px;height:28px;text-align:right;" type="text" readonly id="result"/></td> 
+<div id="calculatorholder" style="overflow:hidden;z-index:9999;height:190px;width:350px;position:absolute;float:left;display:none;left:5px;top:8px;background-color:#dddddd;">
+	  <table id="calctable" style="font-size:22px;table-layout:fixed;width:100%;height:76%;background-color:white;" border="1">
+			 <tr style="height:14%">
+            <td style="border:none;height:15%;font-size:95%;" colspan="4"><input style="height:95%;font-size:100%;text-align:right;" type="text" readonly id="result"/></td>
          </tr>
-	  <tr> 
-			<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:22px;height:28px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
-			<!--<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="^" onclick="doExt()"/> </td>-->
-			<td style="border:none;" ><input style="font-size:18px;height:28px;" type="button" value="(" onclick="disn('(')"/> </td> 
-            <td style="border:none;" ><input style="font-size:18px;height:28px;" type="button" value=")" onclick="disn(')')"/> </td> 
-			<td style="border:none;" ><input style="font-size:22px;height:28px;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td> 
+	  <tr style="height:14%;">
+			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn1" style="height:100%;font-size:95%" type="button" value="[-]" onclick="doExt()"/> </td>
+			<td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn2" style="height:100%;font-size:95%" type="button" value="(" onclick="disn('(')"/> </td>
+            <td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn3" style="height:100%;font-size:95%" type="button" value=")" onclick="disn(')')"/> </td>
+			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn4" style="font-size:95%;height:100%;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td>
          </tr>
-        
-         <tr> 
-            <!-- create button and assign value to each button -->
-            <!-- dis("1") will call function dis to display value -->
-            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="1" onclick="disn('1')"/> </td> 
-            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="2" onclick="disn('2')"/> </td> 
-            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="3" onclick="disn('3')"/> </td> 
-            <td style="border:none;" ><input style="font-size:22px;height:28px;" type="button" value="&#247" onclick="disop('/')"/> </td> 
-         </tr> 
-         <tr> 
-            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="4" onclick="disn('4')"/> </td> 
-            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="5" onclick="disn('5')"/> </td> 
-            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="6" onclick="disn('6')"/> </td> 
-			<td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="x" onclick="disop('*')"/> </td> 			
-         </tr> 
-         <tr> 
-            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="7" onclick="disn('7')"/> </td> 
-            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="8" onclick="disn('8')"/> </td> 
-            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="9" onclick="disn('9')"/> </td> 
-			 <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="-" onclick="disop('-')"/> </td>
-         </tr> 
-         <tr> 
-            <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="0" onclick="disn('0')"/> </td> 
-			 <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="&#8729;" onclick="disn('.')"/> </td> 
-            <!-- solve function call function solve to evaluate value -->
-            <td style="border:none;"><input style="font-size:22px;height:28px;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td> 
-			  <td style="border:none;"><input style="font-size:22px;height:28px;" type="button" value="+" onclick="disop('+')"/> </td> 
-         </tr> 
-      </table>
-</div>
-
-<div id="calculatorExtholder" style="overflow:hidden;z-index:99999;height:147px;;width:95%;position:absolute;float:left;display:none;left:7px;top:71px;background-color:#dddddd;">
-	  <!--<div style="position:relative;float:left;padding-top:5px;width:100%;height:auto;font-size:14px;background-color:#77ff77" class ="title">Use a calculator for this question</div> -->
-      <table style="width:100%;height:auto;background-color:white;" border="1"> 
-	  
-	  <tr> 
-			<!--<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td> -->
-			<td style="border:none;" ><input style="padding-bottom:5px;font-family:Times;font-size:24px;height:30px;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
-			<td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value="x&sup2;" onclick="disop('sq2')"/> </td> 
-            <td style="border:none;" ><input style="font-size:20px;height:30px;" type="button" value="x&sup3;" onclick="disop('sq3')"/> </td> 
-			<td style="border:none;" ><input style="font-size:24px;height:30px;" type="button" value="1/x" onclick="disop('inv')"/> </td> 
+         <tr style="height:14%;">
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn5" style="font-size:95%;height:100%;font-size:95%" type="button" value="1" onclick="disn('1')"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn6" style="font-size:95%;height:100%;" type="button" value="2" onclick="disn('2')"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn7" style="font-size:95%;height:100%;" type="button" value="3" onclick="disn('3')"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn8" style="font-size:95%;height:100%;" type="button" value="&#247" onclick="disop('/')"/> </td>
          </tr>
-        
-         <tr> 
-            <!-- create button and assign value to each button -->
-            <!-- dis("1") will call function dis to display value -->
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="Sin" onclick="doExt(0)"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="Cos" onclick="disn('2')"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="Tan" onclick="disn('3')"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="+/-" onclick="disop('(')"/> </td> 
-         </tr>
-		 <tr> 
-            <!-- create button and assign value to each button -->
-            <!-- dis("1") will call function dis to display value -->
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="iSin" onclick="doExt(0)"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="iCos" onclick="disn('2')"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="iTan" onclick="disn('3')"/> </td> 
-            <td style="border:none;" ><input style="font-size:24px;height:33px;" type="button" value="n!" onclick="disop(')')"/> </td> 
+         <tr style="height:14%;">
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn9" style="font-size:95%;height:100%;" type="button" value="4" onclick="disn('4')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn10" style="font-size:95%;height:100%;" type="button" value="5" onclick="disn('5')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn11" style="font-size:95%;height:100%;" type="button" value="6" onclick="disn('6')"/> </td> 
+			<td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn12" style="font-size:95%;height:100%;" type="button" value="x" onclick="disop('*')"/> </td> </tr>
+         <tr style="height:14%;">
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn13" style="font-size:95%;height:100%;" type="button" value="7" onclick="disn('7')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn14"  style="font-size:95%;height:100%;" type="button" value="8" onclick="disn('8')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn15" style="font-size:95%;height:100%;" type="button" value="9" onclick="disn('9')"/> </td> 
+			 <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn16" style="font-size:95%;height:100%;" type="button" value="-" onclick="disop('-')"/> </td>
          </tr> 
-      </table>
+         <tr style="height:14%;"> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn17" style="font-size:95%;height:100%;" type="button" value="0" onclick="disn('0')"/> </td>
+			 <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn18" style="font-size:95%;height:100%;" type="button" value="&#8729;" onclick="disn('.')"/> </td>
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn19" style="font-size:95%;height:100%;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td>
+			  <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn20"  style="font-size:95%;height:100%;" type="button" value="+" onclick="disop('+')"/> </td> 
+         </tr>
+		<tr style="height:2%;"> 
+			<td style="border:none;;background-color:#ffff33;" colspan="4"></td>
+		</tr>
+		</table>
+		<table style="font-size:22px;table-layout:fixed;width:100%;height:24%;background-color:white;" border="1">
+		 <tr style="height:33%;"> 
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn21" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn22" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times" type="button" value="x&sup2;" onclick="xsqr()"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn22" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times" type="button" value="x&sup3;" onclick="xcube()"/> </td>
+			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn23" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="&radic;x" onclick="sqrt()"/> </td>
+			 </tr>
+		 <tr style="height:33%;"> 
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn25" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="Sin" onclick="Sinx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn26" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times" type="button" value="Cos" onclick="Cosx()"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn27" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="Tan" onclick="Tanx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn28" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;" type="button" value="1/x" onclick="xinv()"/> </td>
+         </tr>
+		 <tr style="height:33%;"> 
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn25" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="invSin" onclick="iSinx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn26" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times" type="button" value="invCos" onclick="iCosx()"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn27" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="invTan" onclick="iTanx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn28" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;" type="button" value="&#8731;x" onclick="xcubert()"/> </td>
+         </tr>
+		</table>
 </div>
 
 <div id="helpholder" style="z-index:9999;overflow:hidden;height:0px;width:96%;position:absolute;left:7px;top:7px;background-color:white;">
@@ -8344,7 +8567,7 @@ var versionstr = "V.122";
 	 </div>
 </div>
 
-<div id="examquestionholder" style="z-index:99;overflow:hidden;height:0px;width:97%;position:absolute;left:5px;top:203px;background-color:white;">
+<div id="examquestionholder" style="z-index:99;overflow:hidden;height:0px;width:97%;position:absolute;left:5px;top:190px;background-color:white;">
 	 <div id="examquestiontext" style="overflow:auto;padding:10px;height:80%;width:95%;position:relative;background-color:white;color:black;font-size:14px;">
 		<span style="color:red;font-size:26px;">On some devices this APP will not work correctly - If you see this text then this is the case on your device.<br><br>Please use Chrome if this is the case.</span>
 	 </div>

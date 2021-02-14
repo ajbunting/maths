@@ -7440,7 +7440,7 @@ function hideInputs() {
 	if ( mywidth > 500 ) mywidth = 500;
 	
 	currentzoom = mywidth/350;
-	document.body.style.zoom = currentzoom * 0.96;
+	document.body.style.zoom = currentzoom * 0.97;
 	
 	window.scrollTo(0,0);
 	window.parent.scrollTo(0,0);
@@ -8223,7 +8223,7 @@ function loadup() {
 	if ( mywidth > 500 ) mywidth = 500;
 	
 	currentzoom = mywidth/350;
-	document.body.style.zoom = currentzoom * 0.96;
+	document.body.style.zoom = currentzoom * 0.97;
 	
 	window.scrollTo(0,0);
 	window.parent.scrollTo(0,0);
@@ -8381,7 +8381,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.130";
+var versionstr = "V.131";
 
 /* HTMLSTART */
 
@@ -8482,7 +8482,7 @@ var versionstr = "V.130";
 
 <p id="encoder" style="display:none"></p>
 
-<div id="calculatorholder" style="overflow:hidden;z-index:9999;height:195px;width:340px;position:absolute;float:left;display:none;left:10px;top:-5px;background-color:#dddddd;">
+<div id="calculatorholder" style="padding:5px;overflow:hidden;z-index:9999;height:195px;width:340px;position:absolute;float:left;display:none;left:5px;top:-5px;background-color:#dddddd;">
 	  <table id="calctable" style="font-size:22px;table-layout:fixed;width:100%;height:76%;background-color:white;" border="1">
 			 <tr style="height:14%">
             <td style="border:none;height:15%;font-size:95%;" colspan="4"><input style="height:90%;font-size:100%;text-align:right;" type="text" readonly id="result"/></td>
@@ -8516,7 +8516,7 @@ var versionstr = "V.130";
             <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn19" style="font-size:95%;height:100%;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td>
 			  <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn20"  style="font-size:95%;height:100%;" type="button" value="+" onclick="disop('+')"/> </td> 
          </tr>
-		<tr style="height:8px;"> 
+		<tr style="height:10px;"> 
 			<td style="border:none;;background-color:#dddddd;" colspan="4"></td>
 		</tr>
 		</table>

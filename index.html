@@ -4757,7 +4757,7 @@ function getAddMoney233() {
 	
 	var retstr = "Circle A has a radius of " + radA + "cm";
 	
-	var areaCircle = Number(3.14 * radA * radA).toFixed(2);
+	var areaCircle = Number(3.142 * radA * radA).toFixed(2);
 	
 	var length = getRndInteger(4,8);
 	var width = getRndInteger(9,15);
@@ -4768,7 +4768,7 @@ function getAddMoney233() {
 	
 	retstr += "<br><br>Rectangle B has a length of " + length + "cm and a width of " + width + " cm";
 	
-	retstr += "<br><br>Using a value of 3.14 for &#960; what is the total area of circle A and rectangle B?," + Number(ans).toFixed(2) + " cm&sup2;," + Number(Number(ans)+1).toFixed(2) + " cm&sup2;," + Number(Number(ans)-1).toFixed(2) + " cm&sup2;," + Number(Number(ans)+2).toFixed(2) + " cm&sup2;";
+	retstr += "<br><br>Using a value of 3.142 for &#960; what is the total area of circle A and rectangle B?," + Number(ans).toFixed(2) + " cm&sup2;," + Number(Number(ans)+1).toFixed(2) + " cm&sup2;," + Number(Number(ans)-1).toFixed(2) + " cm&sup2;," + Number(Number(ans)+2).toFixed(2) + " cm&sup2;";
 
 	document.getElementById("helptext").innerHTML = 'Remember: Area of circle = &#960; x Radius x Radius\
 															<br><br>Remember: Area of rectangle = length x width.\
@@ -8384,7 +8384,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.138";
+var versionstr = "V.139";
 
 /* HTMLSTART */
 
@@ -8492,9 +8492,9 @@ var versionstr = "V.138";
          </tr>
 	  <tr style="height:14%;">
 			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn1" style="height:100%;font-size:80%" type="button" value="[-]" onclick="doExt()"/> </td>
-			<td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn2" style="height:100%;font-size:95%" type="button" value="(" onclick="disn('(')"/> </td>
-            <td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn3" style="height:100%;font-size:95%" type="button" value=")" onclick="disn(')')"/> </td>
-			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn4" style="font-size:95%;height:100%;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td>
+			<td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn2" style="height:100%;font-size:80%" type="button" value="(" onclick="disn('(')"/> </td>
+            <td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn3" style="height:100%;font-size:80%" type="button" value=")" onclick="disn(')')"/> </td>
+			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn4" style="font-size:80%;height:100%;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td>
          </tr>
          <tr style="height:14%;">
             <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn5" style="font-size:95%;height:100%;font-size:95%" type="button" value="1" onclick="disn('1')"/> </td>

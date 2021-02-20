@@ -2357,7 +2357,7 @@ function getAddMoneyE3100() {
 /* L1START */
 
 var examsNewL1 = [1,2,3,5,6,7,9,10,12,13,15,16,17,18,19,20,21,22,24,25,26,28,30,31,32,33,34,35,36,
-37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57];
+37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
 
 function getAddMoneyL1() {
 	
@@ -2370,7 +2370,7 @@ function getAddMoneyL1() {
 	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
 													
 	var sw = examsNewL1[examsNewL1Count];
-	//sw = 57;
+	//sw = 62;
     switch (sw) {
     	case 1:
         	return getAddMoney1();
@@ -2543,11 +2543,164 @@ function getAddMoneyL1() {
 		case 57:
 			return getAddMoney10025();
 			break;
+		case 58:
+			return getAddMoney10026();
+			break;
+		case 59:
+			return getAddMoney10027();
+			break;
+		case 60:
+			return getAddMoney10028();
+			break;
+		case 61:
+			return getAddMoney10029();
+			break;
+		case 62:
+			return getAddMoney10030();
+			break;
     }
     
 }
 
 /* L1START */
+
+function getAddMoney10030() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " sells craft items once every year at Christmas and wants to calculate the average mean amount of profit made each year.";
+	
+	retstr += "<br><br>The data collected so far is as follows:";
+	
+	var spent2017 = getRndInteger(100,250);
+	var collected2017 = getRndInteger(350,450);
+	retstr += "<br><br>2017 - Stock costs of £" + spent2017 + " and takings of £" + collected2017;
+	
+	var spent2018 = getRndInteger(100,250);
+	var collected2018 = getRndInteger(350,450);
+	retstr += "<br>2018 - Stock costs of £" + spent2018 + " and takings of £" + collected2018;
+	
+	var spent2019 = getRndInteger(100,250);
+	var collected2019 = getRndInteger(350,450);
+	retstr += "<br>2019 - Stock costs of £" + spent2019 + " and takings of £" + collected2019;
+	
+	var spent2020 = getRndInteger(100,250);
+	var collected2020 = getRndInteger(350,450);
+	retstr += "<br>2020 - Stock costs of £" + spent2020 + " and takings of £" + collected2020;
+	
+	var ans = ((collected2017-spent2017)+(collected2018-spent2018)+(collected2019-spent2019)+(collected2020-spent2020))/4;
+	
+	retstr += "<br><br>Complete the data " + thisname + " has collected by working out the profit for each year and then work out the average mean profit,£" + Number(ans).toFixed(2) + " ,£" + Number(ans+9).toFixed(2) + ",£" + Number(ans+5).toFixed(2) + ",£" + Number(ans-8).toFixed(2);
+	
+	return retstr;
+}
+
+function getAddMoney10029() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is going to plant some runner bean seeds."
+	
+	retstr += "<br><br>The seeds will be planted in a row."
+	
+	var rowlen = 1.5 + (0.25*getRndInteger(1,4));
+	
+	retstr += "<br><br>The row will be " + rowlen + " m long";
+	
+	var seeddist = 18 + (2*getRndInteger(1,8));
+	
+	retstr += "<br><br>There has to be a distance of " + seeddist + " cm between each seed.";
+	
+	var ans = 1;
+	var currdist = 0;
+	for (rrr = 0; rrr < 100; rrr++) {
+		currdist = currdist + (seeddist/100);
+		if ( currdist > rowlen) {
+			break;
+		}
+		ans++;
+	}
+	
+	retstr += "<br><br>How many seeds can " + thisname + " plant in a " + rowlen + " m row?," + Math.round(ans) + "," + Math.round(ans+1) + "," + Math.round(ans-1) + "," + Math.round(ans+2);
+	
+	return retstr;
+}
+
+function getAddMoney10028() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is going to make a blanket for a friend by sewing together squares of spare cloth."
+	
+	var squares = 5*getRndInteger(2,5);
+	
+	var bwidth = getRndInteger(7,11)*squares;
+	var blength = getRndInteger(8,15)*squares;
+	
+	retstr += "<br><br>The squares of cloth will each measure " + squares + " cm by " + squares + " cm";
+	retstr += "<br><br>The blanket will measure " + bwidth/100 + " m by " + blength/100 + " m";
+	
+	var ans = (blength*bwidth)/(squares*squares);
+	
+	retstr += "<br><br>How many cloth squares will " + thisname + " need to make the blanket?," + Math.round(ans) + "," + Math.round(ans+5) + "," + Math.round(ans-5) + "," + Math.round(ans+8);
+	
+	return retstr;
+}
+
+function getAddMoney10027() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is going to be working away from home for a while."
+	
+	var weeksaway = getRndInteger(3,6);
+	
+	retstr += "<br><br>A friend will look after " + thisname + "'s puppy";
+	retstr += "<br><br>" + thisname + " needs to leave enough food for " + weeksaway + " weeks";
+	
+	var morningfood = 40 + (5*getRndInteger(1,6));
+	var eveningfood = 80 + (10*getRndInteger(1,5));
+	
+	retstr += "<br><br> - The puppy eats " + morningfood + "g of food in the morning";
+	retstr += "<br> - The puppy eats " + eveningfood + "g of food in the evening";
+	
+	var ans = (morningfood + eveningfood)*weeksaway*7/1000;
+	
+	retstr += "<br><br>How much food will " + thisname + " need to leave for the puppy to eat?," + Number(ans).toFixed(2) + " kg," + Number(ans+0.5).toFixed(2) + "kg," + Number(ans-0.5).toFixed(2) + "kg," + Number(ans+0.75).toFixed(2) + "kg";
+	
+	return retstr;
+}
+
+function getAddMoney10026() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " wants to buy some pet insurance"
+	
+	var incost = 10 + (0.25*getRndInteger(5,15));
+	var petdiscount = 5*getRndInteger(2,5);
+	
+	retstr += "<br><br> - The insurance costs £" + incost.toFixed(2) + " per month.";
+	retstr += "<br><br> - " + thisname + " will get a " + petdiscount + "% discount for buying insurance for one year";
+	
+	var fullamount = incost * 12;
+	
+	var ans = fullamount * (petdiscount/100);
+	
+	retstr += "<br><br>How much money will " + thisname + " save in total for buying insurance for one year?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+5).toFixed(2) + ",£" + Number(ans-5).toFixed(2) + ",£" + Number(ans+3).toFixed(2);
+	
+	return retstr;
+}
 
 function getAddMoney10025() {
 
@@ -2572,7 +2725,7 @@ function getAddMoney10025() {
 	
 	var ans = tinsneeded * varnishcost;
 	
-	retstr += "<br><br>What will be the total cost of the varnish for " + thisname + "'s project?,£" + Number(ans).toFixed(0) + ",£" + Number(ans+5).toFixed(0) + ",£" + Number(ans-5).toFixed(0) + ",£" + Number(ans+8).toFixed(0);
+	retstr += "<br><br>What will be the total cost of the varnish for " + thisname + "'s project?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+5).toFixed(2) + ",£" + Number(ans-5).toFixed(2) + ",£" + Number(ans+8).toFixed(2);
 	
 	return retstr;
 }
@@ -3323,7 +3476,7 @@ function getAddMoney10001() {
 	return retstr;
 }
 
-var examsNewL2 = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50];
+var examsNewL2 = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51];
 
 /* L2 */
 function getAddMoney() {
@@ -3337,7 +3490,7 @@ function getAddMoney() {
 	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
 													
 	var sw = examsNewL2[examsNewL2Count];
-	//sw = 50;
+	//sw = 51;
     switch (sw) {
     	case 1:
         	return getAddMoney1();
@@ -3489,11 +3642,57 @@ function getAddMoney() {
 		case 50:
 			return getAddMoney20018();
 			break;
+		case 51:
+			return getAddMoney20019();
+			break;
     }
     
 }
 
 /* L2START */
+
+function getAddMoney20019() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is going to plant some runner bean seeds."
+	
+	var numrows = getRndInteger(3,6);
+	retstr += "<br><br>- The seeds will be planted in " + numrows + " rows."
+	
+	var rowlen = 1.5 + (0.25*getRndInteger(1,4));
+	
+	retstr += "<br>- Each row will be " + rowlen + " m long";
+	
+	var seeddist = 18 + (2*getRndInteger(1,8));
+	
+	retstr += "<br>- There has to be a distance of " + seeddist + " cm between seeds in each row.";
+	
+	var produce = 0.75 + (0.05*getRndInteger(1,10));
+	
+	retstr += "<br>- Each plant produces an average of " + produce + " kg of beans";
+	retstr += "<br>- 20% of the seeds will not grow at all.";
+	
+	var ans = 1;
+	var currdist = 0;
+	for (rrr = 0; rrr < 100; rrr++) {
+		currdist = currdist + (seeddist/100);
+		if ( currdist > rowlen) {
+			break;
+		}
+		ans++;
+	}
+	
+	ans = ans*numrows;
+	
+	ans = ans * produce * 0.8;
+	
+	retstr += "<br><br>What weight of beans can " + thisname + " expect to get from the crop?," + Number(ans).toFixed(2) + " kg," + Number(ans+5).toFixed(2) + " kg," + Number(ans+8).toFixed(2) + " kg," + Number(ans-8).toFixed(2) + " kg";
+	
+	return retstr;
+}
 
 function getAddMoney20018() {
 
@@ -4304,7 +4503,7 @@ var img_freqMarks = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv4P-
 var img_freqMarks = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8ywBN2eL_YCq5fK8nNgmHR3UbKdTeLtGXdw&usqp=CAU";
 
 var examsGCSE = [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,
-30,31,32,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91];
+30,31,32,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92];
 
 var examsGCSECount = 0;
 
@@ -4598,6 +4797,9 @@ function getAddMoneyGCSE() {
 			break;
 		case 91:
 			return getAddMoney20016();
+			break;
+		case 92:
+			return getAddMoney20019();
 			break;
     }
 }
@@ -9164,7 +9366,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.146";
+var versionstr = "V.148";
 
 /* HTMLSTART */
 

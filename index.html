@@ -1872,7 +1872,7 @@ function printDiv() {
 
 /* E3START */
 
-var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27];
 
 function getAddMoneyE3Style() {
 	
@@ -1885,7 +1885,7 @@ function getAddMoneyE3Style() {
 	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
 													
 	var sw = examsNewE3[examsNewE3Count];
-	//sw = 24;
+	//sw = 27;
     switch (sw) {
     	case 1:
         	return getAddMoneyE3100();
@@ -1959,8 +1959,102 @@ function getAddMoneyE3Style() {
 		case 24:
         	return getAddMoneyE104();
             break;
+		case 25:
+        	return getAddMoneyE105();
+            break;
+		case 26:
+        	return getAddMoneyE106();
+            break;
+		case 27:
+        	return getAddMoneyE107();
+            break;
     }
     
+}
+
+function getAddMoneyE107() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " is running a drinks stall for the school summer fair";
+	
+	var packetsize = 10+(2*getRndInteger(1,3));
+	var packets = 10 + getRndInteger(1,9);
+	
+	var gotcups = packetsize*packets;
+	
+	var needcups = 350;
+	
+	var ans = needcups - gotcups;
+	
+	retstr += "<br><br>" + thisname + " thinks that the stall will need " + needcups + " paper cups in total.";
+	
+	retstr += "<br><br>" + thisname + " already has " + packets + " packets of paper cups";
+	retstr += "<br><br>Each packet of cups contains " + packetsize + " cups";
+	
+	retstr += "<br><br>How many more cups does " + thisname + " need to get?," + Math.round(ans) + "," + Math.round(ans+2) + "," + Math.round(ans-2) + "," + Math.round(ans+3);
+	
+	return retstr;
+}
+
+function getAddMoneyE106() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " is planning a street party and needs to hire tables to make a row of tables for the party";
+	
+	var large = (810 + (5*getRndInteger(1,15)))/100;
+	var small = (510 + (5*getRndInteger(1,15)))/100;
+	var numlarge = getRndInteger(2,5);
+	
+	retstr += "<br><br>" + thisname + " can hire 1m length tables for £" + small.toFixed(2);
+	retstr += "<br><br>" + thisname + " can also hire 2m length tables for £" + large.toFixed(2);
+	
+	var tablength = (2*numlarge)+1;
+	retstr += "<br><br>The row of tables needs to be " + Math.round(tablength) + " metres in length";
+	
+	var ans = (numlarge*large) + small;
+	var ans2 = tablength*small;
+	
+	retstr += "<br><br>What is the cheapest combination of 1m and 2m tables " + thisname + " can hire?,£" + Number(ans).toFixed(2) + ",£" + Number((ans+2)).toFixed(2) + ",£" + Number((ans+3)).toFixed(2) + ",£" + Number((ans-2)).toFixed(2);
+	
+	return retstr;
+}
+
+function getAddMoneyE105() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " orders food using an automated order machine at a fast food outlet";
+	
+	var ordercard = getRndInteger(222,965);
+	var currentcard = ordercard - getRndInteger(11,23);
+	
+	retstr += "<br><br>" + thisname + "'s order number is " + ordercard;
+	
+	retstr += "<br><br>The display at the tills says the current order is " + currentcard;
+	
+	var ans = ordercard - currentcard;
+	
+	retstr += "<br><br>How many orders need to be served before " + thisname + "'s order is ready?," + Math.round(ans) + "," + Math.round(ans+2) + "," + Math.round(ans-2) + "," + Math.round(ans+3);
+	
+	return retstr;
+}
+
+function getAddMoneyE105() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " orders food using an automated order machine at a fast food outlet";
+	
+	var ordercard = getRndInteger(222,965);
+	var currentcard = ordercard - getRndInteger(11,23);
+	
+	retstr += "<br><br>" + thisname + "'s order number is " + ordercard;
+	
+	retstr += "<br><br>The display at the tills says the current order is " + currentcard;
+	
+	var ans = ordercard - currentcard;
+	
+	retstr += "<br><br>How many orders need to be served before " + thisname + "'s order is ready?," + Math.round(ans) + "," + Math.round(ans+2) + "," + Math.round(ans-2) + "," + Math.round(ans+3);
+	
+	return retstr;
 }
 
 function getAddMoneyE104() {
@@ -2357,7 +2451,7 @@ function getAddMoneyE3100() {
 /* L1START */
 
 var examsNewL1 = [1,2,3,5,6,7,9,10,12,13,15,16,17,18,19,20,21,22,24,25,26,28,30,31,32,33,34,35,36,
-37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
+37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64];
 
 function getAddMoneyL1() {
 	
@@ -2370,7 +2464,7 @@ function getAddMoneyL1() {
 	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
 													
 	var sw = examsNewL1[examsNewL1Count];
-	//sw = 62;
+	//sw = 64;
     switch (sw) {
     	case 1:
         	return getAddMoney1();
@@ -2558,11 +2652,67 @@ function getAddMoneyL1() {
 		case 62:
 			return getAddMoney10030();
 			break;
+		case 63:
+			return getAddMoney10031();
+			break;
+		case 64:
+			return getAddMoney10032();
+			break;
     }
     
 }
 
 /* L1START */
+
+function getAddMoney10032() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " is running a drinks stall for the school summer fair";
+	
+	var packetsize = 10+(2*getRndInteger(1,3));
+	var packets = 10 + getRndInteger(1,9);
+	
+	var gotcups = packetsize*packets;
+	
+	var needcups = 350;
+	
+	var ans = needcups - gotcups;
+	
+	retstr += "<br><br>" + thisname + " thinks that the stall will need " + needcups + " paper cups in total.";
+	
+	retstr += "<br><br>" + thisname + " already has " + packets + " packets of paper cups";
+	retstr += "<br><br>Each packet of cups contains " + packetsize + " cups";
+	
+	ans = Math.round((ans/packetsize)+0.49);
+	
+	retstr += "<br><br>How many more packets of cups does " + thisname + " need to get?," + Math.round(ans) + "," + Math.round(ans+2) + "," + Math.round(ans-2) + "," + Math.round(ans+3);
+	
+	return retstr;
+}
+
+function getAddMoney10031() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " is planning a street party and needs to hire tables to make a row of tables for the party";
+	
+	var biggest = (1100 + (5*getRndInteger(1,15)))/100;
+	var large = (810 + (5*getRndInteger(1,15)))/100;
+	var small = (510 + (5*getRndInteger(1,15)))/100;
+	var numlarge = getRndInteger(2,6);
+	
+	retstr += "<br><br>" + thisname + " can hire 1m length tables for £" + small.toFixed(2);
+	retstr += "<br><br>" + thisname + " can also hire 2m length tables for £" + large.toFixed(2);
+	retstr += "<br><br>There are also 3m length tables for £" + biggest.toFixed(2);
+	
+	var tablength = (4*numlarge)+3;
+	retstr += "<br><br>The row of tables needs to be " + Math.round(tablength) + " metres in length";
+	
+	var ans = (numlarge*biggest) + large + small;
+	
+	retstr += "<br><br>What is the cheapest combination of 1m; 2m and 3m tables " + thisname + " can hire?,£" + Number(ans).toFixed(2) + ",£" + Number((ans+2)).toFixed(2) + ",£" + Number((ans+3)).toFixed(2) + ",£" + Number((ans-2)).toFixed(2);
+	
+	return retstr;
+}
 
 function getAddMoney10030() {
 
@@ -3476,7 +3626,8 @@ function getAddMoney10001() {
 	return retstr;
 }
 
-var examsNewL2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51];
+var examsNewL2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,
+31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60];
 
 /* L2 */
 function getAddMoney() {
@@ -3493,7 +3644,7 @@ function getAddMoney() {
 	
 	//alert(sw);
 	
-	//sw = 51;
+	//sw = 60;
     switch (sw) {
     	case 1:
         	return getAddMoney20018();
@@ -3508,16 +3659,16 @@ function getAddMoney() {
         	return getAddMoney4();
             break;
         case 5:
-        	return getAddMoney5();
+        	return getAddMoney5L2();
             break;
         case 6:
-        	return getAddMoney6();
+        	return getAddMoney6L2();
             break;
         case 7:
-        	return getAddMoney7();
+        	return getAddMoney7L2();
             break;
         case 8:
-        	return getAddMoney12();
+        	return getAddMoney12L2();
             break;
 		case 9:
         	return getAddMoney13();
@@ -3648,11 +3799,335 @@ function getAddMoney() {
 		case 51:
 			return getAddMoney20019();
 			break;
+		case 52:
+			return getAddMoney20020();
+			break;
+		case 53:
+			return getAddMoney20021();
+			break;
+		case 54:
+			return getAddMoney20022();
+			break;
+		case 55:
+			return getAddMoney20023();
+			break;
+		case 56:
+			return getAddMoney20024();
+			break;
+		case 57:
+			return getAddMoney20025();
+			break;
+		case 58:
+			return getAddMoney20026();
+			break;
+		case 59:
+			return getAddMoney20027();
+			break;
+		case 60:
+			return getAddMoney20028();
+			break;
     }
     
 }
 
 /* L2START */
+
+function getAddMoney20028() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is on holiday in South Africa."
+	
+	retstr += "<br><br>The following day trip prices are advertised in the hotel reception (prices in South African Rand):";
+	
+	var robben = 200 + (10*getRndInteger(1,9));
+	var table = 175 + (5*getRndInteger(1,9));
+	
+	retstr += "<br><br>- Robben Island: " + robben;
+	retstr += "<br>- Table Mountain: " + table;
+	
+	retstr += "<br><br>" + thisname + " buys two tickets for each trip.";
+	
+	var exch = (getRndInteger(1900, 1990)/100).toFixed(2);
+	
+	retstr += "<br><br>The exchange rate is £1 = " + exch + " Rand";
+	
+	var ans = (robben+table)*2/Number(exch);
+	
+	retstr += "<br><br>How much will " + thisname + " pay in £ for the tickets?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+25).toFixed(2) + ",£" + Number(ans-30).toFixed(2) + ",£" + Number(ans+45).toFixed(2);
+
+	return retstr;
+}
+
+function getAddMoney20027() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var ww = getRndInteger(1,5);
+	
+	var retstr = "";
+	switch (ww) {
+		case 1:
+			retstr = thisname + " wants to book a 6 night mini-break in the Lake District."
+			retstr += "<br><br>" + thisname + " sees this offer:"
+			retstr += "<br><br>4 nights for the price of 3 at Lakeside Hotel in Grasmere."
+			var pernight = 100 + (10*getRndInteger(1,4));
+			retstr += "<br><br>Room cost: £" + pernight + " per night";
+			var deposit = 5 + (5*getRndInteger(1,3));
+			retstr += "<br><br>" + thisname + " pays a " + deposit + "% deposit when booking the room and will pay the rest on arrival";
+			var ans = 5*pernight*(1-deposit/100);
+			retstr += "<br><br>How much will " + thisname + " need to pay on arrival taking into account the special offer?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+15).toFixed(2) + ",£" + Number(ans-15).toFixed(2) + ",£" + Number(ans+25).toFixed(2);
+			break;
+		case 2:
+			retstr = thisname + " wants to book a 9 night mini-break in the Lake District."
+			retstr += "<br><br>" + thisname + " sees this offer:"
+			retstr += "<br><br>3 nights for the price of 2 at Lakeside Hotel in Grasmere."
+			var pernight = 100 + (10*getRndInteger(1,4));
+			retstr += "<br><br>Room cost: £" + pernight + " per night";
+			var deposit = 5 + (5*getRndInteger(1,3));
+			retstr += "<br><br>" + thisname + " pays a " + deposit + "% deposit when booking the room and will pay the rest on arrival";
+			var ans = 6*pernight*(1-deposit/100);
+			retstr += "<br><br>How much will " + thisname + " need to pay on arrival taking into account the special offer?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+15).toFixed(2) + ",£" + Number(ans-15).toFixed(2) + ",£" + Number(ans+25).toFixed(2);
+			break;
+		case 3:
+			retstr = thisname + " wants to book a 7 night mini-break in the Lake District."
+			retstr += "<br><br>" + thisname + " sees this offer:"
+			retstr += "<br><br>2 nights for the price of 1 at Lakeside Hotel in Grasmere."
+			var pernight = 100 + (10*getRndInteger(1,4));
+			retstr += "<br><br>Room cost: £" + pernight + " per night";
+			var deposit = 5 + (5*getRndInteger(1,3));
+			retstr += "<br><br>" + thisname + " pays a " + deposit + "% deposit when booking the room and will pay the rest on arrival";
+			var ans = 4*pernight*(1-deposit/100);
+			retstr += "<br><br>How much will " + thisname + " need to pay on arrival taking into account the special offer?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+15).toFixed(2) + ",£" + Number(ans-15).toFixed(2) + ",£" + Number(ans+25).toFixed(2);
+			break;
+		case 4:
+			retstr = thisname + " wants to book a 8 night mini-break in the Lake District."
+			retstr += "<br><br>" + thisname + " sees this offer:"
+			retstr += "<br><br>3 nights for the price of 2 at Lakeside Hotel in Grasmere."
+			var pernight = 100 + (10*getRndInteger(1,4));
+			retstr += "<br><br>Room cost: £" + pernight + " per night";
+			var deposit = 5 + (5*getRndInteger(1,3));
+			retstr += "<br><br>" + thisname + " pays a " + deposit + "% deposit when booking the room and will pay the rest on arrival";
+			var ans = 6*pernight*(1-deposit/100);
+			retstr += "<br><br>How much will " + thisname + " need to pay on arrival taking into account the special offer?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+15).toFixed(2) + ",£" + Number(ans-15).toFixed(2) + ",£" + Number(ans+25).toFixed(2);
+			break;
+		case 5:
+			retstr = thisname + " wants to book a 12 night holiday in the Lake District."
+			retstr += "<br><br>" + thisname + " sees this offer:"
+			retstr += "<br><br>4 nights for the price of 3 at Lakeside Hotel in Grasmere."
+			var pernight = 100 + (10*getRndInteger(1,4));
+			retstr += "<br><br>Room cost: £" + pernight + " per night";
+			var deposit = 5 + (5*getRndInteger(1,3));
+			retstr += "<br><br>" + thisname + " pays a " + deposit + "% deposit when booking the room and will pay the rest on arrival";
+			var ans = 9*pernight*(1-deposit/100);
+			retstr += "<br><br>How much will " + thisname + " need to pay on arrival taking into account the special offer?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+15).toFixed(2) + ",£" + Number(ans-15).toFixed(2) + ",£" + Number(ans+25).toFixed(2);
+			break;
+	}
+	
+	return retstr;
+}
+
+function getAddMoney20026() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " works at a local sports centre."
+	
+	retstr += "<br><br>The manager of the centre uses this formula to work out " + thisname + "'s pay:"
+	
+	var mult = 8 + (getRndInteger(3,12)*0.1)
+	var cc = 12 + (0.1*getRndInteger(2,12));
+	
+	retstr += "<br><br>Pay (£) = " + mult.toFixed(1) + "h + " + cc.toFixed(1) + "t";
+	
+	retstr += "<br><br>h = number of contract hours";
+	retstr += "<br>t = number of hours overtime worked";
+	
+	var hrswk = getRndInteger(90, 140);
+	var ovrwk = getRndInteger(20, 35);
+	retstr += "<br><br>" + thisname + " worked at the centre for " + hrswk + " contract hours and " + ovrwk + " overtime hours in July";
+	
+	var ans = (hrswk*mult) + (ovrwk*cc);
+	
+	retstr += "<br><br>How much will " + thisname + " be paid in July?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+25).toFixed(2) + ",£" + Number(ans-30).toFixed(2) + ",£" + Number(ans+45).toFixed(2);
+
+	return retstr;
+}
+
+function getAddMoney20025() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is going to make vegetarian sausages for a party."
+	
+	retstr += "<br><br>These are the instructions for the sausage mix:"
+	
+	var smix = 160 + getRndInteger(1,5)*5;
+	retstr += "<br><br>"+ smix + "g of sausage mix makes 10 sausages";
+	
+	var watml = 34 + getRndInteger(1,5)*2;
+	var sausg = 20 + getRndInteger(1,4)*5;
+	retstr += "<br><br>Add " + watml + " ml of water to each " + sausg + "g of sausage mix";
+	
+	var numsaus = getRndInteger(25,35);
+	retstr += "<br><br>" + thisname + " needs to make " + numsaus + " sausages";
+	
+	var ans = smix/10*numsaus;
+	
+	ans = ans/sausg * watml;
+	
+	retstr += "<br><br>How much water will " + thisname + " need to use for " + numsaus + " sausages?," + Number(ans).toFixed(2) + "ml," + Number(ans+10).toFixed(2) + "ml," + Number(ans+15).toFixed(2) + "ml," + Number(ans-10).toFixed(2) + "ml";
+
+	return retstr;
+}
+
+function getAddMoney20024() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is organising a charity BBQ and needs to buy burgers."
+	
+	retstr += "<br><br>" + thisname + " wants to make the BBQ as healthy as possible and writes down this information about the fat content of two types of burger:"
+	
+	var econfat = getRndInteger(18,28);
+	retstr += "<br><br>Economy burgers have " + econfat + "g of fat per 100g";
+	
+	var luxfat = getRndInteger(8,10);
+	retstr += "<br><br>Luxury burgers have " + luxfat + "g of fat in one 80g burger";
+	
+	var luxtotfat = (luxfat/80)*100;
+	
+	var ans = econfat - luxtotfat;
+	
+	retstr += "<br><br>How much higher is the percentage fat content of the economy burgers?," + Number(ans).toFixed(2) + "%," + Number(ans+2).toFixed(2) + "%," + Number(ans+3).toFixed(2) + "%," + Number(ans-1).toFixed(2) + "%";
+
+	return retstr;
+}
+
+function getAddMoney20023() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " is sprints with the aid of blades."
+	
+	retstr += "<br><br>" + thisname + " needs to know the maximum height that is allowed when wearing blades."
+	
+	retstr += "<br><br>" + thisname + " is given this formula:"
+	
+	var mult = 1 + (getRndInteger(2,8)*0.1)
+	var cc = 50 + (0.3*getRndInteger(1,30));
+	
+	retstr += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; h = " + mult.toFixed(1) + "d + " + cc.toFixed(1);
+	
+	retstr += "<br><br>h = maximum height allowed";
+	retstr += "<br>d = distance from chest to fingertip (cm)";
+	
+	var fingertip = getRndInteger(76,98);
+	retstr += "<br><br>The distance from the centre of " + thisname + "'s chest to fingertip is " + (fingertip/100).toFixed(2) + " m";
+	
+	var ans = (mult*fingertip)+cc;
+	
+	retstr += "<br><br>What is the maximum height " + thisname + " can be to compete?," + Number(ans).toFixed(2) + " cm," + Number(ans+3).toFixed(2) + " cm," + Number(ans-3).toFixed(2) + " cm," + Number(ans+5).toFixed(2) + " cm";
+
+	return retstr;
+}
+
+function getAddMoney20022() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " plays basketball in a local league and wants to win a special award for points scored."
+	
+	var ptsarr = [];
+	
+	var totpts = 0;
+	for (rrr=0; rrr < 5; rrr++) {
+		var currpts = getRndInteger(5,15);
+		totpts += currpts;
+		ptsarr.push(currpts);
+	}
+	
+	var currmean = totpts/5;
+	
+	var targetmean = currmean + (0.2 * getRndInteger(2,5));
+	
+	var ans = (targetmean*6) - totpts;
+	
+	retstr += "<br><br>- The top scorer in the league has a mean average per game of " + targetmean.toFixed(2) + " after 5 games.";
+	
+	retstr += "<br><br>- " + thisname + "'s scores for the five games are: " + ptsarr[0] + "&#44; " + ptsarr[1] + "&#44; " + ptsarr[2] + "&#44; " + ptsarr[3] + "&#44; " + ptsarr[4];
+	
+	retstr += "<br><br>- How many points will " + thisname + " need to score in game six to at least match the top scorer's current average?," + Math.round(Number(ans)) + "," + Math.round(Number(ans-1)) + "," + Math.round(Number(ans+1)) + "," + Math.round(Number(ans+2));
+	
+	return retstr;
+}
+
+function getAddMoney20021() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " manages a band that are booked to play in a concert."
+	
+	var frac = getRndInteger(4,8);
+	if ( frac == 7 ) {
+		frac = 5;
+	}
+	
+	var peeps = getRndInteger(3,6);
+	
+	var payment = peeps*frac*getRndInteger(25,40);
+	
+	retstr += "<br><br>- The band will be paid £" + payment + " for playing in the concert";
+	retstr += "<br><br>- " + thisname + " plans to save <span style=\"font-size:26px;\">&frac1" + frac +";</span> of the fee for new equipment";
+	retstr += "<br><br>- The rest of the money is divided equally among the " + peeps + " people in the band";
+	
+	var ans = (payment*(1-1/frac))/peeps;
+	
+	retstr += "<br><br>How much will each band member get paid?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+5).toFixed(2) + ",£" + Number(ans-5).toFixed(2) + ",£" + Number(ans+8).toFixed(2);
+	
+	return retstr;
+}
+
+function getAddMoney20020() {
+
+	var idx = getRndInteger(0, personnames.length-10);
+	
+	var thisname = personnames[idx];
+	
+	var retstr = thisname + " wants to buy 2 new speakiers and two speaker stands for the band."
+	
+	var speakers = getRndInteger(100,200);
+	var stands = getRndInteger(20,30);
+	var perc = getRndInteger(15,30);
+	
+	retstr += "<br><br>- Speakers cost £" + speakers + " each."
+	retstr += "<br><br>- Stands cost £" + stands + " each."
+	
+	var offerprice = ((speakers*2) + (stands*2))*(1-perc/100);
+	
+	retstr += "<br><br>- " + thisname + " sees this offer:";
+	retstr += "<br><br>2 Speakers and 2 Stands for £" + offerprice.toFixed(2);
+	
+	retstr += "<br><br>By what percentage as the full price been reduced?," + Number(perc) + "%," + Number(perc+2) + "%," + Number(perc+3) + "%," + Number(perc-2) + "%";
+	
+	return retstr;
+}
 
 function getAddMoney20019() {
 
@@ -4506,7 +4981,8 @@ var img_freqMarks = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv4P-
 var img_freqMarks = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8ywBN2eL_YCq5fK8nNgmHR3UbKdTeLtGXdw&usqp=CAU";
 
 var examsGCSE = [1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,
-30,31,32,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92];
+30,31,32,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,73,74,75,76,
+77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99];
 
 var examsGCSECount = 0;
 
@@ -4542,13 +5018,13 @@ function getAddMoneyGCSE() {
         	return getAddMoney231();
             break;
         case 6:
-        	return getAddMoney6();
+        	return getAddMoney6L2();
             break;
         case 7:
-        	return getAddMoney7();
+        	return getAddMoney7L2();
             break;
         case 8:
-        	return getAddMoney12();
+        	return getAddMoney12L2();
             break;
 		case 9:
         	return getAddMoney13();
@@ -4804,6 +5280,27 @@ function getAddMoneyGCSE() {
 		case 92:
 			return getAddMoney20019();
 			break;
+		case 93:
+			return getAddMoney20020();
+			break;
+		case 94:
+			return getAddMoney20021();
+			break;
+		case 95:
+			return getAddMoney20022();
+			break;
+		case 96:
+			return getAddMoney20023();
+			break;
+		case 97:
+			return getAddMoney20024();
+			break;
+		case 98:
+			return getAddMoney20025();
+			break
+		case 99:
+			return getAddMoney20026();
+			break;
     }
 }
 
@@ -4957,7 +5454,7 @@ function getAddMoney200086() {
 		ans = (ratioamount/ratparts)*ratiovalB[ridx];
 	}
 	
-	var retstr = "£" + ratioamount.toFixed(0) + " is shared into two amounts in the ratio a : b ";
+	var retstr = "£" + ratioamount.toFixed(0) + " is shared into two amounts in the ratio<br><br>a : b ";
 
 	retstr += "<br><br>If the " + whichstr + " amount is £" + ans.toFixed(0) + " what are possible values for a and b?," + aval + ":" + bval + "," + Number(aval+1) + ":" + Number(bval+1) + "," + Number(aval-1) + ":" + Number(bval+1) + "," + Number(aval+1) + ":" + Number(bval-1);
 	
@@ -6942,6 +7439,52 @@ function getAddMoney12() {
 	return retstr;
 }
 
+function getAddMoney12L2() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var retstr = thisname + " wants to tile a wall in the bathroom."
+	
+	var width = 300 + getRndInteger(5,10) * 15;
+	var height = 210 + getRndInteger(4,8) * 5;
+	
+	retstr += "<br><br>The wall is " + width + "cm wide and " + height + "cm high";
+	
+	var area = Number(width) * Number(height) - (200*100);
+	
+	retstr += "<br><br>The wall has a door which is 2m high and 1m wide";
+	
+	retstr += "<br><br>The door does not need tiling";
+	
+	var tilew = getRndInteger(8,15);
+	var tileh = tilew;
+	
+	var tilearea = Number(tilew) * Number(tileh);
+	
+	var numtiles = ((area/tilearea)+0.49).toFixed(0);
+	
+	var ans = ((Number(numtiles)/12+0.49)).toFixed(0);
+	
+	retstr += "<br><br>The wall tiles " + thisname + " likes are " + tileh*10 + "mm X " + tilew*10 + "mm";
+	
+	retstr += "<br><br>The wall tiles come in packs of 12";
+	
+	retstr += "<br><br>How many packs of tiles does " + thisname + " need to buy?," + Number(ans) + "," + Number(Number(ans)+1) + "," + Number(Number(ans)-1) + "," + Number(Number(ans)+2);
+	
+	document.getElementById("helptext").innerHTML = 'For this question you need to find the AREA of the wall.\
+													<br><br>Remember: Area is HEIGHT x WIDTH\
+													<br><br>Of course, the area to be tiled does not include the door - so remove the area of the door from the area of the wall.\
+													<br><br>Now calculate the area of one tile and find out how many tiles fit into the wall area by dividing the wall area by the tile area.\
+													<br><br>Watch out UNITS! You may need to convert the door dimensions to centimetres first.\
+													<br><br>Do not forget that you can not buy fractions of tiles so round UP to the next whole tile.\
+													<br><br>Now find out how many packs of tiles you need by dividing the rounded-up number of tiles by the pack size.\
+													<br><br>Round UP the number of packs to the nearest whole pack.\
+													<br><br><br>Check if your answer matches one of the answer buttons.\
+													<br><br>If not, check your calculations again\
+													<br><br>Always use paper to jot your working out down as you go.';
+	
+	return retstr;
+}
+
 function getAddMoney1211() {
 	var thisname = personnames[getRndInteger(0, personnames.length-1)];
 	
@@ -7157,6 +7700,38 @@ function getAddMoney8() {
     return retstr;
 }
 
+function getAddMoney7L2() {
+	var operandA = "";
+    var operandB = "";
+    var operandC = "";
+    
+    useCalc = true;
+    
+    operandA = getRndInteger(2,4);
+    operandB = getRndInteger(1,2) + "." + getRndInteger(1,8)*10;
+    operandC = getRndInteger(7,12);
+    
+    var retstr = "A taxi has a one-off charge of £" + operandA + " plus £" + operandB + " per mile. ";
+	
+	var perc = 20 + (5*getRndInteger(1,9));
+	retstr += "<br><br>The taxi also charges " + perc + "% more for journeys after midnight";
+	
+	var ans = Number(operandA) + (Number(operandB) * Number(operandC));
+	ans = ans + (ans*perc/100);
+	
+	retstr += "<br><br>How much will a journey of " + operandC + " miles cost when taken at 01:30?,£" + ans.toFixed(2) + ",£" + (ans*1.05).toFixed(2) + ",£" + (ans*0.95).toFixed(2) + ",£" + (ans*1.10).toFixed(2);
+   
+	document.getElementById("helptext").innerHTML = 'Follow the formula.\
+													<br><br><br>Stage 1: Multiply the per mile cost by the cost per mile.\
+													<br><br><br>Stage 2: Add the one-off charge to the total from stage 1.\
+													<br><br><br>Check if your answer matches one of the answer buttons.\
+													<br><br>If not, check your calculations again\
+													<br><br>Always use paper to jot your working out down as you go.';
+   
+    return retstr;
+    
+}
+
 function getAddMoney7() {
 	var operandA = "";
     var operandB = "";
@@ -7205,7 +7780,6 @@ function getAddMoney6() {
     
     var retstr = "A broadband deal is £" + operandA + " per month for " + operandB + " months.<br><br>Then it costs £" + operandC + " per month after that."
     
-    
     retstr += "<br><br>How much will " + mmm + " months broadband cost?,£" + ans.toFixed(0) + ",£" + (ans*1.05).toFixed(0) + ",£" + (ans*0.95).toFixed(0) + ",£" + (ans*1.10).toFixed(0);
     
 	document.getElementById("helptext").innerHTML = 'Follow the formula.\
@@ -7213,6 +7787,50 @@ function getAddMoney6() {
 													<br><br><br>Stage 2: Subtract the initial months amount from the number of months the question is asking for.\
 													<br><br><br>Stage 3: Multiply the number of months found in Stage 2 by the full monthly cost.\
 													<br><br><br>Stage 4: Add the costs found in Stage 1 and Stage 3 together.\
+													<br><br><br>Check if your answer matches one of the answer buttons.\
+													<br><br>If not, check your calculations again\
+													<br><br>Always use paper to jot your working out down as you go.';
+	
+    return retstr;
+    
+}
+
+function getAddMoney6L2() {
+	var operandA = "";
+    var operandB = "";
+    var operandC = "";
+    
+    useCalc = true;
+    
+    
+    operandA = getRndInteger(18,22);
+    operandB = getRndInteger(3,6);
+    operandC = getRndInteger(35,45);
+	
+	var mmm = getRndInteger(2,4)*6;
+	
+	var ans1 = Number(operandA)*Number(operandB);
+	var mleft = 12 - Number(operandB);
+	var ans2 = Number(mleft)*Number(operandC);
+	
+	var ans = ans1 + ans2;
+    
+    var retstr = "A broadband deal is £" + operandA + " per month for " + operandB + " months.<br><br>Then it costs £" + operandC + " per month after that."
+	
+	var perc = getRndInteger(1,3)*5;
+	
+	var ans = (ans*2) + (ans*perc/100);
+	
+	retstr += "<br><br>At the end of 12 months the monthly cost increases by " + perc + "%";
+    
+    retstr += "<br><br>How much will the total cost be for the first two years of the contract?,£" + ans.toFixed(2) + ",£" + (ans*1.05).toFixed(2) + ",£" + (ans*0.95).toFixed(2) + ",£" + (ans*1.10).toFixed(2);
+    
+	document.getElementById("helptext").innerHTML = 'Follow the formula.\
+													<br><br><br>Stage 1: Multiply the per month cost by number of initial months in the offer.\
+													<br><br><br>Stage 2: Subtract the initial months amount from the number of months the question is asking for.\
+													<br><br><br>Stage 3: Multiply the number of months found in Stage 2 by the full monthly cost.\
+													<br><br><br>Stage 4: Add the costs found in Stage 1 and Stage 3 together to find the cost of the first year.\
+													<br><br><br>Stage 5: Add the cost of the second year (after increasing by the given %)\
 													<br><br><br>Check if your answer matches one of the answer buttons.\
 													<br><br>If not, check your calculations again\
 													<br><br>Always use paper to jot your working out down as you go.';
@@ -7241,6 +7859,38 @@ function getAddMoney5() {
     
     retstr += "<br><br>" + thisname + " spent £" + operandB + " at the weekend.";
     retstr += "<br><br>On Monday £" + operandC + " is received by " + thisname + " from a friend.";
+    retstr += "<br><br>How much does " + thisname + " have now?,£" + ans.toFixed(2) + ",£" + (ans*1.05).toFixed(2) + ",£" + (ans*0.95).toFixed(2) + ",£" + (ans*1.10).toFixed(2);
+    
+    return retstr;
+    
+}
+
+function getAddMoney5L2() {
+	var operandA = "";
+    var operandB = "";
+    var operandC = "";
+    
+    useCalc = true;
+    
+    operandA = getRndInteger(50,150) + "." + getRndInteger(10,95);
+    operandB = getRndInteger(10,30) + "." + getRndInteger(10,95);
+    operandC = getRndInteger(30,60) + "." + getRndInteger(10,95);
+    
+    var thisname = personnames[getRndInteger(0, personnames.length-1)];
+    
+    var retstr = thisname + " earned £" + operandA + " from a part time job";
+	
+	var ans = Number(operandA) - Number(operandB) + Number(operandC);
+    
+	var perc = 40 + (5*getRndInteger(1,7));
+	var loan = perc*getRndInteger(5,10);
+	
+    retstr += "<br><br>- " + thisname + " spent £" + operandB + " at the weekend.";
+    retstr += "<br><br>- On Monday £" + operandC + " is received by " + thisname + " from a friend.";
+	retstr += "<br><br>- On Wednesday a friend pays back " + perc + "% of the £" + loan + " they borrowed from " + thisname;
+	
+	var ans = ans + (perc/100)*loan;
+	
     retstr += "<br><br>How much does " + thisname + " have now?,£" + ans.toFixed(2) + ",£" + (ans*1.05).toFixed(2) + ",£" + (ans*0.95).toFixed(2) + ",£" + (ans*1.10).toFixed(2);
     
     return retstr;
@@ -8430,6 +9080,11 @@ function hideInputs() {
 	
 	window.scrollTo(0,0);
 	window.parent.scrollTo(0,0);
+	
+	document.getElementById("btn1").style.display = "none";
+	document.getElementById("btn2").style.display = "none";
+	document.getElementById("btn3").style.display = "none";
+	document.getElementById("btn4").style.display = "none";
 }
 
 function restartGame(typ) {
@@ -8460,7 +9115,7 @@ function restartGame(typ) {
 		<p style="width:100%;text-align:center;clear:both;float:left;color:black;margin-left:5px;"><button onclick="hideInputs()">CONTINUE</button></p>\
 		';
 		
-		showHelp(240);
+		showHelp(570);
 		return;
 	}
 	
@@ -9239,12 +9894,14 @@ function loadup() {
 			<option value="Tony Bunting">Tony Bunting</option>\
 		</select></p>\
 		<p style="text-align:center;color:black;font-size:14px;">If you have problems with this APP try it using Chrome<p>\
+		<p style="text-align:center;color:black;font-size:14px;">The best way to use this APP is to have pen and paper handy to help with working out.<p>\
+		<p style="text-align:center;color:black;font-size:14px;">Use the in-APP calculator when it is shown.<p>\
 		<p style="width:100%;text-align:center;clear:both;float:left;color:black;margin-left:5px;"><button onclick="hideInputs()">CONTINUE</button></p>\
 		';
 		
 		document.getElementById("calculatorholder").style.height = document.getElementById("buttondiv").style.height;
 		
-		showHelp(340);
+		showHelp(560);
 		return;
 	}
 
@@ -9369,7 +10026,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.150";
+var versionstr = "V.151";
 
 /* HTMLSTART */
 

@@ -466,18 +466,20 @@ var helpArray = [
 	"If you finish early what should you do?,Go back and look at questions I struggled with - I might be able to write something that gets me an extra mark, Sit there and play with the calculator to pass the time, Ask if I can go now, Sit there doodling on the paper to relieve the boredom",
 	"When looking at a question with lots of text what should you do?, Read through each part carefully and underline important numbers, Move on to another question that is easier to read, Skip the boring bits and read the last sentence, Use up some time colouring in the picture as that will make it look like I am doing something",
 	"What is a good idea before writing down a number you just worked out?,Give the number a quick sanity check. Does it look right or is the number either way too low or much too high?, Just write it down without thinking too much about it - if it's wrong it's wrong, It must be right if the calculator says so, Write it down and move on - the sooner I finish the sooner I can get out of here",
-	"What should you do if asked to show a check for your working?,Pick one of the calculations in my working out and do a reverse, It's ony one mark - leave it, Write down one of my calculations again exactyl as before, Write something witty like 'I know that my addition is right' ",
+	"What should you do if asked to show a check for your working?,Pick one of the calculations in my working out and do a reverse, It's only one mark - leave it, Write down one of my calculations again exactyl as before, Write something witty like 'I know that my addition is right' ",
 	"What should you always do when calculating with amounts of money?, Be careful with the decimals - take extra care when entering amounts like £5.00; 50p and 5p into the calculator, Enter them exactly as given on the paper as the calculator knows how to deal with money amounts, Don't use decimal points as this just makes it confusing, It's OK I will be able to see easily if I made a mistake",
-	"What is a good strategy before you start doing a <u>non-calculator</u> exam if you feel really nervous, Ask for some paper and spend 2 or 3 minutes writing down some times tables - these will focus your mind and be really useful to refer to later, Dive straight in as there is no time to lose, Sit an stare at the questions for a while looking for ones I know I can do easily, Fiddle with my pencil for a while and hope for inspiration",
+	"What is a good strategy before you start doing a <u>non-calculator</u> exam if you feel really nervous, Ask for some paper and spend 2 or 3 minutes writing down some times tables - these will focus your mind and be really useful to refer to later, Dive straight in as there is no time to lose, Sit and stare at the questions for a while looking for ones I know I can do easily, Fiddle with my pencil for a while and hope for inspiration",
 	"What is a good strategy for long questions with a lot of steps?,Break the question down - write Step 1 - Step 2 - Step 3 (or meaningful headings) in the working out box and write my working out down under the headings, Leave it I hate long questions, Dive straight in and get writing, Miss out steps I can't do",
-	"For questions with measurements what should you do?,Check the all the measurements are in the same units (don't mix CM and M in calculations), Just start working - as long as the answer is close I'll get some marks, Leave these because units confuse me, My calculator wil sort it out for me",
-	"When adding a list of what is a good way to check your answer?, Add them up again but this time in reverse because you are less likely to make the same mistake again, I'm good at adding so I trust myself, No time to check - just move on, As long as I write down the working I will get all the marks",
+	"For questions with measurements what should you do?,Check the all the measurements are in the same units (don't mix CM and M in calculations), Just start working - as long as the answer is close I'll get some marks, Leave these because units confuse me, My calculator will sort it out for me",
+	"When adding a list of numbers what is a good way to check your answer?, Add them up again but this time in reverse because you are less likely to make the same mistake again, I'm good at adding so I trust myself, No time to check - just move on, As long as I write down the working I will get all the marks",
 	"What is a good idea to check before doing a subtraction (taking away)?, MOST of the time you will taking away a small number from a bigger number ask yourself why if this is not the case, It won't matter either way the answer will be the same, There is not enough time to think about everything, The examiner will see what I meant so don't worry",
 	"Before doing a divide what should you check?, Make sure you are dividing the numbers the right way round - if you get a weird answer that is <u>way too small</u> you should try reversing the division, It won't matter either way the answer will be the same, There is not enough time to think about everything, The examiner will see what I meant so don't worry",
 	"If you are asked to work out how many small things (like tiles) fit inside a large thing (like a wall) and you get a small decimal answer what should you do?, Check and reverse your division - you probably made a common mistake and had it the wrong way round, Panic and leave the rest of the question, Plough on - people quite often buy 0.00023 tiles, Put a line through the working out and start the whole question again", 
-	"When asked to draw up a timing plan for some activities what do they mean?, I create a table with a row for each activity and columns for start time, end time and what the activity is, It's some kind so written description that summarises the question, Write down one line for each stage, Move on I hate timings",
-	"When drawing up tables and charts what should I do?, sketh it out on rough paper and then use a ruler and a pencil to do it properly, Use my pen and draw lines as straight as I can, Sketch it out as long as it looks close I'll get the marks, Leave this question I hate the table ones",
-	"When drawing graphs or bar charts what should you always do?,Rough Sketch first then - Numbner axes carefully (starting from zero) - Use Pencil - Use Ruler - Title - Label Axes, Draw it roughly as they are only looking for a rough idea, Not enouh time to do everything as long as its close it will be OK, I can draw lines rather than bars as bars take too long",
+	"When asked to draw up a timing plan for some activities what do they mean?, I create a table with a row for each activity and columns for start time; end time and what the activity is, It's some kind of written description that summarises the question, Write down one line for each stage, Move on I hate timings",
+	"When drawing up tables and charts what should I do?, Sketch it out on rough paper and then use a ruler and a pencil to do it properly, Use my pen and draw lines as straight as I can, Sketch it out as long as it looks close I'll get the marks, Leave this question I hate the table ones",
+	"When drawing graphs or bar charts what should you always do?,Rough Sketch first then - Number axes carefully (starting from zero) - Use Pencil - Use Ruler - Title - Label Axes, Draw it roughly as they are only looking for a rough idea, Not enouh time to do everything as long as its close it will be OK, I can draw lines rather than bars as bars take too long",
+	"I've been asked to design a data collection table - what should I draw?,Create a table with clear headings and enough rows and columns to enable a person to count how many of each option, Panic because I hate these table questions, Draw a graph or bar chart, Scribble down some random empty table with no headings it might get some marks",
+	"When a question asks how many smaller things fit inside a larger thing I'm probably going to be:, Dividing the smaller amount into the larger amount, Using guesswork, Just multpliying things together, Some kind of addition", 
 ];
 
 var fdpWrong = 0;
@@ -1872,7 +1874,7 @@ function printDiv() {
 
 /* E3START */
 
-var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27];
+var examsNewE3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];
 
 function getAddMoneyE3Style() {
 	
@@ -1885,7 +1887,7 @@ function getAddMoneyE3Style() {
 	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
 													
 	var sw = examsNewE3[examsNewE3Count];
-	//sw = 27;
+	//sw = 13;
     switch (sw) {
     	case 1:
         	return getAddMoneyE3100();
@@ -1924,7 +1926,7 @@ function getAddMoneyE3Style() {
         	return getAddMoney226();
             break;
 		case 13:
-        	return getAddMoney227();
+        	return getAddMoney227E2();
             break;
 		case 14:
         	return getAddMoney2281();
@@ -1968,8 +1970,88 @@ function getAddMoneyE3Style() {
 		case 27:
         	return getAddMoneyE107();
             break;
+		case 28:
+        	return getAddMoneyE108();
+            break;
+		case 29:
+        	return getAddMoneyE109();
+            break;
     }
     
+}
+
+function getAddMoney227E2() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var hourlyrate = Number(getRndInteger(7,9).toString() + "." + (getRndInteger(2,8)*10).toString()).toFixed(2);
+	
+	var hoursperweek = getRndInteger(5,8)*5;
+	
+	var retstr = thisname + " earns £" + Number(hourlyrate).toFixed(2) + " per hour and works " + hoursperweek + " hours each week.";
+	
+	var payrise = getRndInteger(1,3)*5/100;
+	
+	var mult = 1 + payrise;
+	
+	var ans = Number(Number(hourlyrate) * 1.1);
+	var ans = Number(ans*Number(hoursperweek)).toFixed(2);
+	
+	retstr += "<br><br>" + thisname + "'s pay is increased by 10%<br><br>How much will the new weekly pay be to the nearest pound?,£" + Math.round(Number(ans)) + ",£" + Math.round(Number(ans*1.2)) + ",£" + Math.round(Number(ans*0.9)) + ",£" + Math.round(Number(ans*1.3));
+	
+	document.getElementById("helptext").innerHTML = 'Stage 1: You need to take the weekly pay amount and increase it by the given percentage.\
+													<br><br>Increase in pay rate = old pay rate times by perc divide by 100\
+													<br><br>Now add the increase you just found to the original pay rate\
+													<br><br>This will give you the current hourly pay.\
+													<br><br>Stage 2: Multiply the increased hourly rate you found in stage 1 by the number of hours specified in the question.\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+	
+	return retstr;
+}
+
+function getAddMoneyE109() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var peeps = 300 + (50*getRndInteger(1,4));
+	var retstr = thisname + " is ordering the food for a club day barbeque for " + peeps + " people";
+	
+	retstr += "<br><br>" + thisname + " needs to allow for 2 burgers for each person";
+	
+	var tenths = ["<span style=\"font-size:26px;\">&#8530;</span>", "10%", "One tenth"];
+	
+	var tenthname = tenths[getRndInteger(0, tenths.length-1)];
+	
+	retstr += "<br><br>" + tenthname + "  of the burgers need to be vegetarian.";
+	
+	var ans = Math.round((peeps*2)/10);
+	
+	retstr += "<br><br>How many vegetarian burgers will need to be ordered?," + Math.round(ans) + "," + Math.round(ans+2) + "," + Math.round(ans-2) + "," + Math.round(ans+3);
+	
+	return retstr;
+}
+
+function getAddMoneyE108() {
+	var thisname = personnames[getRndInteger(0, personnames.length-1)];
+	
+	var peeps = 300 + (50*getRndInteger(1,4));
+	var retstr = thisname + " is ordering the food for a club day barbeque for " + peeps + " people";
+	
+	
+	var packsize = 6 * getRndInteger(2,6);
+	
+	retstr += "<br><br>" + thisname + " needs to allow for 2 sausages for each person";
+	
+	retstr += "<br><br> Bread rolls are sold in packs of " + packsize + " rolls";
+	
+	retstr += "<br><br>" + thisname + " will need to order enough bread rolls for one roll for each sausage";
+	
+	var ans = Math.round(((peeps*2)/packsize)+0.49);
+	
+	retstr += "<br><br>How many packs of bread rolls does " + thisname + " need to order?," + Math.round(ans) + "," + Math.round(ans+2) + "," + Math.round(ans-2) + "," + Math.round(ans+3);
+	
+	return retstr;
 }
 
 function getAddMoneyE107() {
@@ -6397,7 +6479,6 @@ function getAddMoney2281() {
 	document.getElementById("helptext").innerHTML = 'Stage 1: Work out the perimeter of the hall (remembber perimater is all the distance around the outside).\
 													<br><br>Stage 2: Find out many metres of flags you need by multiplying the perimeter by 2\
 													<br><br>Stage 3: Multiply the number of metres required by the cost per metre.\
-													<br><br>Stage 2: Multiply the increased hourly rate you found in stage 1 by the number of hours specified in the question.\
 															<br><br>Check if your answer matches one of the answer buttons.\
 															<br><br>If not, check your calculations again\
 															<br><br>Always use paper to jot your working out down as you go.\
@@ -6422,7 +6503,7 @@ function getAddMoney227() {
 	var ans = Number(Number(hourlyrate) * (Number(mult)));
 	var ans = Number(ans*Number(hoursperweek)).toFixed(2);
 	
-	retstr += "<br><br>" + thisname + "'s hourly pay rate is increased by " + Number(Number(mult-1)*100).toFixed(0) + "%<br><br>How much will the new weekly pay be?,£" + Number(ans).toFixed(2) + ",£" + Number((ans*1.05)).toFixed(2) + ",£" + Number((ans*1.03)).toFixed(2) + ",£" + Number((ans*1.10)).toFixed(2);
+	retstr += "<br><br>" + thisname + "'s pay is increased by " + Number(Number(mult-1)*100).toFixed(0) + "%<br><br>How much will the new weekly pay be to the nearest pound?,£" + Math.round(Number(ans)) + ",£" + Math.round(Number(ans*1.2)) + ",£" + Math.round(Number(ans*0.9)) + ",£" + Math.round(Number(ans*1.3));
 	
 	document.getElementById("helptext").innerHTML = 'Stage 1: You need to take the weekly pay amount and increase it by the given percentage.\
 													<br><br>Increase in pay rate = old pay rate times by perc divide by 100\
@@ -10026,7 +10107,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.151";
+var versionstr = "V.154";
 
 /* HTMLSTART */
 

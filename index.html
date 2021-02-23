@@ -1858,6 +1858,271 @@ function saveResults(nm, tt, qz, pc, dt, rs, nt, id) {
 }*/
 
 
+function getDefaultHelp() {
+	document.getElementById("helptext").innerHTML = 'Not all questions will have specific help - this question is one of them\
+													<br><br>If you are in scheduled class and you are stuck - <b>message or ask your tutor for help</b>\
+														<br><br>Read through the question carefully - pick out the important bits of information\
+														<br><br>Remember: AREA all the space inside - <u>Use:  length x width</u>\
+														<br><br>Remember: PERIMETER all the space arond the outside = <u>all up all the sides</u>\
+														<br><br>If you are being asked to find out how many packs or boxes of things you need to buy or get do not forget to round up as you can\'t buy fractions of things\
+														<br><br><u>Use the in-APP calculator.</u>\
+														<br><br><br>Scroll down for more help on fractions, decimals and percentages, unit conversions and probability:.\
+													';
+													
+	document.getElementById("helptext").innerHTML += '<p><b>Fractions</b><p> \
+														<p>Remember: <br><br> 1. Divide by bottom number<br> 2. Times by the top number</p> \
+														<p>Examples:<p> \
+														<p>&frac14; of 80 = 80 &#247; 4 x 1 = <u>20</u></p> \
+														<p>&frac23; of 60 = 60 &#247; 3 x 2 = <u>40</u></p> \
+														<hr>\
+														<p><b>Percentages - Non Calculator</b><p> \
+														<p>Break into % that you can do like 10% or 5%<p> \
+														<p>Examples:<p> \
+														<p>25% of 200<p>\
+														<p>10% + 10% + 5% = 20 + 20 + 10 = <u>50</u></p>\
+														<hr>\
+														<p><b>Percentages - Calculator</b></p> \
+														<p>Use the formula:<p> \
+														<p>Percent &#247; 100 x Amount</p> \
+														<p>Examples:<p>\
+														<p>35% of £125</p>\
+														<p>35 &#247; 100 x 125 = <u>£43.75</u></p> \
+														<p>43% of £11.25</p>\
+														<p>47 &#247; 100 x 365 = 4.8375 = <u>£4.84</u></p> \
+														<hr>\
+														<p><b>Percentages - Increase</b></p> \
+														<p>First find the percentage using one of the methods above.</p>\
+														<p>Then add the amount you found to the original amount</p>\
+														<p>Example:</p>\
+														<p>£160 increased by 20%</p>\
+														<p>Find 20% (non-calc method is Ok here)</p>\
+														<p>20% = 10% + 10% = 16 + 16 = <u>£32</u></p>\
+														<p>160 + 32 = 192 = <u>£192</u>\
+														<hr>\
+														<p><b>Percentages - Decrease</b></p> \
+														<p>First find the percentage using one of the methods above.</p>\
+														<p>Then take away the amount you found from the original amount</p>\
+														<p>Example:</p>\
+														<p>£160 discounted by 37%</p>\
+														<p>Start by finding 37% (calc method is best here)</p>\
+														<p>37 &#247; 100 x 160 = 59.2 </p> \
+														<p>160 - 59.2 = 100.8 = <u>£100.80</u> </p> \
+														';
+														
+	document.getElementById("helptext").innerHTML += '\
+<p><b><u>Units of Length<b></u><p>\
+<table style=\"margin-left:30px;border-collapse: collapse; width: 60%; height: 79px;\" border=\"1\">\
+<tbody>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">10mm</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1cm</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">100cm</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1m</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">100m</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1km</td>\
+</tr>\
+</tbody>\
+</table>\
+<p>mm to cm divide by 10<br>cm to mm multiply by 10</p>\
+<p>cm to m divide by 100<br>m to cm multiply by 100</p>\
+<p>m to km divide by 100<br>km to mm multiply by 1000</p>\
+<hr>\
+<p><b><u>Units of Weight or Mass<b></u><p>\
+<table style=\"margin-left:30px;border-collapse: collapse; width: 60%; height: 79px;\" border=\"1\">\
+<tbody>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1000g</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1kg</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1000kg</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1 tonne</td>\
+</tbody>\
+</table>\
+<p>g to kg divide by 1000<br>kg to g multiply by 1000</p>\
+<p>kg to tn divide by 1000<br>tn to kg multiply by 1000</p>\
+<hr>\
+<p><b><u>Units of Capacity<b></u><p>\
+<table style=\"margin-left:30px;border-collapse: collapse; width: 60%; height: 79px;\" border=\"1\">\
+<tbody>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1000ml</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1L</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">100cl</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1L</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">10ml</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1cl</td>\
+</tr>\
+</tbody>\
+</table>\
+<p>ml to L divide by 1000<br>L to ml multiply by 1000</p>\
+<p>ml to cl divide by 10<br>cl to ml multiply by 10</p>\
+<p>cl to L divide by 100<br>L to cl multiply by 100</p>\
+';
+
+	document.getElementById("helptext").innerHTML += '\
+		<p><u><b>Probability</u></b></p>\
+<p>Probability is all about measuring the chances of something happening</p>\
+<p>This can be expressed in words:</p>\
+<p><b>Impossible</b>: The event can <u>never ever</u> happen</p>\
+<p>Ex: the chances of getting 7 when rolling a 6 sided die<p>\
+<p><b>Unlikely</b>: The chance of the event happening are <u>much less</u> than it not happening</p>\
+<p>Ex: the chances of winning the national lottery this week<p>\
+<p><b>Evens</b>: The chance of the event happening are <u>the same</u> as it not happening</p>\
+<p>Ex: the chances of getting HEADS when tossing a coin<p>\
+<p><b>Likely</b>: The chance of the event happening <u>are more</u> than it not happening</p>\
+<p>Ex: The chances of getting warm sunny days sometime during summer<p>\
+<p><b>Certain</b>: Event must happen - no other outcome is possible.</p>\
+<p>Ex: The chances of getting either 1,2,3,4,5, or 6 when rolling a 6 sided die<p>\
+<hr>\
+<p><u><b>Other Ways of Expressing Probability</u></b></p>\
+<p>0 or 0% or 0.0 is the same as <b>Impossible</b></p>\
+<p>Any fraction less than &frac12 or percentage more than 0 and less than 50% is the same as <b>Unlikely</b></p>\
+<p>&frac12 or 50% or 0.5 is the same as <b>Evens</b></p>\
+<p>Any fraction more than &frac12 or percentage more than 50% and less than 100% is the same as <b>Likely</b></p>\
+<p>1 or 1.0 or 100% is the same as <b>Certain</b></p>\
+<hr>\
+<p><u><b>Doing Probability!</u></b></p>\
+<p>All questions involving probablity involve working out all the possible outcomes and then assessing the likelihood of the event you are being asked about actually happening</p>\
+<p><b>Example</b>: What is the probability of seeing a person with two heads on the way to college?</p>\
+<p><u>Ans: Impossible - hopefully!</u></p>\
+<hr>\
+<p><b>Example</b>: What is the probability of getting Heads when flipping a coin?</p>\
+<p><u>Ans: Events OR 50% or &frac12; (all these mean the same thing)</u>\
+<hr>\
+<p><b>Example</b>: What is the probability of getting a 6 when rolling a 6 sided die?</p>\
+<p>There are six outcomes here.<p>\
+<p>If you are asked to mark on a scale: You are much more likely to get something other than six so you could write <b>Unlikely</b><p>\
+<p>If you are asked to express as a fraction: You are looking for <b>1 out of 6</b> so you would write &frac16;<p>\
+<p><u><b>Harder Probability Questions (L2)</u></b></p>\
+<p><b>Example</b>: What is the probability of getting a an even number when rolling a die?</p>\
+<p>There are six outcomes here 1, 2, 3, 4, 5, 6<p>\
+<p>There are 3 even numbers: 2, 4, 6</p>\
+<p>So you are looking for 3 outcomes out of 6 so you could write Evens OR 50% OR &frac12;</p>\
+';
+}
+
+
+function getDefaultE3Help() {
+	document.getElementById("helptext").innerHTML = 'Not all questions will have specific help - this question is one of them\
+													<br><br>If you are in scheduled class and you are stuck - <b>message or ask your tutor for help</b>\
+														<br><br>Read through the question carefully - pick out the important bits of information\
+														<br><br>Remember: AREA all the space inside - <u>Use:  length x width</u>\
+														<br><br>Remember: PERIMETER all the space arond the outside = <u>all up all the sides</u>\
+														<br><br>If you are being asked to find out how many packs or boxes of things you need to buy or get do not forget to round up as you can\'t buy fractions of things\
+														<br><br><u>Use the in-APP calculator.</u>\
+														<br><br><br>Scroll down for more help on fractions, decimals and percentages, unit conversions and probability:.\
+													';
+													
+	document.getElementById("helptext").innerHTML += '<p><b>Fractions</b><p> \
+														<p>Remember: <br><br> 1. Divide by bottom number<br> 2. Times by the top number</p> \
+														<p>Examples:<p> \
+														<p>&frac14; of 80 = 80 &#247; 4 x 1 = <u>20</u></p> \
+														<p>&frac23; of 60 = 60 &#247; 3 x 2 = <u>40</u></p> \
+														<hr>\
+														<p><b>Percentages - Non Calculator</b><p> \
+														<p>Break into % that you can do like 10% or 5%<p> \
+														<p>Examples:<p> \
+														<p>25% of 200<p>\
+														<p>10% + 10% + 5% = 20 + 20 + 10 = <u>50</u></p>\
+														<hr>\
+														<p><b>Percentages - Calculator</b></p> \
+														<p>Use the formula:<p> \
+														<p>Percent &#247; 100 x Amount</p> \
+														<p>Examples:<p>\
+														<p>35% of £125</p>\
+														<p>35 &#247; 100 x 125 = <u>£43.75</u></p> \
+														<p>43% of £11.25</p>\
+														<p>47 &#247; 100 x 365 = 4.8375 = <u>£4.84</u></p> \
+														<hr>\
+														';
+														
+	document.getElementById("helptext").innerHTML += '\
+<p><b><u>Units of Length<b></u><p>\
+<table style=\"margin-left:30px;border-collapse: collapse; width: 60%; height: 79px;\" border=\"1\">\
+<tbody>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">10mm</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1cm</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">100cm</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1m</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">100m</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1km</td>\
+</tr>\
+</tbody>\
+</table>\
+<p>mm to cm divide by 10<br>cm to mm multiply by 10</p>\
+<p>cm to m divide by 100<br>m to cm multiply by 100</p>\
+<p>m to km divide by 100<br>km to mm multiply by 1000</p>\
+<hr>\
+<p><b><u>Units of Weight or Mass<b></u><p>\
+<table style=\"margin-left:30px;border-collapse: collapse; width: 60%; height: 79px;\" border=\"1\">\
+<tbody>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1000g</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1kg</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1000kg</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1 tonne</td>\
+</tbody>\
+</table>\
+<p>g to kg divide by 1000<br>kg to g multiply by 1000</p>\
+<p>kg to tn divide by 1000<br>tn to kg multiply by 1000</p>\
+<hr>\
+<p><b><u>Units of Capacity<b></u><p>\
+<table style=\"margin-left:30px;border-collapse: collapse; width: 60%; height: 79px;\" border=\"1\">\
+<tbody>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1000ml</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1L</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">100cl</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1L</td>\
+</tr>\
+<tr style=\"height: 18px;\">\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">10ml</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">=</td>\
+<td style=\"width: 33.3333%; text-align: center; height: 18px;\">1cl</td>\
+</tr>\
+</tbody>\
+</table>\
+<p>ml to L divide by 1000<br>L to ml multiply by 1000</p>\
+<p>ml to cl divide by 10<br>cl to ml multiply by 10</p>\
+<p>cl to L divide by 100<br>L to cl multiply by 100</p>\
+';
+
+	
+}
+
 function printDiv() {
 	//if ( gamestopped == false ) {
 		//return;
@@ -1884,7 +2149,7 @@ function getAddMoneyE3Style() {
 		examsNewE3Count = 0;
 	}
 	
-	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
+	getDefaultE3Help();
 													
 	var sw = examsNewE3[examsNewE3Count];
 	//sw = 13;
@@ -2543,7 +2808,7 @@ function getAddMoneyL1() {
 		examsNewL1Count = 0;
 	}
 	
-	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
+	getDefaultHelp();
 													
 	var sw = examsNewL1[examsNewL1Count];
 	//sw = 64;
@@ -3030,6 +3295,14 @@ function getAddMoney10022() {
 	
 	retstr += "<br><br>How much should " + thisname + " charge the players to cover the costs of the tournament?,£" + Number(ans).toFixed(2) + ",£" + Number(ans+0.35).toFixed(2) + ",£" + Number(ans+0.75).toFixed(2) + ",£" + Number(ans-0.35).toFixed(2);
 	
+	document.getElementById("helptext").innerHTML = 'Find the total costs for running the tournament (entry fee plus expenses).\
+														<br><br>How much should each player pay so that all their subscriptions add up to same amount of the costs?\
+														<br><br>you could use a DIVIDE here.\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+	
 	return retstr;
 }
 
@@ -3252,7 +3525,7 @@ function getAddMoney10013() {
 	var thisname = personnames[getRndInteger(0, personnames.length-1)];
 	
 	
-	var retstr = thisname + " decides to check how their monthly pay has increased.";
+	var retstr = thisname + " decides to check how their monthly pay as increased.";
 	
 	var pay2017 = 22800 + (getRndInteger(20,99)*12);
 	var pay2020 = 24000 + (getRndInteger(20,99)*12);
@@ -3267,6 +3540,13 @@ function getAddMoney10013() {
 	var ans = m20 - m17;
 	
 	retstr += "<br><br>How much more was " + thisname + "'s monthly pay in 2020 compared to 2017?," + Math.round(Number(ans)) + "," + Math.round(Number(ans*1.1)) + "," + Math.round(Number(ans*0.9)) + "," + Math.round(Number(ans*1.05));
+	
+	document.getElementById("helptext").innerHTML = 'Find the difference between the two years annual pay amounts.\
+														<br><br>Divide the difference by 12 to see how much more per month\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
 	
 	return retstr;
 	
@@ -3456,6 +3736,15 @@ function getAddMoney10007() {
 			retstr += "<br><br>What angle in degrees would "  + thisname + " use to draw the segment for silver cars?," + ans + "," + Number(Number(ans)+10).toFixed(0) + "," + Number(Number(ans)-10).toFixed(0) + "," + Number(Number(ans)+15).toFixed(0);
 			break;
 	}
+	
+	document.getElementById("helptext").innerHTML = 'Pie charts will use fractions of 360 degrees to give a visual  indication of how big a share of the whole different items have.\
+														<br><br>If an item is one half of the whole then it will have one half of 360 degrees = 180\
+														<br><br>working with pie charts involves undertanding fractions and calculating the fraction as a proportion of 360\
+														<br><br>If pie charts confuse you - message your tutor next time you are in class fror some help\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
 	
 	return retstr;
 }
@@ -3680,6 +3969,13 @@ function getAddMoney10002() {
 															//<br><br>Always use paper to jot your working out down as you go.\
 													//';
 	
+	document.getElementById("helptext").innerHTML = 'To find a distance trace a line down from one town and across from another.\
+														<br><br>The distance will be where the two lines cross.\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+	
 	return retstr;
 }
 
@@ -3720,7 +4016,7 @@ function getAddMoney() {
 		examsNewL2Count = 0;
 	}
 	
-	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
+	getDefaultHelp();
 													
 	var sw = examsNewL2[examsNewL2Count];
 	
@@ -4615,6 +4911,15 @@ function getAddMoney20007() {
 			break;
 	}
 	
+	document.getElementById("helptext").innerHTML = 'Pie charts will use fractions of 360 degrees to give a visual  indication of how big a share of the whole different items have.\
+														<br><br>If an item is one half of the whole then it will have one half of 360 degrees = 180\
+														<br><br>working with pie charts involves undertanding fractions and calculating the fraction as a proportion of 360\
+														<br><br>If pie charts confuse you - message your tutor next time you are in class fror some help\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+	
 	return retstr;
 }
 
@@ -4872,7 +5177,13 @@ function getAddMoney20002() {
 															//<br><br>If not, check your calculations again\
 															//<br><br>Always use paper to jot your working out down as you go.\
 													//';
-	
+	document.getElementById("helptext").innerHTML = 'To find a distance trace a line down from one town and across from another.\
+														<br><br>The distance will be where the two lines cross.\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+													
 	return retstr;
 }
 
@@ -5009,6 +5320,17 @@ function getAddMoney3000() {
 			retstr += "<br><br>If " + varcheese + " people chose supreme how many people were in the survey in total?," + Number(ans).toFixed(0) + "," + Number((ans-10)).toFixed(0) + "," + Number((ans-5)).toFixed(0) + "," + Number((ans+10)).toFixed(0);
 			break;
 	}
+	
+	document.getElementById("helptext").innerHTML = 'Pie charts will use fractions of 360 degrees to give a visual  indication of how big a share of the whole different items have.\
+														<br><br>If an item is one half of the whole then it will have one half of 360 degrees = 180\
+														<br><br>In this case Pepperoni.\
+														<br><br>working with pie charts involves undertanding fractions and calculating the fraction as a proportion of 360\
+														<br><br>If pie charts confuse you - message your tutor next time you are in class fror some help\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+	
 	return retstr;
 }
 
@@ -5030,6 +5352,17 @@ function getAddMoney30001() {
 			retstr += "<br><br>If " + varcheese + " people were in the survey in total how many people chose cheese?," + Number(ans).toFixed(0) + "," + Number((ans-10)).toFixed(0) + "," + Number((ans-5)).toFixed(0) + "," + Number((ans+10)).toFixed(0);
 			break;
 	}
+	
+	document.getElementById("helptext").innerHTML = 'Pie charts will use fractions of 360 degrees to give a visual  indication of how big a share of the whole different items have.\
+														<br><br>If an item is one half of the whole then it will have one half of 360 degrees = 180\
+														<br><br>In this case Pepperoni.\
+														<br><br>working with pie charts involves undertanding fractions and calculating the fraction as a proportion of 360\
+														<br><br>If pie charts confuse you - message your tutor next time you are in class fror some help\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+													
 	return retstr;
 }
 
@@ -5076,7 +5409,7 @@ function getAddMoneyGCSE() {
 		examsGCSECount = 0;
 	}
 	
-	document.getElementById("helptext").innerHTML = "Sorry! There is no help for this question yet";
+	getDefaultHelp();
 													
 	var sw = examsGCSE[examsGCSECount];
 	canvasID = 0;
@@ -5901,6 +6234,17 @@ function getAddMoney252() {
 			retstr += "<br><br>If " + qval.toFixed(0) + " people chose sausage how many people chose cheese?," + ans.toFixed(0) + "," + Number(ans+10).toFixed(0) + "," + Number(ans-10).toFixed(0) + "," + Number(ans+20).toFixed(0);
 			break;
 	}
+	
+	document.getElementById("helptext").innerHTML = 'Pie charts will use fractions of 360 degrees to give a visual  indication of how big a share of the whole different items have.\
+														<br><br>If an item is one half of the whole then it will have one half of 360 degrees = 180\
+														<br><br>In this case Pepperoni.\
+														<br><br>working with pie charts involves undertanding fractions and calculating the fraction as a proportion of 360\
+														<br><br>If pie charts confuse you - message your tutor next time you are in class fror some help\
+															<br><br>Check if your answer matches one of the answer buttons.\
+															<br><br>If not, check your calculations again\
+															<br><br>Always use paper to jot your working out down as you go.\
+													';
+	
 	return retstr;
 }
 
@@ -10107,7 +10451,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.154";
+var versionstr = "V.155";
 
 /* HTMLSTART */
 

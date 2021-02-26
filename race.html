@@ -8216,9 +8216,9 @@ var myRaceCode = "";
 function hideInputs() {
 	mytutor = "race";
 	
-	myName = document.getElementById("learnername").value;
+	myName = document.getElementById("learnername").value.toLowerCase();
 	
-	myRaceCode = document.getElementById("racecode").value;
+	myRaceCode = document.getElementById("racecode").value.toLowerCase();
 	
 	if ( myName.length > 20) {
 		myName = myName.substring(0,19);
@@ -8685,7 +8685,7 @@ function sendEmail() {
 	}
 }
 
-var versionstr = "V.22";
+var versionstr = "V.23";
 
 /* HTMLSTART */
 

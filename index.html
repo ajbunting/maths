@@ -1789,7 +1789,7 @@ var InitArray = [
 
 var AssessArray = [
 	"Jenny can make 4 litres of fruit drink with 100ml of fruit concentrate.<br><br>How much fruit drink can she make with 50ml of concentrate?,2L,3L,8L, I'm not really sure",
-	"In a game&#44; Abigail can claim 2 blue tokens for every 3 green tokens she is given. Abigail is given 9 green tokens.<br><br>How many blue tokens and Abigail claim?,6,4,2,I'm not really sure",
+	"In a game&#44; Abigail can claim 2 blue tokens for every 3 green tokens she is given. Abigail is given 9 green tokens.<br><br>How many blue tokens can Abigail claim?,6,4,2,I'm not really sure",
 	"Rafael has 65 cards and splits them with a friend into two piles in the ratio of 3:2<br><br>How does Rafael share out the cards?, A pile of 39 and a pile of 26 cards, A pile of 35 and a pile of 30 cards, A pile of 40 and a pile of 25 cards,I'm not really sure",
 	"Ethan wins £60 and splits it with his sister in the ratio of 3:1<br><br>Ethan's sister gets the smaller amount. How much will that be?,£15,£20,£45,I'm not really sure",
 	"The ratio of blue to yellow tokens is 3:2<br>The ratio of yellow to green tokens is 4:5<br><br>What is the ratio of blue to yellow to green tokens?,6:4:5,2:3:4,5:4:3,I'm not really sure",
@@ -10754,12 +10754,7 @@ function restartGame(typ) {
 			document.getElementById("studylink").innerHTML = "";
 		}
 		
-		document.getElementById("helptext").innerHTML = '\
-		<p><u><b>Doing the exam</u></b></p>\
-<p>The more time you spend revising up on the topics the better your chances of getting thew grade you want.</p>\
-<p>But you can also improve your chances by adopting some good exam strategies.</p>\
-<p>This quiz will hep you you to remember good strategies to help you .</p>\
-';
+		document.getElementById("helptext").innerHTML = "No help available for this quiz";
 	}
 	
 	if (gametype == "ASSESS") {
@@ -10780,12 +10775,7 @@ function restartGame(typ) {
 			document.getElementById("studylink").innerHTML = "";
 		}
 		
-		document.getElementById("helptext").innerHTML = '\
-		<p><u><b>Doing the exam</u></b></p>\
-<p>The more time you spend revising up on the topics the better your chances of getting thew grade you want.</p>\
-<p>But you can also improve your chances by adopting some good exam strategies.</p>\
-<p>This quiz will hep you you to remember good strategies to help you .</p>\
-';
+		document.getElementById("helptext").innerHTML = "No help available for this quiz";
 	}
 	
 	document.getElementById("answers").innerHTML += "<hr>";
@@ -11068,7 +11058,7 @@ function selectall() {
 	
 }
 
-var versionstr = "V.160";
+var versionstr = "V.161";
 
 /* HTMLSTART */
 

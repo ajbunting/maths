@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="Scripts/math.js"></script>
+
+<style>
+
+input {
+	-webkit-appearance: none;
+-webkit-border-radius: none;
+border-radius: 0px;
+}
+ .title{ 
+         margin-bottom: 10px; 
+         text-align:center; 
+         width: 275px; 
+         color:black; 
+        
+ } 
+  
+input[type="button"] 
+         { 
+         background-color:powderblue; 
+         color: black; 
+         border: solid black 1px; 
+         width:100% ;
+		 font-weight:bold;
+         } 
+  
+input[type="text"] 
+         { 
+         background-color:white; 
+         border: solid black 2px; 
+         width:98% 
+         } 
+		 
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+
+@media print {
+  .printPageButton {
+    display: none;
+  }
+}
+</style>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jsPDF/dist/jspdf.min.js"></script>-->
+
+</head>
+<body style="margin-left:auto;margin-right:auto;overflow-x:visible;background-color:#111144;width:350px;" onload="loadup()">
+<script>
+
+</script>
+<div id="mainapp" style="border-radius:20px;margin-top:0px;padding-top:15px;color:white;background-color:#cccccc;font-family:Arial;position:relative;float:left;height:auto;width:360px;text-align:left;">
+	<span id="versionstr" style="margin-left:15px;float:left;font-size:14px;color:black;"></span>
+	<span style="margin-left:20px;float:left;font-size:12px;color:black;"><b>Maths Practice APP</b></span>
+	<button style="float:right;margin-right:20px;background-color:white;margin-top:0px;margin-bottom:10px;border-style:none;border-radius:10px;font-size:14px;height:20px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="selectall()"><b>Print</b>
+	</button>
+	<button style="float:right;margin-right:20px;background-color:white;margin-top:0px;margin-bottom:10px;border-style:none;border-radius:10px;font-size:14px;height:20px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="window.open('https://goquiz.netlify.app', '_self')"><b>Desktop</b>
+	</button>
+	
+	<!--<button style="float:right;margin-right:20px;background-color:white;margin-top:0px;margin-bottom:10px;border-style:none;border-radius:10px;font-size:14px;height:20px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="window.open('https://goquiz.netlify.app/race', '_self')"><b>RACE</b>
+	</button>-->
+	<input style="display:none;padding:5px;margin-left:10px;float:left;font-size:14px;border-radius:10px;background-color:white;border-style:black;width:150px;height:25px;margin-top:-5px;margin-right:30px;"id="name" type="text"></input>
+	
+
+<div id="buttondiv" style="overflow:hidden;padding-left:4px;background-color:#dddddd;margin-top:0px;height:200px;width:356px;position:relative;float:left;">
+	
+	<div style="width:350px;margin-top:5px;height:200px;float:left;position:relative;text-size:12px;">
+		<input id="training" style="margin-left:540px;" disabled type="checkbox"></input>
+		<!--<button style="margin-left:10px;background-color:white;margin-top:0px;margin-bottom:5px;border-style:none;border-radius:10px;font-size:10px;height:25px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('ICT')"><b>INITIAL ASSESSMENT</b>
+		</button>-->
+		<p  id="catchmsg" style="font-size:12px;color:red;margin-top:0px;margin-left:40px;"><b><u>Use pen, paper and the calculator when visible</u></b></p>
+		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ff9980;margin-top:4px;border-style:none;font-size:14px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('NUMERACY')"><b>MIX</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffcc80;margin-top:4px;border-style:none;font-size:14px;height:15px;width:28px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('ARITH')"><b>+/-</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:14px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('FDP')"><b>FDP</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#d9b3ff;margin-top:4px;border-style:none;font-size:14px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('UNITS')"><b>CM</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3e0ff;margin-top:4px;border-style:none;font-size:14px;height:15px;width:37px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('TIME')"><b>HR/£</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#ffb3b3;margin-top:4px;border-style:none;font-size:14px;height:15px;width:27px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('SHAPE')"><b>2D</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding-top:9px;color:black;margin-left:1px;background-color:#ffff80;margin-top:4px;border-style:none;font-size:14px;height:25px;width:47px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('PROB')"><b>PROB</b>
+		</div>
+		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
+		<br><br>
+		<div style="clear:both;border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:12px;height:20px;width:35px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('E3')"><b>E3 FS</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:12px;height:20px;width:35px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('EXAML1')"><b>L1 FS</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:12px;height:20px;width:35px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('EXAM')"><b>L2 FS</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#b3ccff;margin-top:4px;border-style:none;font-size:12px;height:20px;width:35px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('GCSE')"><b>GCSE</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:12px;height:20px;width:34px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('INIT')"><b>INIT</b>
+		</div>
+		<div style="border-radius:5px;position:relative;float:left;text-align:center;padding:10px;color:black;margin-left:1px;background-color:#99ff99;margin-top:4px;border-style:none;font-size:12px;height:20px;width:46px;" onmouseover="hOn(this)" onmouseout="hOff(this)" 
+					onclick="restartGame('ASSESS')"><b>ASSESS</b>
+		</div>
+		<div style="margin-top:4px;position:relative;float:left;width:350px;background-color:#cccccc;height:5px;">&nbsp;</div>
+		
+		<p style="display:none" id="studylink"></p>
+		
+		<p id="score" style="float:left;margin-left:30px;color:black;font-family:arial;font-size:16px;"></p>
+		<p id="high" style="display:none;margin-left:90px;color:white;font-family:arial;font-size:20px;">High Score: 0</p>
+		</div>
+</div>
+
+<div id="answerbuttons" style="color:black;margin-left:5px;margin-bottom:10px;display:block;margin-top:0px;height:auto;min-height:325px;background-color:#cccccc;float:left;position:relative;text-align:center;font-family:Arial;width:350px;">
+		<div id="timerbar" style="width: 100%; height: 5px; background-color: #cccccc;"></div>
+		<div id="helpbtn" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="showHelp(570)" style="display:none;text-align:center;overflow:hidden;clear:both;margin-bottom:15px;font-weight:bold;color:black;padding:5px;position:relative;float:left;background-color:#88dd88;border-style:none;max-height:90px;height:auto;font-size:10px;width:10%;border-radius:15px;margin-left:5px;margin-top:10px;">VIEW HELP FOR TOPIC</div>
+		<div id="question" style="margin-left:5px;color:black;font-weight:bold;color:black;font-size:12px;position:relative;float:left;width:83%;height:70px;margin-top:0px;text-align:center;"></div>
+    	<div id="btn1" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;text-align:center;"></div>
+  		<div id="btn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;clear:both;margin-top:5px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;"></div>
+  		<div id="btn3" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;clear:both;margin-top:5px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;"></div>
+  		<div id="btn4" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="color:black;clear:both;margin-bottom:2px;margin-top:5px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:45px;font-size:12px;width:336px;"></div>
+		
+		<div id="ebtn1" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="display:none;color:black;font-weight:bold;color:black;margin-left:10px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;"></div>
+  		<div id="ebtn2" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="display:none;color:black;margin-top:0px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;"></div>
+  		<div id="ebtn3" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="display:none;color:black;margin-top:0px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;"></div>
+  		<div id="ebtn4" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="checkanswer(this)" style="display:none;color:black;margin-bottom:2px;margin-top:0px;font-weight:bold;color:black;margin-left:2px;padding:5px;position:relative;float:left;background-color:white;border-style:none;max-height:90px;height:30px;font-size:12px;width:70px;"></div>
+		
+</div>
+
+
+<div id="answerscontainer" style="background-color:#dddddd;border-bottom-left-radius:30px;border-bottom-right-radius:30px;color:black;text-align:left;display:none;position:relative;float:left;width:340px;height:auto;font-size:12px;">
+	
+	<div class="printPageButton" style="padding:15px;background-color:#cccccc;">
+		<button id="printanswers" style="display:none;padding-top:10px;float:right;font-size:18px;border-radius:10px;background-color:white;border-style:none;width:250px;height:50px;margin-bottom:15px;margin-top:-310px;margin-right:10px;" onmouseover="hOn(this)" onmouseout="hOff(this)" onclick="printDiv()"><b>Click to Print Results</b></button>
+	</div>
+	
+	<div id="answers" style="background-color:#dddddd;border-bottom-left-radius:30px;border-bottom-right-radius:30px;color:black;padding-left:10px;text-align:left;position:relative;float:left;width:340px;height:280px;overflow:auto;font-size:12px;">
+	</div>
+	<textarea  style="background-color:#cccccc;border:none;color:background-color:#cccccc;float:left;width:0px;height:0px;overflow:hidden;" id="answertextonly"></textarea>
+	
+</div>
+
+<p id="encoder" style="display:none"></p>
+
+<div id="calculatorholder" style="padding:5px;overflow:hidden;z-index:9999;height:200px;width:349px;position:absolute;float:left;display:none;left:0px;top:5px;background-color:#white;">
+	  <table id="calctable" style="font-size:22px;table-layout:fixed;width:100%;height:210px;background-color:white;" border="1">
+			 <tr style="height:14%">
+            <td style="height:15%;font-size:95%;overflow:hidden;" colspan="4"><input style="border:none;padding:5px;height:90%;font-size:100%;text-align:right;" type="text" readonly id="result"/></td>
+         </tr>
+	  <tr style="height:14%;">
+			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn1" style="height:100%;font-size:80%" type="button" value="FULL" onclick="doExt()"/> </td>
+			<td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn2" style="height:100%;font-size:80%" type="button" value="(" onclick="disn('(')"/> </td>
+            <td style="border:none;" ><input  onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn3" style="height:100%;font-size:80%" type="button" value=")" onclick="disn(')')"/> </td>
+			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn4" style="font-size:80%;height:100%;background-color:#ddaaaa" type="button" value="c" onclick="clr()"/> </td>
+         </tr>
+         <tr style="height:14%;">
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn5" style="font-size:95%;height:100%;font-size:95%" type="button" value="1" onclick="disn('1')"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn6" style="font-size:95%;height:100%;" type="button" value="2" onclick="disn('2')"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn7" style="font-size:95%;height:100%;" type="button" value="3" onclick="disn('3')"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn8" style="font-size:95%;height:100%;" type="button" value="&#247" onclick="disop('/')"/> </td>
+         </tr>
+         <tr style="height:14%;">
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn9" style="font-size:95%;height:100%;" type="button" value="4" onclick="disn('4')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn10" style="font-size:95%;height:100%;" type="button" value="5" onclick="disn('5')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn11" style="font-size:95%;height:100%;" type="button" value="6" onclick="disn('6')"/> </td> 
+			<td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn12" style="font-size:95%;height:100%;" type="button" value="x" onclick="disop('*')"/> </td> </tr>
+         <tr style="height:14%;">
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn13" style="font-size:95%;height:100%;" type="button" value="7" onclick="disn('7')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn14"  style="font-size:95%;height:100%;" type="button" value="8" onclick="disn('8')"/> </td> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn15" style="font-size:95%;height:100%;" type="button" value="9" onclick="disn('9')"/> </td> 
+			 <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn16" style="font-size:95%;height:100%;" type="button" value="-" onclick="disop('-')"/> </td>
+         </tr> 
+         <tr style="height:14%;"> 
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn17" style="font-size:95%;height:100%;" type="button" value="0" onclick="disn('0')"/> </td>
+			 <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn18" style="font-size:95%;height:100%;" type="button" value="&#8729;" onclick="disn('.')"/> </td>
+            <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn19" style="font-size:95%;height:100%;background-color:#aaddaa;" type="button" value="=" onclick="solve()"/> </td>
+			  <td style="border:none;"><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn20"  style="font-size:95%;height:100%;" type="button" value="+" onclick="disop('+')"/> </td> 
+         </tr>
+		<tr style="height:8px;"> 
+			<td style="border:none;;background-color:white;" colspan="4"></td>
+		</tr>
+		</table>
+		<table id="calcexttable" style="font-size:22px;table-layout:fixed;width:100%;height:150px;background-color:white;" border="1">
+		 <tr style="height:33%;"> 
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn21" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="&#960;" onclick="disn('3.142')"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn22" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times" type="button" value="x&sup2;" onclick="xsqr()"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn22" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times" type="button" value="x&sup3;" onclick="xcube()"/> </td>
+			<td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn23" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;font-weight:bold;" type="button" value="&radic;x" onclick="sqrt()"/> </td>
+			 </tr>
+		 <tr style="height:33%;"> 
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn25" style="background-color:#ffb366;height:100%;font-size:95%;font-weight:bold;" type="button" value="Sin" onclick="Sinx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn26" style="background-color:#ffb366;height:100%;font-size:95%;" type="button" value="Cos" onclick="Cosx()"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn27" style="background-color:#ffb366;height:100%;font-size:95%;font-weight:bold;" type="button" value="Tan" onclick="Tanx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn28" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;" type="button" value="1/x" onclick="xinv()"/> </td>
+         </tr>
+		 <tr style="height:33%;"> 
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn25" style="background-color:#ffb366;height:100%;font-size:95%;font-weight:bold;" type="button" value="ASin" onclick="iSinx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn26" style="background-color:#ffb366;height:100%;font-size:95%;" type="button" value="ACos" onclick="iCosx()"/> </td>
+            <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn27" style="background-color:#ffb366;height:100%;font-size:95%;font-weight:bold;" type="button" value="ATan" onclick="iTanx()"/> </td>
+			 <td style="border:none;" ><input onmouseover="hOn(this)" onmouseout="hOff(this)" id="calcbtn28" style="background-color:#ffb366;height:100%;font-size:95%;font-family:Times;" type="button" value="&#8731;x" onclick="xcubert()"/> </td>
+         </tr>
+		</table>
+</div>
+
+<div id="helpholder" style="z-index:9999;overflow:hidden;height:0px;width:96%;position:absolute;left:7px;top:7px;background-color:white;">
+	 <div id="helptext" style="overflow:auto;padding:10px;height:88%;width:95%;position:relative;background-color:white;color:black;font-size:16px;">
+	 </div>
+	 <div id="helpfoot" style="padding-top:10px;border-top-color: black;border-top-width: 1px;border-top-style: solid;;text-align:center;height:10%;width:100%;position:relative;background-color:white;margin-top:10px;">
+		<button style="border-radius:10px;background-color:#bbbbbb;margin-top:0px;margin-bottom:10px;border-style:none;border:border-radius:10px;font-size:14px;height:25px;"onclick="hideHelp()"><b>HIDE HELP</b></button>
+		<button style="background-color:#ddaaaa;margin-top:0px;margin-bottom:1px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colHelp('#ddaaaa')"><b>&nbsp;</b></button>
+		<button style="background-color:#aaddaa;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colHelp('#aaddaa')"><b>&nbsp;</b></button>
+		<button style="background-color:#aaccff;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colHelp('#aaccff')"><b>&nbsp;</b></button>
+		<button style="background-color:#ffffff;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colHelp('#ffffff')"><b>&nbsp;</b></button>
+	 </div>
+</div>
+
+<div id="examquestionholder" style="border-top:solid;border-top-color:black;border-top-width:1px;z-index:999;overflow:hidden;height:0px;width:97%;position:absolute;left:5px;top:215px;background-color:white;">
+	 <div id="examquestiontext" style="border-top:black;overflow:auto;padding:10px;height:240px;width:95%;position:relative;background-color:white;color:black;font-size:14px;">
+		<span style="color:red;font-size:26px;">On some devices this APP will not work correctly - If you see this text then this is the case on your device.<br><br>Please use Chrome if this is the case.</span>
+	 </div>
+	 <div id="examquestionfoot" style="color:black;padding-top:10px;border-top-color: black;border-top-width: 1px;border-top-style: solid;;text-align:center;height:20%;width:100%;position:relative;background-color:white;margin-top:10px;">
+		<button onclick="showHelp(570)">Help! I'm Stuck!</button><button style="margin-left:10px;background-color:#ddaaaa;margin-top:0px;margin-bottom:1px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colExam('#ddaaaa')"><b>&nbsp;</b></button>
+		<button style="background-color:#aaddaa;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colExam('#aaddaa')"><b>&nbsp;</b></button>
+		<button style="background-color:#aaccff;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colExam('#aaccff')"><b>&nbsp;</b></button>
+		<button style="background-color:#ffffff;margin-top:0px;margin-bottom:10px;border-radius:10px;font-size:14px;height:20px;width:30px;"onclick="colExam('#ffffff')"><b>&nbsp;</b></button>
+	 </div>
+</div>
+
+</div>
+
+<div style="z-index:999999;left:0px;top:600px;font-family:arial;position:absolute;float:left;background-color:white;color:black;font-size:16px;width:750px;padding-left:20px;" id="handout"></div>
+
+<script>
+
+/********************* End of Generate Questions *************************/
+</script>
+</body>
+</html>
+
+
